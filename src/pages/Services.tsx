@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import logo from '../assets/logo_withoutbg.png';
+import evCarCharging from '../assets/ev_car_charging.png';
 
 const Services: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -94,7 +96,7 @@ const Services: React.FC = () => {
             gap: "12px"
           }}>
             <img 
-              src="/src/assets/logo_withoutbg.png" 
+              src={logo} 
               alt="InstaPark AI Logo" 
               style={{
                 height: isMobile ? "50px" : "60px", 
@@ -134,7 +136,7 @@ const Services: React.FC = () => {
             lineHeight: "1.2"
           }}>
             Our <span style={{color: '#a4d030'}}>Services</span>
-          </h1>
+            </h1>
           <p style={{
             color: '#e2e8f0', 
             fontSize: isMobile ? "1.1rem" : "1.3rem", 
@@ -267,7 +269,7 @@ const Services: React.FC = () => {
                   <li>AI-powered vehicle detection</li>
                   <li>Multi-location dashboard</li>
                   <li>Automated occupancy alerts</li>
-                </ul>
+              </ul>
               </div>
             </div>
 
@@ -336,7 +338,7 @@ const Services: React.FC = () => {
                   <li>Instant confirmation</li>
                   <li>Digital receipts & invoices</li>
                   <li>Push notifications</li>
-                </ul>
+              </ul>
               </div>
             </div>
 
@@ -375,7 +377,7 @@ const Services: React.FC = () => {
                 margin: "0 auto 24px"
               }}>
                 <img 
-                  src="/src/assets/ev_car_charging.png" 
+                  src={evCarCharging} 
                   alt="EV Charging" 
                   style={{
                     width: "40px",
@@ -425,7 +427,7 @@ const Services: React.FC = () => {
                   <li>Charging status monitoring</li>
                   <li>Smart payment integration</li>
                   <li>Green energy tracking</li>
-                </ul>
+              </ul>
               </div>
             </div>
 
@@ -494,7 +496,7 @@ const Services: React.FC = () => {
                   <li>Revenue optimization</li>
                   <li>Performance metrics</li>
                   <li>Custom reporting</li>
-                </ul>
+              </ul>
               </div>
             </div>
 
@@ -563,7 +565,7 @@ const Services: React.FC = () => {
                   <li>API integration</li>
                   <li>White-label solutions</li>
                   <li>Brand customization</li>
-                </ul>
+              </ul>
               </div>
             </div>
 
@@ -632,7 +634,7 @@ const Services: React.FC = () => {
                   <li>Phone support</li>
                   <li>Email support</li>
                   <li>Live chat</li>
-                </ul>
+              </ul>
               </div>
             </div>
           </div>

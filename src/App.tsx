@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
+import logo from './assets/logo_withoutbg.png';
 import './App.css';
 
 // Global function declaration
@@ -175,7 +176,7 @@ function App() {
                   marginBottom: "16px"
                 }}>
                   <img 
-                    src="/src/assets/logo_withoutbg.png" 
+                    src={logo} 
                     alt="InstaPark AI Logo" 
                     style={{
                       height: "50px", 
@@ -183,7 +184,7 @@ function App() {
                     }}
                   />
                   <div>
-                    <span style={{
+                    {/* <span style={{
                       fontSize: "1.5rem",
                       fontWeight: "700",
                       color: "#1f2937"
@@ -197,7 +198,7 @@ function App() {
                       marginLeft: "4px"
                     }}>
                       .AI
-                    </span>
+                    </span> */}
                   </div>
                 </div>
                 <h2 style={{ 

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo_withoutbg.png';
+import aimbrightLogo from '../assets/aimbrightlogo.png';
 
 const Footer: React.FC = () => {
   return (
@@ -9,7 +11,7 @@ const Footer: React.FC = () => {
           <div className="footer-col">
             <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px'}}>
               <img 
-                src="/src/assets/logo_withoutbg.png" 
+                src={logo} 
                 alt="InstaPark AI Logo" 
                 style={{height: '50px', width: 'auto'}}
               />
@@ -88,7 +90,7 @@ const Footer: React.FC = () => {
               className="aimbright-link"
             >
               <img 
-                src="/src/assets/aimbrightlogo.png" 
+                src={aimbrightLogo} 
                 alt="Aim Bright Logo" 
                 className="aimbright-logo"
               />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/logo_withoutbg.png';
 import './Navbar.css';
 
 interface NavbarProps {
@@ -30,13 +31,13 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
   return (
     <header className={`navbar-container ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="navbar">
-        <Link to="/" className="logo" style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-          <img 
-            src="/src/assets/logo_withoutbg.png" 
-            alt="InstaPark AI Logo" 
-            style={{height: '45px', width: 'auto'}}
-          />
-        </Link>
+         <Link to="/" className="logo" style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+           <img 
+             src={logo} 
+             alt="InstaPark AI Logo" 
+             style={{height: '45px', width: 'auto'}}
+           />
+         </Link>
 
         <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
           <li><Link 

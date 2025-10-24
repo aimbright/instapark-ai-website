@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import topOfHeroSection from "../assets/top_of_herosection.png";
+import heroBackground from "../assets/some_wr_mid_scrresn_fullwidth.jpg";
 
 const Home: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -47,7 +49,7 @@ const Home: React.FC = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: "url('/src/assets/some_wr_mid_scrresn_fullwidth.jpg')",
+          backgroundImage: `url(${heroBackground})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.15,
@@ -221,7 +223,7 @@ const Home: React.FC = () => {
                   border: "1px solid rgba(255, 255, 255, 0.1)"
                 }}>
                   <img 
-                    src="/src/assets/top_of_herosection.png" 
+                    src={topOfHeroSection} 
                     alt="InstaPark AI Smart Parking System" 
                     style={{
                       width: "100%",

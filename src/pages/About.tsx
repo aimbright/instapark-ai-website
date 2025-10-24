@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import logo from '../assets/logo_withoutbg.png';
+import evCarCharging from '../assets/ev_car_charging.png';
 
 const About: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -58,7 +60,7 @@ const About: React.FC = () => {
             gap: "12px"
           }}>
             <img 
-              src="/src/assets/logo_withoutbg.png" 
+              src={logo} 
               alt="InstaPark AI Logo" 
               style={{
                 height: isMobile ? "50px" : "60px", 
@@ -272,7 +274,7 @@ const About: React.FC = () => {
                   marginBottom: "20px"
                 }}>
                   <img 
-                    src="/src/assets/ev_car_charging.png" 
+                    src={evCarCharging} 
                     alt="EV Charging Future" 
                     style={{
                       width: "60px",
