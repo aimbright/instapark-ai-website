@@ -1,8 +1,7 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -14,6 +13,32 @@ declare global {
   interface Window {
     openContactDialog?: () => void;
   }
+}
+
+// Component to handle scroll to top on route change with smooth animation
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Smooth scroll to top with fade effect
+    const timer = setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }, 100);
+
+    // Add page transition class
+    document.body.classList.add('page-enter');
+    setTimeout(() => {
+      document.body.classList.remove('page-enter');
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, [pathname]);
+
+  return null;
 }
 
 function App() {
@@ -102,12 +127,43 @@ function App() {
     };
   }, []);
 
+  // Initialize scroll animations after page is fully loaded
+  useEffect(() => {
+    const initializeAnimations = () => {
+      import('./utils/scrollAnimations').then((module) => {
+        // Wait for page to be fully ready
+        setTimeout(() => {
+          module.initScrollAnimations();
+        }, 300);
+      });
+    };
+
+    // Wait for page load
+    if (document.readyState === 'complete') {
+      initializeAnimations();
+    } else {
+      window.addEventListener('load', initializeAnimations);
+    }
+
+    // Also initialize after a delay to catch dynamically loaded content
+    const timer = setTimeout(() => {
+      import('./utils/scrollAnimations').then((module) => {
+        module.initScrollAnimations();
+      });
+    }, 1000);
+
+    return () => {
+      window.removeEventListener('load', initializeAnimations);
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen" style={{background: 'white'}}>
+      <div className="min-h-screen page-enter" style={{background: 'white'}}>
         <Navbar onContactClick={() => setShowDialog(true)} />
-        <main>
+        <main style={{animation: 'pageTransition 0.6s ease-out'}}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -196,7 +252,7 @@ function App() {
                     <span style={{
                       fontSize: "1.2rem",
                       fontWeight: "600",
-                      color: "#a4d030",
+                      color: "#057eff",
                       marginLeft: "4px"
                     }}>
                       .AI
@@ -281,7 +337,7 @@ function App() {
                       onClick={handleSubmit}
                       disabled={!isFormValid()}
                       style={{
-                        background: isFormValid() ? "linear-gradient(135deg, #a4d030, #1fb85a)" : "#d1d5db",
+                        background: isFormValid() ? "linear-gradient(135deg, #057eff, #6bb6ff)" : "#d1d5db",
                         color: "white",
                         padding: "14px 32px",
                         borderRadius: "8px",
@@ -324,7 +380,7 @@ function App() {
                         justifyContent: "center",
                         gap: "10px",
                         padding: "12px 20px",
-                        background: "#25D366",
+                        background: "#3B82F6",
                         color: "white",
                         textDecoration: "none",
                         borderRadius: "8px",

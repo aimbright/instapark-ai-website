@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/logo_withoutbg.png';
+import logo from '../assets/InstaPark white BG nav bar logo.png';
 import './Navbar.css';
 
 interface NavbarProps {
@@ -35,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
            <img 
              src={logo} 
              alt="InstaPark AI Logo" 
-             style={{height: '45px', width: 'auto'}}
+             style={{height: '60px', width: 'auto'}}
            />
          </Link>
 

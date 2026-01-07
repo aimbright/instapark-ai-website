@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import logo from '../assets/logo_withoutbg.png';
-import evCarCharging from '../assets/ev_car_charging.png';
+import SEO from "../components/SEO";
+import pmsUseCases from '../assets/PMS use cases offered CHART.png';
+import howItWorksProviders from '../assets/How it works -For Parking Providers chart.png';
+import userJourney from '../assets/user joureny.png';
 
 const Services: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -52,6 +54,120 @@ const Services: React.FC = () => {
     return `mailto:support@instaparkai.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
+  const services = [
+    {
+      icon: "🔍",
+      title: "Smart Parking Detection",
+      subtitle: "AI-powered detection with 95%+ accuracy.",
+      features: [
+        "AI camera vision",
+        "Empty slot detection",
+        "On-ground sensors & LED guidance",
+        "Real-time occupancy alerts",
+        "Multi-location dashboards"
+      ],
+      color: "linear-gradient(135deg, #057eff, #6bb6ff)"
+    },
+    {
+      icon: "📱",
+      title: "Mobile Booking Platform",
+      subtitle: "Smart booking for users via app & website.",
+      features: [
+        "One-tap booking (hourly / monthly)",
+        "Instant confirmation",
+        "Digital receipts",
+        "Push notifications"
+      ],
+      color: "linear-gradient(135deg, #3B82F6, #1D4ED8)"
+    },
+    {
+      icon: "🚧",
+      title: "Intelligent Access Control",
+      subtitle: "Automated vehicle entry & exit.",
+      features: [
+        "AI-enabled ANPR",
+        "RFID / FASTag detection",
+        "QR / OTP entry",
+        "Facial recognition (optional)",
+        "Visitor & employee access control"
+      ],
+      color: "linear-gradient(135deg, #8B5CF6, #7C3AED)"
+    },
+    {
+      icon: "📊",
+      title: "Analytics & Revenue Dashboard",
+      subtitle: "Complete control for owners & admins.",
+      features: [
+        "Live occupancy",
+        "Revenue reports (daily / monthly)",
+        "Staff performance",
+        "Payment reconciliation",
+        "Peak pricing insights",
+        "Anomaly alerts"
+      ],
+      color: "linear-gradient(135deg, #F59E0B, #D97706)"
+    },
+    {
+      icon: "⚡",
+      title: "EV Charging Integration",
+      subtitle: "Make parking spaces EV-ready.",
+      features: [
+        "Charger booking",
+        "Unified parking + charging payment",
+        "Charging status monitoring",
+        "Load balancing & energy analytics"
+      ],
+      color: "linear-gradient(135deg, #10b981, #059669)"
+    },
+    {
+      icon: "🅿️",
+      title: "Valet Parking Operations",
+      subtitle: "Tech-enabled valet services.",
+      features: [
+        "Trained valet drivers",
+        "Valet app & task allocation",
+        "Real-time vehicle tracking",
+        "Digital audit trails"
+      ],
+      color: "linear-gradient(135deg, #EF4444, #DC2626)"
+    },
+    {
+      icon: "⚙️",
+      title: "Custom Integrations & White-Label",
+      subtitle: "Built for enterprises & governments.",
+      features: [
+        "API integrations",
+        "White-label apps",
+        "Custom workflows",
+        "Brand customization"
+      ],
+      color: "linear-gradient(135deg, #6366F1, #4F46E5)"
+    },
+    {
+      icon: "🛡️",
+      title: "Safety & Compliance",
+      subtitle: "Advanced safety features.",
+      features: [
+        "Overspeed detection",
+        "Wrong-lane detection",
+        "Find-My-Car feature",
+        "Violation alerts & reports"
+      ],
+      color: "linear-gradient(135deg, #EC4899, #DB2777)"
+    },
+    {
+      icon: "🛠️",
+      title: "Value-Added Services",
+      subtitle: "Additional services for enhanced experience.",
+      features: [
+        "EV charging",
+        "Breakdown assistance",
+        "Car services"
+      ],
+      color: "linear-gradient(135deg, #14B8A6, #0D9488)"
+    }
+  ];
+
   return (
     <div style={{ 
       background: "#ffffff", 
@@ -59,6 +175,12 @@ const Services: React.FC = () => {
       lineHeight: 1.6,
       overflowX: "hidden"
     }}>
+      <SEO
+        title="Comprehensive AI-Powered Parking Solutions | InstaParkAI Services"
+        description="InstaParkAI delivers end-to-end parking solutions including smart parking detection, mobile booking platform, intelligent access control, analytics dashboard, EV charging integration, valet operations, and custom integrations. Transform your parking operations with AI-powered technology."
+        keywords="parking management services, smart parking detection, parking booking app, ANPR parking system, RFID parking, parking analytics dashboard, EV charging parking, valet parking services, parking API integration, white-label parking solution, parking management software, automated parking system, parking access control, parking revenue optimization, parking IoT solutions"
+        ogImage="https://instaparkai.com/og-image-services.png"
+      />
       {/* ================= SERVICES HERO SECTION ================= */}
       <section style={{
         background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)",
@@ -67,7 +189,6 @@ const Services: React.FC = () => {
         position: "relative",
         overflow: "hidden"
       }}>
-        {/* Background Image */}
         <div style={{
           position: "absolute",
           top: 0,
@@ -87,47 +208,6 @@ const Services: React.FC = () => {
           maxWidth: "1200px",
           margin: "0 auto"
         }}>
-          {/* Logo */}
-          <div style={{ 
-            marginBottom: "30px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "12px"
-          }}>
-            <img 
-              src={logo} 
-              alt="InstaPark AI Logo" 
-              style={{
-                height: isMobile ? "50px" : "60px", 
-                width: "auto",
-                filter: "brightness(0) invert(1)"
-              }}
-            />
-            <div style={{
-              display: "flex",
-              flexDirection: "column"
-            }}>
-              {/* <span style={{
-                fontSize: isMobile ? "1.8rem" : "2rem",
-                fontWeight: "800",
-                color: "white",
-                lineHeight: "1"
-              }}>
-                InstaPark
-              </span>
-              <span style={{
-                fontSize: isMobile ? "1.3rem" : "1.5rem",
-                fontWeight: "700",
-                color: "#a4d030",
-                lineHeight: "1",
-                marginTop: "4px"
-              }}>
-                .AI
-              </span> */}
-            </div>
-          </div>
-
           <h1 style={{
             color: "white", 
             fontSize: isMobile ? "2.5rem" : "3.5rem", 
@@ -135,28 +215,17 @@ const Services: React.FC = () => {
             marginBottom: "20px",
             lineHeight: "1.2"
           }}>
-            Our <span style={{color: '#a4d030'}}>Services</span>
-            </h1>
+            Comprehensive AI-Powered Parking Solutions
+          </h1>
           <p style={{
             color: '#e2e8f0', 
             fontSize: isMobile ? "1.1rem" : "1.3rem", 
-            maxWidth: '600px', 
+            maxWidth: '800px', 
             margin: '0 auto 30px',
             lineHeight: "1.6"
           }}>
-            Comprehensive AI-powered parking solutions for modern urban mobility
+            InstaParkAI delivers end-to-end parking solutions—from technology to operations.
           </p>
-          
-          <div style={{ 
-            display: "flex", 
-            gap: "16px",
-            flexWrap: "wrap",
-            justifyContent: "center"
-          }}>
-          
-            
-          
-          </div>
         </div>
       </section>
 
@@ -181,7 +250,7 @@ const Services: React.FC = () => {
             }}>
               Complete Parking{" "}
               <span style={{ 
-                background: "linear-gradient(135deg, #a4d030, #1fb85a)",
+                background: "linear-gradient(135deg, #057eff, #6bb6ff)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text"
@@ -204,439 +273,431 @@ const Services: React.FC = () => {
             gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(350px, 1fr))",
             gap: isMobile ? "24px" : "32px"
           }}>
-            {/* Service 1 - Smart Parking Detection */}
-            <div style={{
-              background: "white",
-              borderRadius: "20px",
-              padding: isMobile ? "30px 20px" : "40px 32px",
-              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
-              border: "1px solid rgba(0, 0, 0, 0.05)",
-              transition: "all 0.3s ease",
-              textAlign: "center"
-            }}>
-              <div style={{
-                width: "80px",
-                height: "80px",
-                background: "linear-gradient(135deg, #a4d030, #1fb85a)",
-                borderRadius: "16px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: "0 auto 24px",
-                fontSize: "2rem",
-                color: "white"
-              }}>
-                🔍
-              </div>
-              <h3 style={{
-                color: "#1f2937",
-                fontSize: isMobile ? "1.3rem" : "1.5rem",
-                fontWeight: "600",
-                marginBottom: "16px"
-              }}>
-                Smart Parking Detection
-              </h3>
-              <p style={{
-                color: "#6b7280",
-                lineHeight: "1.6",
-                marginBottom: "24px",
-                fontSize: isMobile ? "0.95rem" : "1rem"
-              }}>
-                AI-powered real-time parking slot detection and availability tracking across multiple locations with 99.9% accuracy.
-              </p>
-              <div style={{
-                background: "#f8fafc",
-                borderRadius: "12px",
-                padding: "20px",
-                textAlign: "left"
-              }}>
-                <div style={{
-                  color: "#1f2937",
-                  fontWeight: "600",
-                  marginBottom: "12px",
-                  fontSize: "0.95rem"
-                }}>
-                  Key Features:
-                </div>
-                <ul style={{
-                  color: "#6b7280",
-                  paddingLeft: "20px",
-                  margin: 0,
-                  fontSize: "0.9rem",
-                  lineHeight: "1.8"
-                }}>
-                  <li>Real-time slot monitoring</li>
-                  <li>AI-powered vehicle detection</li>
-                  <li>Multi-location dashboard</li>
-                  <li>Automated occupancy alerts</li>
-              </ul>
-              </div>
-            </div>
-
-            {/* Service 2 - Mobile Booking Platform */}
-            <div style={{
-              background: "white",
-              borderRadius: "20px",
-              padding: isMobile ? "30px 20px" : "40px 32px",
-              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
-              border: "1px solid rgba(0, 0, 0, 0.05)",
-              transition: "all 0.3s ease",
-              textAlign: "center"
-            }}>
-              <div style={{
-                width: "80px",
-                height: "80px",
-                background: "linear-gradient(135deg, #3B82F6, #1D4ED8)",
-                borderRadius: "16px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: "0 auto 24px",
-                fontSize: "2rem",
-                color: "white"
-              }}>
-                📱
-              </div>
-              <h3 style={{
-                color: "#1f2937",
-                fontSize: isMobile ? "1.3rem" : "1.5rem",
-                fontWeight: "600",
-                marginBottom: "16px"
-              }}>
-                Mobile Booking Platform
-              </h3>
-              <p style={{
-                color: "#6b7280",
-                lineHeight: "1.6",
-                marginBottom: "24px",
-                fontSize: isMobile ? "0.95rem" : "1rem"
-              }}>
-                Seamless mobile booking experience with instant confirmation, digital receipts, and real-time updates.
-              </p>
-              <div style={{
-                background: "#f0f9ff",
-                borderRadius: "12px",
-                padding: "20px",
-                textAlign: "left"
-              }}>
-                <div style={{
-                  color: "#1f2937",
-                  fontWeight: "600",
-                  marginBottom: "12px",
-                  fontSize: "0.95rem"
-                }}>
-                  Key Features:
-                </div>
-                <ul style={{
-                  color: "#6b7280",
-                  paddingLeft: "20px",
-                  margin: 0,
-                  fontSize: "0.9rem",
-                  lineHeight: "1.8"
-                }}>
-                  <li>One-tap booking system</li>
-                  <li>Instant confirmation</li>
-                  <li>Digital receipts & invoices</li>
-                  <li>Push notifications</li>
-              </ul>
-              </div>
-            </div>
-
-            {/* Service 3 - EV Charging Integration */}
-            <div style={{
-              background: "white",
-              borderRadius: "20px",
-              padding: isMobile ? "30px 20px" : "40px 32px",
-              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
-              border: "1px solid rgba(0, 0, 0, 0.05)",
-              transition: "all 0.3s ease",
-              textAlign: "center",
-              position: "relative"
-            }}>
-              <div style={{
-                position: "absolute",
-                top: "-15px",
-                right: "-15px",
-                background: "linear-gradient(135deg, #10b981, #059669)",
-                color: "white",
-                padding: "8px 16px",
+            {services.map((service, index) => (
+              <div key={index} style={{
+                background: "white",
                 borderRadius: "20px",
-                fontSize: "0.8rem",
-                fontWeight: "600"
-              }}>
-                NEW
-              </div>
-              <div style={{
-                width: "80px",
-                height: "80px",
-                background: "linear-gradient(135deg, #10b981, #059669)",
-                borderRadius: "16px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: "0 auto 24px"
-              }}>
-                <img 
-                  src={evCarCharging} 
-                  alt="EV Charging" 
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    filter: "brightness(0) invert(1)"
-                  }}
-                />
-              </div>
-              <h3 style={{
-                color: "#1f2937",
-                fontSize: isMobile ? "1.3rem" : "1.5rem",
-                fontWeight: "600",
-                marginBottom: "16px"
-              }}>
-                EV Charging Integration
-              </h3>
-              <p style={{
-                color: "#6b7280",
-                lineHeight: "1.6",
-                marginBottom: "24px",
-                fontSize: isMobile ? "0.95rem" : "1rem"
-              }}>
-                Integrated electric vehicle charging stations with smart reservation, payment, and monitoring systems.
-              </p>
-              <div style={{
-                background: "#f0fdf4",
-                borderRadius: "12px",
-                padding: "20px",
-                textAlign: "left"
+                padding: isMobile ? "30px 20px" : "40px 32px",
+                boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
+                border: "1px solid rgba(0, 0, 0, 0.05)",
+                transition: "all 0.3s ease",
+                textAlign: "center"
               }}>
                 <div style={{
-                  color: "#1f2937",
-                  fontWeight: "600",
-                  marginBottom: "12px",
-                  fontSize: "0.95rem"
+                  width: "80px",
+                  height: "80px",
+                  background: service.color,
+                  borderRadius: "16px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "0 auto 24px",
+                  fontSize: "2rem",
+                  color: "white"
                 }}>
-                  Key Features:
+                  {service.icon}
                 </div>
-                <ul style={{
-                  color: "#6b7280",
-                  paddingLeft: "20px",
-                  margin: 0,
-                  fontSize: "0.9rem",
-                  lineHeight: "1.8"
+                <h3 style={{
+                  color: "#1f2937",
+                  fontSize: isMobile ? "1.3rem" : "1.5rem",
+                  fontWeight: "600",
+                  marginBottom: "8px"
                 }}>
-                  <li>EV charging station booking</li>
-                  <li>Charging status monitoring</li>
-                  <li>Smart payment integration</li>
-                  <li>Green energy tracking</li>
-              </ul>
+                  {service.title}
+                </h3>
+                <p style={{
+                  color: "#6b7280",
+                  fontSize: isMobile ? "0.9rem" : "1rem",
+                  marginBottom: "24px",
+                  lineHeight: "1.5"
+                }}>
+                  {service.subtitle}
+                </p>
+                <div style={{
+                  background: "#f8fafc",
+                  borderRadius: "12px",
+                  padding: "20px",
+                  textAlign: "left"
+                }}>
+                  <div style={{
+                    color: "#1f2937",
+                    fontWeight: "600",
+                    marginBottom: "12px",
+                    fontSize: "0.95rem"
+                  }}>
+                    Features:
+                  </div>
+                  <ul style={{
+                    color: "#6b7280",
+                    paddingLeft: "20px",
+                    margin: 0,
+                    fontSize: "0.9rem",
+                    lineHeight: "1.8"
+                  }}>
+                    {service.features.map((feature, idx) => (
+                      <li key={idx}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= BEYOND PARKING SECTION ================= */}
+      <section style={{
+        position: "relative",
+        padding: isMobile ? "80px 20px" : "120px 20px",
+        overflow: "hidden"
+      }}>
+        {/* Full-width Background Image */}
+        <div style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: "100%",
+          height: "100%",
+          backgroundImage: `url(${userJourney})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          zIndex: 0
+        }}></div>
+        
+        {/* Overlay for better readability */}
+        <div style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: "rgba(0, 0, 0, 0.4)",
+          zIndex: 1
+        }}></div>
+
+        {/* Content */}
+        <div style={{ 
+          position: "relative",
+          zIndex: 2,
+          maxWidth: "1400px", 
+          margin: "0 auto"
+        }}>
+          {/* Header */}
+          <div style={{
+            textAlign: "center",
+            marginBottom: isMobile ? "50px" : "70px"
+          }}>
+            <h2 style={{
+              fontSize: isMobile ? "2.5rem" : "3.5rem",
+              fontWeight: 700,
+              color: "white",
+              marginBottom: "20px",
+              lineHeight: "1.1",
+              letterSpacing: "-1px",
+              textShadow: "0 4px 20px rgba(0, 0, 0, 0.3)"
+            }}>
+              Beyond Parking
+            </h2>
+            <p style={{
+              fontSize: isMobile ? "1.125rem" : "1.25rem",
+              color: "rgba(255, 255, 255, 0.95)",
+              maxWidth: "800px",
+              margin: "0 auto",
+              lineHeight: "1.7",
+              fontWeight: "400",
+              textShadow: "0 2px 10px rgba(0, 0, 0, 0.2)"
+            }}>
+              We are building future urban infrastructure:
+            </p>
+          </div>
+
+          {/* Cards Overlaid on Image */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+            gap: isMobile ? "24px" : "32px",
+            maxWidth: "1200px",
+            margin: "0 auto"
+          }}>
+            {[
+              {
+                title: "InstaPark", 
+                desc: "Core parking platform",
+                number: "1"
+              },
+              {
+                title: "InstaCharge", 
+                desc: "EV charging network",
+                number: "2"
+              },
+              { 
+                title: "InstaKitchen", 
+                desc: "Cloud kitchens at parking hubs",
+                number: "3"
+              },
+              { 
+                title: "InstaDarkStore", 
+                desc: "Micro-logistics & storage",
+                number: "4"
+              }
+            ].map((item, index) => (
+              <div
+                key={index}
+                style={{
+                  background: "rgba(255, 255, 255, 0.95)",
+                  backdropFilter: "blur(10px)",
+                  borderRadius: "20px",
+                  padding: isMobile ? "32px 24px" : "40px 32px",
+                  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)",
+                  border: "1px solid rgba(255, 255, 255, 0.3)",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "16px",
+                  transition: "all 0.3s ease"
+                }}
+              >
+                <div style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "16px"
+                }}>
+                  <div style={{
+                    width: "56px",
+                    height: "56px",
+                    background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+                    borderRadius: "12px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "white",
+                    fontWeight: "bold",
+                    fontSize: "1.5rem",
+                    flexShrink: 0
+                  }}>
+                    {item.number}
+                  </div>
+                  <h3 style={{ 
+                    color: "#111827", 
+                    fontSize: isMobile ? "1.5rem" : "1.75rem",
+                    fontWeight: 700,
+                    margin: 0,
+                    lineHeight: "1.2"
+                  }}>
+                    {item.title}
+                  </h3>
+                </div>
+                <p style={{ 
+                  color: "#6b7280", 
+                  fontSize: isMobile ? "1rem" : "1.125rem",
+                  margin: 0,
+                  lineHeight: "1.6"
+                }}>
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= BUSINESS MODELS ================= */}
+      <section style={{
+        background: "linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%)",
+        padding: isMobile ? "60px 20px" : "100px 20px",
+      }}>
+        <div style={{ 
+          maxWidth: "1200px", 
+          margin: "0 auto"
+        }}>
+          <h2 style={{
+            fontSize: isMobile ? "2rem" : "2.75rem",
+            fontWeight: "700",
+            color: "#1f2937",
+            marginBottom: "40px",
+            textAlign: "center",
+            lineHeight: "1.2"
+          }}>
+            Business Models
+          </h2>
+
+          {/* Charts Section */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+            gap: isMobile ? "24px" : "32px",
+            marginBottom: isMobile ? "40px" : "60px"
+          }}>
+            {/* PMS Use Cases Chart */}
+            <div style={{
+              background: "white",
+              borderRadius: "20px",
+              padding: isMobile ? "20px" : "24px",
+              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
+              border: "1px solid rgba(0, 0, 0, 0.05)"
+            }}>
+              <img 
+                src={pmsUseCases} 
+                alt="PMS Use Cases Offered" 
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  borderRadius: "12px",
+                  display: "block"
+                }}
+              />
             </div>
 
-            {/* Service 4 - Analytics Dashboard */}
+            {/* How It Works For Parking Providers Chart */}
+            <div style={{
+              background: "white",
+              borderRadius: "20px",
+              padding: isMobile ? "20px" : "24px",
+              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
+              border: "1px solid rgba(0, 0, 0, 0.05)"
+            }}>
+              <img 
+                src={howItWorksProviders} 
+                alt="How It Works For Parking Providers" 
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  borderRadius: "12px",
+                  display: "block"
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Business Model Cards */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+            gap: isMobile ? "24px" : "32px"
+          }}>
             <div style={{
               background: "white",
               borderRadius: "20px",
               padding: isMobile ? "30px 20px" : "40px 32px",
               boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
-              border: "1px solid rgba(0, 0, 0, 0.05)",
-              transition: "all 0.3s ease",
-              textAlign: "center"
+              border: "1px solid rgba(0, 0, 0, 0.05)"
             }}>
               <div style={{
-                width: "80px",
-                height: "80px",
-                background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
-                borderRadius: "16px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: "0 auto 24px",
-                fontSize: "2rem",
-                color: "white"
+                fontSize: "2.5rem",
+                marginBottom: "16px"
               }}>
-                📊
+                💼
               </div>
               <h3 style={{
                 color: "#1f2937",
-                fontSize: isMobile ? "1.3rem" : "1.5rem",
+                fontSize: isMobile ? "1.5rem" : "1.75rem",
                 fontWeight: "600",
                 marginBottom: "16px"
               }}>
-                Analytics Dashboard
+                A) SaaS Model
               </h3>
               <p style={{
                 color: "#6b7280",
+                fontSize: isMobile ? "1rem" : "1.125rem",
                 lineHeight: "1.6",
-                marginBottom: "24px",
-                fontSize: isMobile ? "0.95rem" : "1rem"
+                margin: 0
               }}>
-                Comprehensive analytics and reporting for parking operators with real-time insights and performance metrics.
+                Subscription-based PMS for operators with existing manpower.
               </p>
-              <div style={{
-                background: "#faf5ff",
-                borderRadius: "12px",
-                padding: "20px",
-                textAlign: "left"
-              }}>
-                <div style={{
-                  color: "#1f2937",
-                  fontWeight: "600",
-                  marginBottom: "12px",
-                  fontSize: "0.95rem"
-                }}>
-                  Key Features:
-                </div>
-                <ul style={{
-                  color: "#6b7280",
-                  paddingLeft: "20px",
-                  margin: 0,
-                  fontSize: "0.9rem",
-                  lineHeight: "1.8"
-                }}>
-                  <li>Usage analytics & reports</li>
-                  <li>Revenue optimization</li>
-                  <li>Performance metrics</li>
-                  <li>Custom reporting</li>
-              </ul>
-              </div>
             </div>
 
-            {/* Service 5 - Custom Integration */}
             <div style={{
               background: "white",
               borderRadius: "20px",
               padding: isMobile ? "30px 20px" : "40px 32px",
               boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
-              border: "1px solid rgba(0, 0, 0, 0.05)",
-              transition: "all 0.3s ease",
-              textAlign: "center"
+              border: "1px solid rgba(0, 0, 0, 0.05)"
             }}>
               <div style={{
-                width: "80px",
-                height: "80px",
-                background: "linear-gradient(135deg, #F59E0B, #D97706)",
-                borderRadius: "16px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: "0 auto 24px",
-                fontSize: "2rem",
-                color: "white"
+                fontSize: "2.5rem",
+                marginBottom: "16px"
               }}>
-                ⚡
+                🤝
               </div>
               <h3 style={{
                 color: "#1f2937",
-                fontSize: isMobile ? "1.3rem" : "1.5rem",
+                fontSize: isMobile ? "1.5rem" : "1.75rem",
                 fontWeight: "600",
                 marginBottom: "16px"
               }}>
-                Custom Integration
+                B) Managed Parking Model
               </h3>
               <p style={{
                 color: "#6b7280",
+                fontSize: isMobile ? "1rem" : "1.125rem",
                 lineHeight: "1.6",
-                marginBottom: "24px",
-                fontSize: isMobile ? "0.95rem" : "1rem"
+                margin: 0
               }}>
-                Tailored parking solutions for malls, offices, hospitals, and residential complexes with custom workflows.
+                End-to-end operations with revenue sharing or fixed payouts.
               </p>
-              <div style={{
-                background: "#fffbeb",
-                borderRadius: "12px",
-                padding: "20px",
-                textAlign: "left"
-              }}>
-                <div style={{
-                  color: "#1f2937",
-                  fontWeight: "600",
-                  marginBottom: "12px",
-                  fontSize: "0.95rem"
-                }}>
-                  Key Features:
-                </div>
-                <ul style={{
-                  color: "#6b7280",
-                  paddingLeft: "20px",
-                  margin: 0,
-                  fontSize: "0.9rem",
-                  lineHeight: "1.8"
-                }}>
-                  <li>Custom workflow design</li>
-                  <li>API integration</li>
-                  <li>White-label solutions</li>
-                  <li>Brand customization</li>
-              </ul>
-              </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Service 6 - 24/7 Support */}
-            <div style={{
-              background: "white",
-              borderRadius: "20px",
-              padding: isMobile ? "30px 20px" : "40px 32px",
-              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
-              border: "1px solid rgba(0, 0, 0, 0.05)",
-              transition: "all 0.3s ease",
-              textAlign: "center"
-            }}>
-              <div style={{
-                width: "80px",
-                height: "80px",
-                background: "linear-gradient(135deg, #EF4444, #DC2626)",
+      {/* ================= WHO WE SERVE ================= */}
+      <section style={{
+        background: "white",
+        padding: isMobile ? "60px 20px" : "100px 20px",
+      }}>
+        <div style={{ 
+          maxWidth: "1200px", 
+          margin: "0 auto",
+          textAlign: "center"
+        }}>
+          <h2 style={{
+            fontSize: isMobile ? "2rem" : "2.75rem",
+            fontWeight: "700",
+            color: "#1f2937",
+            marginBottom: "40px",
+            lineHeight: "1.2"
+          }}>
+            Who We Serve
+          </h2>
+
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+            gap: isMobile ? "20px" : "24px"
+          }}>
+            {[
+              { icon: "🏢", title: "Malls & retail complexes" },
+              { icon: "🏥", title: "Hospitals & hotels" },
+              { icon: "✈️", title: "Airports & toll plazas" },
+              { icon: "🏭", title: "IT parks & campuses" },
+              { icon: "🏘️", title: "Residential societies" },
+              { icon: "🌆", title: "Smart cities" }
+            ].map((item, index) => (
+              <div key={index} style={{
+                background: "#f8fafc",
                 borderRadius: "16px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: "0 auto 24px",
-                fontSize: "2rem",
-                color: "white"
-              }}>
-                🛡️
-              </div>
-              <h3 style={{
-                color: "#1f2937",
-                fontSize: isMobile ? "1.3rem" : "1.5rem",
-                fontWeight: "600",
-                marginBottom: "16px"
-              }}>
-                24/7 Support
-              </h3>
-              <p style={{
-                color: "#6b7280",
-                lineHeight: "1.6",
-                marginBottom: "24px",
-                fontSize: isMobile ? "0.95rem" : "1rem"
-              }}>
-                Round-the-clock customer support with multiple contact channels for instant assistance and technical support.
-              </p>
-              <div style={{
-                background: "#fef2f2",
-                borderRadius: "12px",
-                padding: "20px",
-                textAlign: "left"
+                padding: isMobile ? "30px 20px" : "40px 32px",
+                textAlign: "center",
+                border: "1px solid #e5e7eb"
               }}>
                 <div style={{
-                  color: "#1f2937",
-                  fontWeight: "600",
-                  marginBottom: "12px",
-                  fontSize: "0.95rem"
+                  fontSize: isMobile ? "2.5rem" : "3rem",
+                  marginBottom: "16px"
                 }}>
-                  Support Channels:
+                  {item.icon}
                 </div>
-                <ul style={{
-                  color: "#6b7280",
-                  paddingLeft: "20px",
-                  margin: 0,
-                  fontSize: "0.9rem",
-                  lineHeight: "1.8"
+                <h3 style={{
+                  color: "#1f2937",
+                  fontSize: isMobile ? "1.1rem" : "1.25rem",
+                  fontWeight: "600",
+                  margin: 0
                 }}>
-                  <li>WhatsApp instant support</li>
-                  <li>Phone support</li>
-                  <li>Email support</li>
-                  <li>Live chat</li>
-              </ul>
+                  {item.title}
+                </h3>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -658,7 +719,7 @@ const Services: React.FC = () => {
             marginBottom: "20px",
             lineHeight: "1.2"
           }}>
-            Ready to Transform Your Parking Services?
+            Ready to Upgrade Your Parking?
           </h2>
           <p style={{
             fontSize: isMobile ? "1rem" : "1.125rem",
@@ -666,7 +727,7 @@ const Services: React.FC = () => {
             opacity: 0.9,
             lineHeight: "1.6"
           }}>
-            Get started with our comprehensive AI-powered parking solutions and elevate your parking management experience.
+            Get started with our comprehensive AI-powered parking solutions
           </p>
           <div style={{ 
             display: "flex", 
@@ -677,7 +738,7 @@ const Services: React.FC = () => {
             <button
               onClick={() => setShowDialog(true)}
               style={{
-                background: "linear-gradient(135deg, #a4d030, #1fb85a)",
+                background: "linear-gradient(135deg, #057eff, #6bb6ff)",
                 color: "white",
                 padding: isMobile ? "14px 24px" : "16px 32px",
                 borderRadius: "10px",
@@ -707,10 +768,33 @@ const Services: React.FC = () => {
                 minWidth: isMobile ? "140px" : "180px",
                 display: "inline-flex",
                 alignItems: "center",
-                justifyContent: "center"
+                justifyContent: "center",
+                gap: "8px"
               }}
             >
-              📞 Call Now
+              📞 +91 98458 02901
+            </a>
+            <a
+              href="mailto:support@instaparkai.com"
+              style={{
+                background: "transparent",
+                color: "white",
+                padding: isMobile ? "14px 24px" : "16px 32px",
+                borderRadius: "10px",
+                fontWeight: 600,
+                border: "2px solid rgba(255, 255, 255, 0.3)",
+                cursor: "pointer",
+                fontSize: isMobile ? "1rem" : "1.1rem",
+                textDecoration: "none",
+                transition: "all 0.3s ease",
+                minWidth: isMobile ? "140px" : "180px",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "8px"
+              }}
+            >
+              📧 support@instaparkai.com
             </a>
           </div>
         </div>
@@ -773,7 +857,7 @@ const Services: React.FC = () => {
               <div style={{
                 width: "60px",
                 height: "60px",
-                background: "linear-gradient(135deg, #a4d030, #1fb85a)",
+                background: "linear-gradient(135deg, #057eff, #6bb6ff)",
                 borderRadius: "16px",
                 display: "flex",
                 alignItems: "center",
@@ -871,12 +955,9 @@ const Services: React.FC = () => {
                 }}
               >
                 <option value="">Select Service *</option>
-                <option value="Smart Parking Detection">Smart Parking Detection</option>
-                <option value="Mobile Booking Platform">Mobile Booking Platform</option>
-                <option value="EV Charging Integration">EV Charging Integration</option>
-                <option value="Analytics Dashboard">Analytics Dashboard</option>
-                <option value="Custom Integration">Custom Integration</option>
-                <option value="24/7 Support">24/7 Support</option>
+                {services.map((service, idx) => (
+                  <option key={idx} value={service.title}>{service.title}</option>
+                ))}
               </select>
             </div>
 
@@ -884,7 +965,7 @@ const Services: React.FC = () => {
               <button
                 onClick={handleSubmit}
                 style={{
-                  background: "linear-gradient(135deg, #a4d030, #1fb85a)",
+                  background: "linear-gradient(135deg, #057eff, #6bb6ff)",
                   color: "white",
                   padding: "14px 32px",
                   borderRadius: "8px",
@@ -926,7 +1007,7 @@ const Services: React.FC = () => {
                       justifyContent: "center",
                       gap: "10px",
                       padding: "12px 20px",
-                      background: "#25D366",
+                      background: "#3B82F6",
                       color: "white",
                       textDecoration: "none",
                       borderRadius: "8px",
