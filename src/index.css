@@ -287,23 +287,49 @@ img[loading="lazy"] {
   animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Smooth scrollbar */
+/* Smooth scrollbar - Auto-hide */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #057eff;
-  border-radius: 5px;
+  background: transparent;
+  border-radius: 4px;
   transition: background 0.3s ease;
 }
 
+/* Show scrollbar on hover over scrollable area */
+html:hover ::-webkit-scrollbar-thumb,
+body:hover ::-webkit-scrollbar-thumb {
+  background: rgba(5, 126, 255, 0.4);
+}
+
+/* Show scrollbar when scrolling */
+html.scrolling ::-webkit-scrollbar-thumb,
+body.scrolling ::-webkit-scrollbar-thumb {
+  background: rgba(5, 126, 255, 0.8);
+}
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #6bb6ff;
+  background: #057eff;
+}
+
+/* Firefox - Hide scrollbar by default, show on hover */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+html:hover {
+  scrollbar-color: rgba(5, 126, 255, 0.4) transparent;
+}
+
+html.scrolling {
+  scrollbar-color: rgba(5, 126, 255, 0.8) transparent;
 }
 
 /* ==================== ENHANCED ANIMATIONS ==================== */

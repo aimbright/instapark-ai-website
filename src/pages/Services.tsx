@@ -57,7 +57,7 @@ const Services: React.FC = () => {
   const services = [
     {
       icon: "🔍",
-      title: "Smart Parking Detection",
+      title: "Smart Parking management",
       subtitle: "AI-powered detection with 95%+ accuracy.",
       features: [
         "AI camera vision",
@@ -70,13 +70,13 @@ const Services: React.FC = () => {
     },
     {
       icon: "📱",
-      title: "Mobile Booking Platform",
-      subtitle: "Smart booking for users via app & website.",
+      title: "Find Nearby Parking & Book Your Slot Easily",
+      subtitle: "Discover available parking spaces near you and reserve your slot instantly using our app or website.",
       features: [
-        "One-tap booking (hourly / monthly)",
-        "Instant confirmation",
-        "Digital receipts",
-        "Push notifications"
+        "One-tap booking for hourly or monthly parking",
+        "Instant booking confirmation",
+        "Secure digital receipts",
+        "Real-time push notifications & alerts"
       ],
       color: "linear-gradient(135deg, #3B82F6, #1D4ED8)"
     },

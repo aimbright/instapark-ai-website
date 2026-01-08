@@ -62,6 +62,34 @@ function App() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Show scrollbar when scrolling
+  useEffect(() => {
+    let scrollTimeout: ReturnType<typeof setTimeout>;
+    let isScrolling = false;
+
+    const handleScroll = () => {
+      if (!isScrolling) {
+        isScrolling = true;
+        document.documentElement.classList.add('scrolling');
+        document.body.classList.add('scrolling');
+      }
+
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        isScrolling = false;
+        document.documentElement.classList.remove('scrolling');
+        document.body.classList.remove('scrolling');
+      }, 500);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, []);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -159,7 +187,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename={import.meta.env.PROD ? '/instapark-ai-website' : ''}>
       <ScrollToTop />
       <div className="min-h-screen page-enter" style={{background: 'white'}}>
         <Navbar onContactClick={() => setShowDialog(true)} />
@@ -168,6 +196,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
+            <Route path="*" element={<Home />} />
           </Routes>
         </main>
         <Footer />

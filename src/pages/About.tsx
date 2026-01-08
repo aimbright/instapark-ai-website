@@ -7,6 +7,8 @@ import implementation1 from "../assets/Implementation1.png";
 import implementation2 from "../assets/Implementation2.png";
 import implementation3 from "../assets/Implementation3.png";
 import implementation4 from "../assets/Implementation4.png";
+import instaParkLogo from "../assets/InstaParkAI plain BG logo.png";
+import aimboardImage from "../assets/aimboardimage.png";
 
 const About: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -224,63 +226,169 @@ const About: React.FC = () => {
       <section 
         ref={(el) => { sectionsRef.current[0] = el as HTMLDivElement | null; }}
         style={{
-          background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)",
-        padding: isMobile ? "60px 20px" : "100px 20px",
+          background: "linear-gradient(135deg, #f0f4f8 0%, #ffffff 50%, #f8fafc 100%)",
+          padding: isMobile ? "80px 20px" : "120px 20px",
           opacity: 0,
           transform: "translateY(30px)",
           transition: "opacity 0.6s ease, transform 0.6s ease"
         }}
         data-visible="false"
       >
-            <div style={{
-          maxWidth: "1200px", 
+        <div style={{
+          maxWidth: "1400px", 
           margin: "0 auto"
-              }}>
-                <div style={{
-            background: "white",
-            borderRadius: "24px",
-            padding: isMobile ? "40px 24px" : "60px 48px",
-            boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
-            border: "1px solid rgba(5, 126, 255, 0.1)"
-          }}>
-                <div style={{
-              display: "inline-flex",
+        }}>
+          <div style={{
+            background: "linear-gradient(135deg, #ffffff 0%, #fafbfc 100%)",
+            borderRadius: "40px",
+            padding: isMobile ? "60px 30px" : "100px 80px",
+            boxShadow: "0 30px 80px rgba(0, 0, 0, 0.12), 0 10px 30px rgba(5, 126, 255, 0.08)",
+            border: "1px solid rgba(5, 126, 255, 0.15)",
+        position: "relative",
+            overflow: "hidden",
+            backdropFilter: "blur(10px)"
+      }}>
+            {/* Enhanced Decorative background elements */}
+        <div style={{
+          position: "absolute",
+              top: "-100px",
+              right: "-100px",
+              width: "400px",
+              height: "400px",
+              background: "linear-gradient(135deg, rgba(5, 126, 255, 0.08), rgba(107, 182, 255, 0.08))",
+              borderRadius: "50%",
+              zIndex: 0,
+              filter: "blur(40px)"
+            }}></div>
+            <div style={{
+              position: "absolute",
+              bottom: "-80px",
+              left: "-80px",
+              width: "350px",
+              height: "350px",
+              background: "linear-gradient(135deg, rgba(5, 126, 255, 0.06), rgba(107, 182, 255, 0.06))",
+              borderRadius: "50%",
+              zIndex: 0,
+              filter: "blur(40px)"
+        }}></div>
+
+        <div style={{
+          position: "relative",
+              zIndex: 1,
+              display: "flex",
+              flexDirection: "column",
               alignItems: "center",
-              gap: "8px",
-              background: "linear-gradient(135deg, rgba(5, 126, 255, 0.1), rgba(107, 182, 255, 0.1))",
-              padding: "8px 20px",
-              borderRadius: "50px",
-                marginBottom: "24px"
-              }}>
-              <span style={{ fontSize: "1.5rem" }}>👁️</span>
-              <span style={{
-                color: "#057eff",
-                fontSize: isMobile ? "0.875rem" : "0.95rem",
-                fontWeight: "600",
-                letterSpacing: "0.5px"
-              }}>
-                OUR VISION
-              </span>
-            </div>
-            <h2 style={{
-              fontSize: isMobile ? "2rem" : "3rem",
-              fontWeight: "800",
-              color: "#111827",
-              marginBottom: "24px",
-              lineHeight: "1.2",
-              letterSpacing: "-1px"
+              textAlign: "center"
             }}>
-              To digitize India's parking infrastructure
-            </h2>
-                <p style={{
-              fontSize: isMobile ? "1.125rem" : "1.375rem",
-              color: "#4b5563",
-              maxWidth: "900px",
-              lineHeight: "1.7",
-                  fontWeight: "500"
+              {/* Logo Section - Top Center with enhanced styling */}
+          <div style={{ 
+            display: "flex",
+            justifyContent: "center",
+                alignItems: "center",
+                marginBottom: isMobile ? "45px" : "60px",
+                padding: isMobile ? "20px" : "30px",
+                background: "linear-gradient(135deg, rgba(5, 126, 255, 0.03), rgba(107, 182, 255, 0.03))",
+                borderRadius: "24px",
+                border: "1px solid rgba(5, 126, 255, 0.1)"
+          }}>
+            <img 
+                  src={instaParkLogo} 
+                  alt="InstaParkAI Logo"
+              style={{
+                    width: isMobile ? "220px" : "360px",
+                    height: "auto",
+                    objectFit: "contain",
+                    filter: "drop-shadow(0 12px 32px rgba(5, 126, 255, 0.2))",
+                    transition: "transform 0.3s ease"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                  }}
+                />
+              </div>
+
+              {/* Content Section */}
+            <div style={{
+                maxWidth: "1100px",
+                width: "100%"
+              }}>
+                {/* Enhanced OUR VISION Badge */}
+                <div style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: "linear-gradient(135deg, rgba(5, 126, 255, 0.15), rgba(107, 182, 255, 0.15))",
+                  padding: "14px 32px",
+                  borderRadius: "50px",
+                  marginBottom: "40px",
+                  border: "2px solid rgba(5, 126, 255, 0.25)",
+                  boxShadow: "0 6px 20px rgba(5, 126, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5)"
                 }}>
-              Transform every parking space into a smart, connected, revenue-generating urban asset.
-            </p>
+                  <span style={{
+                    color: "#057eff",
+                    fontSize: isMobile ? "0.875rem" : "1rem",
+                fontWeight: "800",
+                    letterSpacing: "2px",
+                    textTransform: "uppercase"
+              }}>
+                    OUR VISION
+              </span>
+                </div>
+                
+                {/* Enhanced Main Heading */}
+                <h2 style={{
+                  fontSize: isMobile ? "2.25rem" : "3.75rem",
+                  fontWeight: "900",
+                  color: "#111827",
+                  marginBottom: "40px",
+                  lineHeight: "1.15",
+                  letterSpacing: "-2px",
+                  background: "linear-gradient(135deg, #111827 0%, #374151 50%, #4b5563 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  textShadow: "0 2px 10px rgba(0, 0, 0, 0.05)"
+                }}>
+                  To digitize India's parking infrastructure and redefine urban mobility.
+                </h2>
+                
+                {/* Enhanced Description with better spacing */}
+                <div style={{
+                  fontSize: isMobile ? "1.0625rem" : "1.25rem",
+                  color: "#374151",
+                  lineHeight: "2",
+                  fontWeight: "400"
+                }}>
+                  <p style={{
+                    marginBottom: "28px",
+                    fontSize: isMobile ? "1.0625rem" : "1.25rem",
+                    color: "#4b5563",
+                    fontWeight: "500"
+                  }}>
+                    We envision transforming every parking space into a smart, connected, and revenue-generating urban asset powered by AI and real-time data.
+                  </p>
+                  <p style={{
+                    marginBottom: "28px",
+                    fontSize: isMobile ? "1.0625rem" : "1.25rem",
+                    color: "#4b5563",
+                    fontWeight: "500"
+                  }}>
+                    By eliminating manual processes and inefficiencies, we aim to create seamless parking experiences for users while enabling greater transparency, control, and profitability for operators, property owners, and cities.
+                  </p>
+                  <p style={{
+                    marginBottom: 0,
+                    fontSize: isMobile ? "1.0625rem" : "1.25rem",
+                    color: "#4b5563",
+                    fontWeight: "500"
+                  }}>
+                    Our vision is to support smarter cities, reduced congestion, optimized space utilization, and sustainable urban growth across India.
+                  </p>
+            </div>
+          </div>
+            </div>
           </div>
         </div>
       </section>
@@ -290,16 +398,51 @@ const About: React.FC = () => {
         ref={(el) => { sectionsRef.current[1] = el as HTMLDivElement | null; }}
         style={{
         background: "white",
-        padding: isMobile ? "60px 20px" : "100px 20px",
+        padding: isMobile ? "40px 20px" : "60px 20px",
           opacity: 0,
           transform: "translateY(30px)",
-          transition: "opacity 0.6s ease, transform 0.6s ease"
+          transition: "opacity 0.6s ease, transform 0.6s ease",
+          position: "relative",
+          overflow: "hidden"
         }}
         data-visible="false"
       >
+        {/* Aimboard Image - Center Background (Clear and Visible) */}
+        <div style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 0,
+          opacity: 0.65,
+          pointerEvents: "none",
+          width: "100%",
+          height: "100%",
+          maxWidth: "100%",
+          maxHeight: "100%"
+        }}>
+          <img 
+            src={aimboardImage} 
+            alt="Aimboard"
+            style={{
+              width: "100%",
+              height: "100%",
+              maxWidth: isMobile ? "100%" : "1200px",
+              maxHeight: "100%",
+              objectFit: "contain",
+              objectPosition: "center"
+            }}
+          />
+        </div>
+
         <div style={{ 
           maxWidth: "1200px", 
-          margin: "0 auto"
+          margin: "0 auto",
+          position: "relative",
+          zIndex: 1
         }}>
           <div style={{
             textAlign: "center",
@@ -308,13 +451,12 @@ const About: React.FC = () => {
             <div style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: "8px",
+              justifyContent: "center",
               background: "linear-gradient(135deg, rgba(5, 126, 255, 0.1), rgba(107, 182, 255, 0.1))",
               padding: "8px 20px",
               borderRadius: "50px",
               marginBottom: "24px"
             }}>
-              <span style={{ fontSize: "1.5rem" }}>🎯</span>
               <span style={{
                 color: "#057eff",
                 fontSize: isMobile ? "0.875rem" : "0.95rem",
@@ -417,25 +559,6 @@ const About: React.FC = () => {
                 textAlign: "center",
             marginBottom: isMobile ? "40px" : "60px"
               }}>
-                <div style={{
-              display: "inline-flex",
-                  alignItems: "center",
-              gap: "8px",
-              background: "linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1))",
-              padding: "8px 20px",
-              borderRadius: "50px",
-              marginBottom: "24px"
-            }}>
-              <span style={{ fontSize: "1.5rem" }}>⚠️</span>
-              <span style={{
-                color: "#ef4444",
-                fontSize: isMobile ? "0.875rem" : "0.95rem",
-                fontWeight: "600",
-                letterSpacing: "0.5px"
-              }}>
-                THE CHALLENGE
-              </span>
-                  </div>
               <h2 style={{
               fontSize: isMobile ? "2rem" : "3rem",
               fontWeight: "800",
@@ -562,7 +685,7 @@ const About: React.FC = () => {
           }}>
             The Market Opportunity
           </h2>
-                <div style={{
+            <div style={{
             fontSize: isMobile ? "3rem" : "5rem",
             fontWeight: "900",
             color: "white",
@@ -581,7 +704,7 @@ const About: React.FC = () => {
             Urban Parking Market is waiting to be organized.
           </p>
             
-            <div style={{
+              <div style={{
             display: "grid",
             gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
             gap: isMobile ? "20px" : "24px",
@@ -633,192 +756,12 @@ const About: React.FC = () => {
       </section>
 
       {/* ================= WHAT WE DO ================= */}
-      <section 
-        ref={(el) => { sectionsRef.current[4] = el as HTMLDivElement | null; }}
-        style={{
-          background: "#fafbfc",
-          padding: isMobile ? "50px 0 0" : "70px 0 0",
-          position: "relative",
-          opacity: 0,
-          transform: "translateY(30px)",
-          transition: "opacity 0.6s ease, transform 0.6s ease"
-        }}
-        data-visible="false"
-      >
-        {/* Header Section */}
-        <div style={{ 
-          maxWidth: "1200px", 
-          margin: "0 auto",
-          textAlign: "center",
-          padding: isMobile ? "0 20px 30px" : "0 20px 40px"
-        }}>
-            <div style={{
-            display: "inline-block",
-            padding: "8px 24px",
-            background: "rgba(5, 126, 255, 0.08)",
-            borderRadius: "6px",
-            marginBottom: "20px"
-          }}>
-            <span style={{
-              fontSize: "0.875rem",
-              fontWeight: 600,
-              color: "#057eff",
-              letterSpacing: "0.5px",
-              textTransform: "uppercase"
-            }}>
-              What We Do
-            </span>
-          </div>
-
-          <h2
-            style={{
-              fontSize: isMobile ? "2.5rem" : "3.5rem",
-              fontWeight: 700,
-              color: "#111827",
-                marginBottom: "24px",
-              lineHeight: "1.1",
-              letterSpacing: "-1px"
-            }}
-          >
-            InstaParkAI Digitises & Optimises Parking Spaces
-          </h2>
-          
-          <p
-            style={{
-              fontSize: isMobile ? "1.125rem" : "1.25rem",
-              color: "#4b5563",
-            maxWidth: "700px",
-              margin: "0 auto",
-                lineHeight: "1.7",
-              fontWeight: "400"
-            }}
-          >
-            Simple steps to transform your parking experience
-          </p>
-        </div>
-
-        {/* Image with Cards Overlay */}
-          <div style={{
-          position: "relative",
-          width: "100%",
-          minHeight: isMobile ? "600px" : "800px",
-          marginBottom: "0"
-        }}>
-          {/* Background Image */}
-          <img 
-            src={instaParkDigitises} 
-            alt="InstaParkAI Digitises & Optimises Parking Spaces" 
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              zIndex: 1
-            }}
-          />
-          
-          {/* Overlay for better readability */}
-          <div style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: "rgba(0, 0, 0, 0.1)",
-            zIndex: 2
-          }}></div>
-
-          {/* Steps Grid Overlay */}
-          <div style={{ 
-            position: "relative",
-            zIndex: 3,
-            maxWidth: "1200px", 
-            margin: "0 auto",
-            padding: isMobile ? "40px 20px 0" : "60px 20px 0"
-          }}>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
-                gap: isMobile ? "20px" : "24px"
-              }}
-            >
-              {[
-                { 
-                  number: "1",
-                  title: "Smart Parking Management System (PMS)"
-                },
-                {
-                  number: "2",
-                  title: "Valet operations with trained drivers"
-                },
-                {
-                  number: "3",
-                  title: "Custom valet app & admin dashboard"
-                },
-                {
-                  number: "4",
-                  title: "Real-time tracking & analytics"
-                },
-                {
-                  number: "5",
-                  title: "Revenue monitoring"
-                },
-                {
-                  number: "6",
-                  title: "Trained on-ground manpower"
-                }
-              ].map((step, index) => (
-                <div
-                  key={index}
-                  style={{
-                    background: "rgba(255, 255, 255, 0.3)",
-                    borderRadius: "12px",
-                    padding: isMobile ? "32px 24px" : "40px 32px",
-                    textAlign: "center",
-                    border: "1px solid rgba(255, 255, 255, 0.5)",
-                    transition: "all 0.2s ease",
-                    backdropFilter: "blur(10px)"
-                  }}
-                >
-                <div style={{
-                    width: "56px",
-                    height: "56px",
-                    background: "linear-gradient(135deg, #057eff, #6bb6ff)",
-                    borderRadius: "12px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                    color: "white",
-                    fontWeight: "bold",
-                    fontSize: "1.5rem",
-                    margin: "0 auto 16px"
-                  }}>
-                    {step.number}
-                </div>
-                <h3 style={{
-                    color: "#057eff", 
-                    fontWeight: 600, 
-                  marginBottom: "12px",
-                    fontSize: isMobile ? "1.125rem" : "1.25rem",
-                    lineHeight: "1.4",
-                    textShadow: "0 1px 2px rgba(255, 255, 255, 0.8)"
-                }}>
-                    {step.title}
-                </h3>
-              </div>
-            ))}
-            </div>
-          </div>
-        </div>
-      </section>
+     
 
       {/* ================= CORE VALUE PROPOSITION ================= */}
       <section 
         ref={(el) => { sectionsRef.current[5] = el as HTMLDivElement | null; }}
-        style={{
+                    style={{
           background: "linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%)",
           padding: isMobile ? "60px 0" : "100px 0",
           opacity: 0,
@@ -827,7 +770,7 @@ const About: React.FC = () => {
         }}
         data-visible="false"
       >
-        <div style={{ 
+                  <div style={{
           maxWidth: "1200px", 
           margin: "0 auto",
           padding: isMobile ? "0 20px" : "0 20px"
@@ -849,7 +792,7 @@ const About: React.FC = () => {
               <span style={{
                 color: "#057eff",
                 fontSize: isMobile ? "0.875rem" : "0.95rem",
-                fontWeight: "600",
+                  fontWeight: "600",
                 letterSpacing: "0.5px"
               }}>
                 VALUE PROPOSITION
@@ -871,14 +814,14 @@ const About: React.FC = () => {
               maxWidth: "900px",
               margin: "0 auto",
               lineHeight: "1.7"
-            }}>
+                }}>
               Why parking owners choose InstaParkAI:
-            </p>
-          </div>
-        </div>
-
+                </p>
+              </div>
+            </div>
+            
         {/* Full-width Image */}
-        <div style={{
+            <div style={{
           width: "100%",
           margin: "0 auto 60px",
           overflow: "hidden"
@@ -947,7 +890,7 @@ const About: React.FC = () => {
                   {item.icon}
                 </div>
                 <div style={{
-                  color: "#1f2937",
+                color: "#1f2937",
                   fontSize: isMobile ? "1rem" : "1.0625rem",
                   fontWeight: 600,
                   lineHeight: "1.5"
@@ -1006,22 +949,220 @@ const About: React.FC = () => {
               fontSize: isMobile ? "2rem" : "3rem",
               fontWeight: "800",
               color: "#111827",
-              marginBottom: "24px",
+                marginBottom: "24px",
               lineHeight: "1.2",
               letterSpacing: "-1px"
             }}>
               Our Long-Term Vision
-          </h2>
-          <p style={{
+              </h2>
+              <p style={{
               fontSize: isMobile ? "1.25rem" : "1.5rem",
               color: "#4b5563",
               maxWidth: "900px",
               margin: "0 auto",
-              lineHeight: "1.7",
+                lineHeight: "1.7",
               fontWeight: "500"
             }}>
               Beyond parking, we are creating smart urban ecosystems that optimize every square foot of city space.
             </p>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <section
+        ref={(el) => { sectionsRef.current[4] = el as HTMLDivElement | null; }}
+        style={{
+          background: "#fafbfc",
+          padding: isMobile ? "50px 0 0" : "70px 0 0",
+          position: "relative",
+          opacity: 0,
+          transform: "translateY(30px)",
+          transition: "opacity 0.6s ease, transform 0.6s ease"
+        }}
+        data-visible="false"
+      >
+        {/* Header Section */}
+        <div style={{ 
+          maxWidth: "1200px", 
+          margin: "0 auto",
+          textAlign: "center",
+          padding: isMobile ? "0 20px 30px" : "0 20px 40px"
+        }}>
+          {/* Tag/Label - Improved Contrast */}
+          <div style={{
+            display: "inline-block",
+            padding: "10px 28px",
+            background: "rgba(5, 126, 255, 0.12)",
+            borderRadius: "8px",
+            marginBottom: "24px",
+            border: "1px solid rgba(5, 126, 255, 0.2)"
+          }}>
+            <span style={{
+              fontSize: "0.95rem",
+              fontWeight: 700,
+              color: "#057eff",
+              letterSpacing: "0.8px",
+              textTransform: "uppercase"
+            }}>
+              What We Do
+            </span>
+          </div>
+
+          {/* Main Heading - Improved Visibility */}
+          <h2 style={{
+            fontSize: isMobile ? "2.75rem" : "3.75rem",
+            fontWeight: 800,
+            color: "#000000",
+            marginBottom: "28px",
+            lineHeight: "1.1",
+            letterSpacing: "-1.2px",
+            textShadow: "0 1px 2px rgba(0, 0, 0, 0.1)"
+          }}>
+            InstaParkAI Digitizes & Optimizes Parking Spaces
+          </h2>
+
+          {/* Subtitle - Improved Contrast */}
+          <p style={{
+            fontSize: isMobile ? "1.25rem" : "1.375rem",
+            color: "#1f2937",
+            maxWidth: "750px",
+            margin: "0 auto",
+            lineHeight: "1.7",
+            fontWeight: "500"
+          }}>
+            Simple steps to transform your parking experience
+          </p>
+        </div>
+
+        {/* Image with Cards Overlay */}
+        <div style={{
+          position: "relative",
+          width: "100%",
+          minHeight: isMobile ? "600px" : "800px",
+          marginBottom: "0"
+        }}>
+          {/* Background Image - Darker Overlay */}
+          <img
+            src={instaParkDigitises}
+            alt="InstaParkAI Digitizes & Optimizes Parking Spaces"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              zIndex: 1
+            }}
+          />
+
+          {/* DARKER Overlay for MUCH better text readability */}
+          <div style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4))",
+            zIndex: 2
+          }}></div>
+
+          {/* Steps Grid Overlay */}
+          <div style={{
+            position: "relative",
+            zIndex: 3,
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: isMobile ? "50px 20px 0" : "80px 20px 0"
+          }}>
+          <div style={{
+            display: "grid",
+              gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+            gap: isMobile ? "24px" : "32px"
+          }}>
+            {[
+              {
+                  number: "1",
+                  title: "Smart Parking Management System (PMS)"
+                },
+                {
+                  number: "2",
+                  title: "Valet operations with trained drivers"
+                },
+                {
+                  number: "3",
+                  title: "Custom valet app & admin dashboard"
+                },
+                {
+                  number: "4",
+                  title: "Real-time tracking & analytics"
+                },
+                {
+                  number: "5",
+                  title: "Revenue monitoring"
+                },
+                {
+                  number: "6",
+                  title: "Trained on-ground manpower"
+                }
+              ].map((step, index) => (
+                <div
+                  key={index}
+                  style={{
+                    background: "rgba(255, 255, 255, 0.95)",
+                borderRadius: "20px",
+                    padding: isMobile ? "40px 32px" : "56px 40px",
+                    textAlign: "center",
+                    border: "3px solid #057eff",
+                transition: "all 0.3s ease",
+                    boxShadow: "0 16px 48px rgba(0, 0, 0, 0.3)",
+                    backdropFilter: "blur(5px)"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-8px)";
+                    e.currentTarget.style.boxShadow = "0 24px 60px rgba(5, 126, 255, 0.4)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "0 16px 48px rgba(0, 0, 0, 0.3)";
+                  }}
+                >
+                  {/* Step Number Circle - More Visible */}
+                <div style={{
+                    width: "72px",
+                    height: "72px",
+                    background: "linear-gradient(135deg, #057eff, #0056cc)",
+                  borderRadius: "20px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                    color: "white",
+                    fontWeight: "bold",
+                    fontSize: "2rem",
+                  margin: "0 auto 24px",
+                    boxShadow: "0 8px 24px rgba(5, 126, 255, 0.8)",
+                    border: "3px solid white"
+                }}>
+                    {step.number}
+                </div>
+                  
+                  {/* Step Title - Black Text for Maximum Contrast */}
+                <h3 style={{
+                    color: "#000000",
+                    fontWeight: 800,
+                    marginBottom: "0",
+                    fontSize: isMobile ? "1.375rem" : "1.625rem",
+                    lineHeight: "1.4",
+                    letterSpacing: "-0.3px"
+                  }}>
+                    {step.title}
+                </h3>
+              </div>
+            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -1031,7 +1172,7 @@ const About: React.FC = () => {
         ref={(el) => { sectionsRef.current[7] = el as HTMLDivElement | null; }}
         style={{
           background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)",
-          padding: isMobile ? "60px 20px" : "100px 20px",
+        padding: isMobile ? "60px 20px" : "100px 20px",
           opacity: 0,
           transform: "translateY(30px)",
           transition: "opacity 0.6s ease, transform 0.6s ease"
@@ -1041,8 +1182,8 @@ const About: React.FC = () => {
           <div style={{
           maxWidth: "1400px", 
           margin: "0 auto"
-        }}>
-          <div style={{
+      }}>
+        <div style={{ 
             textAlign: "center",
             marginBottom: isMobile ? "50px" : "70px"
               }}>
@@ -1065,7 +1206,7 @@ const About: React.FC = () => {
                 OUR IMPLEMENTATIONS
               </span>
             </div>
-            <h2 style={{
+          <h2 style={{
               fontSize: isMobile ? "2rem" : "3rem",
               fontWeight: "800",
               color: "#111827",
@@ -1074,16 +1215,16 @@ const About: React.FC = () => {
               letterSpacing: "-1px"
             }}>
               Some of our Implementation
-            </h2>
-                <p style={{
+          </h2>
+          <p style={{
               fontSize: isMobile ? "1.125rem" : "1.25rem",
               color: "#6b7280",
-              maxWidth: "700px",
+            maxWidth: "700px",
               margin: "0 auto",
               lineHeight: "1.7"
-            }}>
+          }}>
               Real-world deployments showcasing our AI-powered parking solutions
-            </p>
+          </p>
           </div>
 
           <div style={{

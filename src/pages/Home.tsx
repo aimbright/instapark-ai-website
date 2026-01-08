@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import SEO from "../components/SEO";
-import topOfHeroSection from "../assets/top_of_herosection.png";
-import heroBackground from "../assets/some_wr_mid_scrresn_fullwidth.jpg";
 import userJourney from "../assets/user joureny.png";
 import instaParkLogo from "../assets/InstaParkAI plain BG logo.png";
 import problemToday1 from "../assets/The Problem Today1.png";
@@ -891,30 +889,33 @@ const Home: React.FC = () => {
               <div
                 key={index}
                 style={{
-                    background: "rgba(255, 255, 255, 0.3)",
-                    borderRadius: "12px",
-                    padding: isMobile ? "32px 24px" : "40px 32px",
+                    background: "rgba(0, 0, 0, 0.75)",
+                  borderRadius: "16px",
+                    padding: isMobile ? "36px 28px" : "44px 36px",
                   textAlign: "center",
-                    border: "1px solid rgba(255, 255, 255, 0.5)",
-                    transition: "all 0.2s ease"
+                    border: "2px solid rgba(5, 126, 255, 0.5)",
+                    transition: "all 0.3s ease",
+                    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
+                    backdropFilter: "blur(10px)"
                 }}
               >
                 <h3 style={{ 
-                    color: "#057eff", 
-                  fontWeight: 600, 
+                    color: "#ffffff", 
+                  fontWeight: 700, 
                   marginBottom: "12px",
-                    fontSize: isMobile ? "1.125rem" : "1.25rem",
+                    fontSize: isMobile ? "1.25rem" : "1.375rem",
                     lineHeight: "1.4",
-                    textShadow: "0 1px 2px rgba(255, 255, 255, 0.8)"
+                    textShadow: "0 2px 8px rgba(0, 0, 0, 0.5)"
                 }}>
                     {step.title}
                 </h3>
                 <p style={{ 
-                    color: "#000000", 
+                    color: "#e5e7eb", 
                   lineHeight: "1.6",
                     margin: 0,
-                    fontSize: isMobile ? "0.9375rem" : "1rem",
-                    textShadow: "0 1px 2px rgba(255, 255, 255, 0.8)"
+                    fontSize: isMobile ? "1rem" : "1.125rem",
+                    textShadow: "0 2px 6px rgba(0, 0, 0, 0.5)",
+                    fontWeight: "400"
                 }}>
                     {step.desc}
                 </p>
