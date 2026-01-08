@@ -1,0 +1,370 @@
+/* Axio-style floating navbar with slight transparency */
+.navbar-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Scrolled state - more opaque white */
+.navbar-container.scrolled {
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  top: 10px;
+}
+
+/* Axio-style navbar inner flex */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #a4d030;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.ai-text {
+  color: #a4d030;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #4a5568; /* Dark gray for links on white background */
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 6px;
+  position: relative;
+}
+
+.nav-links li a:hover {
+  color: #a4d030;
+  background: rgba(37, 211, 102, 0.1);
+}
+
+/* Active/Selected tab styling */
+.nav-links li a.active {
+  color: #a4d030;
+  background: rgba(37, 211, 102, 0.15);
+  font-weight: 600;
+  font-size: 1rem;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+}
+
+/* Axio-style contact button */
+.contact-btn {
+  padding: 10px 20px;
+  background-color: #a4d030;
+  color: #ffffff !important;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.contact-btn:hover {
+  background-color: #1fb85a;
+  transform: translateY(-1px);
+}
+
+/* Contact Options Dropdown */
+.contact-options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  margin-top: 8px;
+  min-width: 180px;
+  z-index: 1000;
+  animation: slideDown 0.3s ease;
+}
+
+.contact-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.contact-option:hover {
+  background-color: #f3f4f6;
+}
+
+.contact-option.whatsapp {
+  color: #a4d030;
+}
+
+.contact-option.call {
+  color: #3B82F6;
+}
+
+.contact-option i {
+  font-size: 1.1rem;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dropdown styles */
+.services-dropdown-container {
+  position: relative;
+}
+
+.services-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  margin-top: 8px;
+  min-width: 220px;
+  z-index: 1000;
+  animation: slideDown 0.3s ease;
+}
+
+.dropdown-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.dropdown-item:hover {
+  background-color: #f3f4f6;
+  color: #a4d030;
+}
+
+/* Mobile menu item */
+.mobile-menu-item {
+  display: none;
+}
+
+.mobile-arrow {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.mobile-dropdown {
+  background: rgba(0, 0, 0, 0.2);
+  padding-left: 20px;
+}
+
+.mobile-dropdown .dropdown-item {
+  color: #e2e8f0;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-dropdown .dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #a4d030;
+}
+
+/* Mobile responsive */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #4a5568; /* Dark gray for white navbar */
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    width: calc(100% - 20px);
+    top: 15px;
+  }
+
+  .navbar {
+    padding: 14px 24px;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #1a202c;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 80px 0 0 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    width: 100%;
+    padding: 0;
+  }
+
+  .nav-links li > a:not(.mobile-menu-item a) {
+    display: none;
+  }
+
+  .mobile-menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 30px;
+    color: #e2e8f0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-bottom: 1px solid #374151;
+    cursor: pointer;
+  }
+
+  .mobile-menu-item a {
+    flex: 1;
+    color: #e2e8f0;
+    text-decoration: none;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 20px 30px;
+    color: #e2e8f0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-bottom: 1px solid #374151;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links li a:hover {
+    background-color: #374151;
+    color: #a4d030;
+  }
+
+  .nav-links li a.active {
+    background-color: #a4d030 !important; /* Highlight for active tab */
+    color: #ffffff !important;
+    border-radius: 0 20px 20px 0;
+    margin-right: 20px;
+    font-weight: 600;
+    transform: scale(1.05);
+  }
+
+  .contact-btn {
+    background-color: #a4d030 !important;
+    color: #fff !important;
+    margin: 20px 30px;
+    padding: 15px 25px !important;
+    border-radius: 25px;
+    text-align: center;
+    display: block;
+    width: calc(100% - 60px);
+  }
+
+  .contact-options {
+    position: static;
+    background: #374151;
+    border-radius: 12px;
+    margin: 10px 30px;
+    padding: 15px;
+    box-shadow: none;
+    animation: none;
+  }
+
+  .contact-option {
+    color: #e2e8f0 !important;
+    padding: 15px 20px;
+    margin: 5px 0;
+    background: #4a5568;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .contact-option:hover {
+    background: #5a6578;
+  }
+
+  .contact-option.whatsapp {
+    color: #a4d030 !important;
+  }
+
+  .contact-option.call {
+    color: #3B82F6 !important;
+  }
+
+  .hamburger {
+    display: block;
+    position: relative;
+    z-index: 1001;
+  }
+
+  /* Mobile menu overlay */
+  .nav-links.active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+}
