@@ -39,6 +39,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Hide scrollbar for navigation menu */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* ==================== GLOBAL ANIMATIONS ==================== */
 
 /* Smooth fade-in animation */

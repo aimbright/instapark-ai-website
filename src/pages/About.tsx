@@ -224,6 +224,7 @@ const About: React.FC = () => {
 
       {/* ================= VISION SECTION ================= */}
       <section 
+        id="our-vision"
         ref={(el) => { sectionsRef.current[0] = el as HTMLDivElement | null; }}
         style={{
           background: "linear-gradient(135deg, #f0f4f8 0%, #ffffff 50%, #f8fafc 100%)",
@@ -395,6 +396,7 @@ const About: React.FC = () => {
 
       {/* ================= MISSION SECTION ================= */}
       <section 
+        id="our-mission"
         ref={(el) => { sectionsRef.current[1] = el as HTMLDivElement | null; }}
         style={{
         background: "white",
@@ -541,6 +543,7 @@ const About: React.FC = () => {
 
       {/* ================= THE PROBLEM WE SOLVE ================= */}
       <section 
+        id="problem-we-solve"
         ref={(el) => { sectionsRef.current[2] = el as HTMLDivElement | null; }}
         style={{
           background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)",
@@ -640,6 +643,7 @@ const About: React.FC = () => {
 
       {/* ================= MARKET OPPORTUNITY ================= */}
       <section 
+        id="market-opportunity"
         ref={(el) => { sectionsRef.current[3] = el as HTMLDivElement | null; }}
         style={{
           background: "linear-gradient(135deg, #057eff 0%, #6bb6ff 100%)",
@@ -760,6 +764,7 @@ const About: React.FC = () => {
 
       {/* ================= CORE VALUE PROPOSITION ================= */}
       <section 
+        id="value-proposition"
         ref={(el) => { sectionsRef.current[5] = el as HTMLDivElement | null; }}
                     style={{
           background: "linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%)",
@@ -973,6 +978,7 @@ const About: React.FC = () => {
 
 
       <section
+        id="what-we-do"
         ref={(el) => { sectionsRef.current[4] = el as HTMLDivElement | null; }}
         style={{
           background: "#fafbfc",
@@ -1169,6 +1175,7 @@ const About: React.FC = () => {
 
       {/* ================= SOME OF OUR IMPLEMENTATION ================= */}
       <section 
+        id="our-implementations"
         ref={(el) => { sectionsRef.current[7] = el as HTMLDivElement | null; }}
         style={{
           background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)",

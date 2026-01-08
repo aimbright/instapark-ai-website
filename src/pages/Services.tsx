@@ -57,6 +57,7 @@ const Services: React.FC = () => {
 
   const services = [
     {
+      id: "smart-parking",
       icon: "🔍",
       title: "Smart Parking management",
       subtitle: "AI-powered detection with 95%+ accuracy.",
@@ -70,6 +71,7 @@ const Services: React.FC = () => {
       color: "linear-gradient(135deg, #057eff, #6bb6ff)"
     },
     {
+      id: "mobile-booking",
       icon: "📱",
       title: "Find Nearby Parking & Book Your Slot Easily",
       subtitle: "Discover available parking spaces near you and reserve your slot instantly using our app or website.",
@@ -82,6 +84,7 @@ const Services: React.FC = () => {
       color: "linear-gradient(135deg, #3B82F6, #1D4ED8)"
     },
     {
+      id: "access-control",
       icon: "🚧",
       title: "Intelligent Access Control",
       subtitle: "Automated vehicle entry & exit.",
@@ -95,6 +98,7 @@ const Services: React.FC = () => {
       color: "linear-gradient(135deg, #8B5CF6, #7C3AED)"
     },
     {
+      id: "analytics",
       icon: "📊",
       title: "Analytics & Revenue Dashboard",
       subtitle: "Complete control for owners & admins.",
@@ -109,6 +113,7 @@ const Services: React.FC = () => {
       color: "linear-gradient(135deg, #F59E0B, #D97706)"
     },
     {
+      id: "ev-charging",
       icon: "⚡",
       title: "EV Charging Integration",
       subtitle: "Make parking spaces EV-ready.",
@@ -121,6 +126,7 @@ const Services: React.FC = () => {
       color: "linear-gradient(135deg, #10b981, #059669)"
     },
     {
+      id: "valet",
       icon: "🅿️",
       title: "Valet Parking Operations",
       subtitle: "Tech-enabled valet services.",
@@ -133,6 +139,7 @@ const Services: React.FC = () => {
       color: "linear-gradient(135deg, #EF4444, #DC2626)"
     },
     {
+      id: "custom-integrations",
       icon: "⚙️",
       title: "Custom Integrations & White-Label",
       subtitle: "Built for enterprises & governments.",
@@ -145,6 +152,7 @@ const Services: React.FC = () => {
       color: "linear-gradient(135deg, #6366F1, #4F46E5)"
     },
     {
+      id: "safety-compliance",
       icon: "🛡️",
       title: "Safety & Compliance",
       subtitle: "Advanced safety features.",
@@ -157,6 +165,7 @@ const Services: React.FC = () => {
       color: "linear-gradient(135deg, #EC4899, #DB2777)"
     },
     {
+      id: "value-added",
       icon: "🛠️",
       title: "Value-Added Services",
       subtitle: "Additional services for enhanced experience.",
@@ -182,48 +191,42 @@ const Services: React.FC = () => {
         keywords="parking management services, smart parking detection, parking booking app, ANPR parking system, RFID parking, parking analytics dashboard, EV charging parking, valet parking services, parking API integration, white-label parking solution, parking management software, automated parking system, parking access control, parking revenue optimization, parking IoT solutions"
         ogImage="https://instaparkai.com/og-image-services.png"
       />
+      
       {/* ================= SERVICES HERO SECTION ================= */}
       <section style={{
-        background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)",
-        padding: isMobile ? "100px 20px 60px" : "120px 20px 80px",
+        background: "white",
+        padding: isMobile ? "100px 20px 60px" : "140px 20px 80px",
         textAlign: "center",
-        position: "relative",
-        overflow: "hidden"
+        position: "relative"
       }}>
         <div style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: "url('/src/assets/top_of_herosection.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          opacity: 0.15,
-          zIndex: 1
-        }}></div>
-
-        <div style={{
-          position: "relative",
-          zIndex: 2,
           maxWidth: "1200px",
           margin: "0 auto"
         }}>
           <h1 style={{
-            color: "white", 
-            fontSize: isMobile ? "2.5rem" : "3.5rem", 
-            fontWeight: "700", 
-            marginBottom: "20px",
-            lineHeight: "1.2"
+            color: "#111827", 
+            fontSize: isMobile ? "2.5rem" : "4rem", 
+            fontWeight: "800", 
+            marginBottom: "24px",
+            lineHeight: "1.1",
+            letterSpacing: "-1.5px"
           }}>
-            Comprehensive AI-Powered Parking Solutions
+            Comprehensive AI-Powered{" "}
+            <span style={{
+              background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text"
+            }}>Parking Solutions</span>
           </h1>
+          
           <p style={{
-            color: '#e2e8f0', 
-            fontSize: isMobile ? "1.1rem" : "1.3rem", 
+            color: '#4b5563', 
+            fontSize: isMobile ? "1.125rem" : "1.375rem",
             maxWidth: '800px', 
-            margin: '0 auto 30px',
-            lineHeight: "1.6"
+            margin: '0 auto',
+            lineHeight: "1.7",
+            fontWeight: "400"
           }}>
             InstaParkAI delivers end-to-end parking solutions—from technology to operations.
           </p>
@@ -275,15 +278,19 @@ const Services: React.FC = () => {
             gap: isMobile ? "24px" : "32px"
           }}>
             {services.map((service, index) => (
-              <div key={index} style={{
-                background: "white",
-                borderRadius: "20px",
-                padding: isMobile ? "30px 20px" : "40px 32px",
-                boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
-                border: "1px solid rgba(0, 0, 0, 0.05)",
-                transition: "all 0.3s ease",
-                textAlign: "center"
-              }}>
+              <div 
+                key={index}
+                id={service.id}
+                style={{
+                  background: "white",
+                  borderRadius: "20px",
+                  padding: isMobile ? "30px 20px" : "40px 32px",
+                  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
+                  border: "1px solid rgba(0, 0, 0, 0.05)",
+                  transition: "all 0.3s ease",
+                  textAlign: "center",
+                  scrollMarginTop: "120px"
+                }}>
                 <div style={{
                   width: "80px",
                   height: "80px",
@@ -347,7 +354,7 @@ const Services: React.FC = () => {
       </section>
 
       {/* ================= BEYOND PARKING SECTION ================= */}
-      <section style={{
+      <section id="beyond-parking" style={{
         position: "relative",
         padding: isMobile ? "80px 20px" : "120px 20px",
         overflow: "hidden"
@@ -425,21 +432,25 @@ const Services: React.FC = () => {
           }}>
             {[
               {
+                id: "instapark",
                 title: "InstaPark", 
                 desc: "Core parking platform",
                 number: "1"
               },
               {
+                id: "instacharge",
                 title: "InstaCharge", 
                 desc: "EV charging network",
                 number: "2"
               },
               { 
+                id: "instakitchen",
                 title: "InstaKitchen", 
                 desc: "Cloud kitchens at parking hubs",
                 number: "3"
               },
               { 
+                id: "instadarkstore",
                 title: "InstaDarkStore", 
                 desc: "Micro-logistics & storage",
                 number: "4"
@@ -447,6 +458,7 @@ const Services: React.FC = () => {
             ].map((item, index) => (
               <div
                 key={index}
+                id={item.id}
                 style={{
                   background: "rgba(255, 255, 255, 0.95)",
                   backdropFilter: "blur(10px)",
@@ -457,7 +469,8 @@ const Services: React.FC = () => {
                   display: "flex",
                   flexDirection: "column",
                   gap: "16px",
-                  transition: "all 0.3s ease"
+                  transition: "all 0.3s ease",
+                  scrollMarginTop: "120px"
                 }}
               >
                 <div style={{
@@ -505,7 +518,7 @@ const Services: React.FC = () => {
       </section>
 
       {/* ================= BUSINESS MODELS ================= */}
-      <section style={{
+      <section id="business-models" style={{
         background: "linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%)",
         padding: isMobile ? "60px 20px" : "100px 20px",
       }}>
@@ -578,13 +591,16 @@ const Services: React.FC = () => {
             gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
             gap: isMobile ? "24px" : "32px"
           }}>
-            <div style={{
-              background: "white",
-              borderRadius: "20px",
-              padding: isMobile ? "30px 20px" : "40px 32px",
-              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
-              border: "1px solid rgba(0, 0, 0, 0.05)"
-            }}>
+            <div 
+              id="saas-model"
+              style={{
+                background: "white",
+                borderRadius: "20px",
+                padding: isMobile ? "30px 20px" : "40px 32px",
+                boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
+                border: "1px solid rgba(0, 0, 0, 0.05)",
+                scrollMarginTop: "120px"
+              }}>
               <div style={{
                 fontSize: "2.5rem",
                 marginBottom: "16px"
@@ -609,13 +625,16 @@ const Services: React.FC = () => {
               </p>
             </div>
 
-            <div style={{
-              background: "white",
-              borderRadius: "20px",
-              padding: isMobile ? "30px 20px" : "40px 32px",
-              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
-              border: "1px solid rgba(0, 0, 0, 0.05)"
-            }}>
+            <div 
+              id="managed-model"
+              style={{
+                background: "white",
+                borderRadius: "20px",
+                padding: isMobile ? "30px 20px" : "40px 32px",
+                boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
+                border: "1px solid rgba(0, 0, 0, 0.05)",
+                scrollMarginTop: "120px"
+              }}>
               <div style={{
                 fontSize: "2.5rem",
                 marginBottom: "16px"
@@ -644,7 +663,7 @@ const Services: React.FC = () => {
       </section>
 
       {/* ================= WHO WE SERVE ================= */}
-      <section style={{
+      <section id="who-we-serve" style={{
         background: "white",
         padding: isMobile ? "60px 20px" : "100px 20px",
       }}>
@@ -704,7 +723,7 @@ const Services: React.FC = () => {
       </section>
 
       {/* ================= CTA SECTION ================= */}
-      <section style={{
+      <section id="cta" style={{
         background: "linear-gradient(135deg, #1f2937 0%, #374151 100%)",
         color: "white",
         padding: isMobile ? "60px 20px" : "80px 20px",
