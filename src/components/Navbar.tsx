@@ -9,9 +9,12 @@ interface NavbarProps {
 
 // Services sub-sections
 const servicesSubsections = [
-  { id: 'services-grid', label: 'Parking Solutions' },
-  { id: 'business-models', label: 'Business Models' },
-  { id: 'who-we-serve', label: 'Who We Serve' }
+  { id: 'end-to-end-operations', label: 'End-to-End Parking Operations' },
+  { id: 'ai-parking-management', label: 'AI-Powered Parking Management' },
+  { id: 'parking-discovery', label: 'Parking Discovery & Booking' },
+  { id: 'amc-support', label: 'AMC & Support Services' },
+  { id: 'business-models', label: 'Flexible Business Models' },
+  { id: 'who-we-serve', label: 'Industry' }
 ];
 
 // About sub-sections
@@ -66,6 +69,21 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
     setShowServicesDropdown(false);
     setMobileServicesOpen(false);
     
+    // Service IDs that should open dialogs
+    const serviceDialogIds = ['end-to-end-operations', 'ai-parking-management', 'parking-discovery', 'amc-support'];
+    const serviceDialogIndices: { [key: string]: number } = {
+      'end-to-end-operations': 0,
+      'ai-parking-management': 1,
+      'parking-discovery': 2,
+      'amc-support': 3
+    };
+    
+    // If it's a service that should open a dialog, navigate with query parameter
+    if (serviceDialogIds.includes(sectionId)) {
+      navigate(`/services?dialog=${serviceDialogIndices[sectionId]}`);
+      return;
+    }
+    
     // Navigate to services page first if not already there
     if (location.pathname !== '/services') {
       navigate('/services');
@@ -81,7 +99,7 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
             behavior: 'smooth'
           });
         }
-      }, 100);
+      }, 300);
     } else {
       // Already on services page, just scroll
       const element = document.getElementById(sectionId);

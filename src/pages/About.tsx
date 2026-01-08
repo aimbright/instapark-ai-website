@@ -149,12 +149,93 @@ const About: React.FC = () => {
         background: "white",
         padding: isMobile ? "100px 20px 60px" : "140px 20px 80px",
         textAlign: "center",
-        position: "relative"
+        position: "relative",
+        overflow: "hidden"
       }}>
+        {/* Background Icons - 3 Key Points */}
+        <div style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "100%",
+          maxWidth: "1400px",
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+          zIndex: 0,
+          opacity: 0.08,
+          pointerEvents: "none"
+        }}>
+          {[
+            { icon: "🚀", size: isMobile ? "120px" : "200px" },
+            { icon: "💰", size: isMobile ? "120px" : "200px" },
+            { icon: "✨", size: isMobile ? "120px" : "200px" }
+          ].map((item, index) => (
+            <div 
+              key={index}
+              style={{
+                fontSize: item.size,
+                filter: "blur(2px)",
+                transform: `rotate(${index * 15 - 15}deg)`
+              }}
+            >
+              {item.icon}
+            </div>
+          ))}
+        </div>
+
+        {/* Reinventing Urban Parking Image - Background */}
+        <div style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+          opacity: 0.18,
+          pointerEvents: "none",
+          overflow: "hidden"
+        }}>
+          <img 
+            src={reinventingUrban} 
+            alt="Reinventing Urban Parking in India Background"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center",
+              filter: "blur(2px)"
+            }}
+          />
+        </div>
+
         <div style={{
           maxWidth: "1200px",
-          margin: "0 auto"
+          margin: "0 auto",
+          position: "relative",
+          zIndex: 1
         }}>
+          {/* Logo */}
+          <div style={{
+            marginBottom: "40px"
+          }}>
+            <img 
+              src={instaParkLogo} 
+              alt="InstaParkAI Logo"
+              style={{
+                height: isMobile ? "150px" : "250px",
+                width: "auto",
+                maxWidth: "90%",
+                objectFit: "contain",
+                display: "block",
+                margin: "0 auto"
+              }}
+            />
+          </div>
+
           <h1 style={{
             color: "#111827", 
             fontSize: isMobile ? "2.5rem" : "4rem", 
@@ -201,24 +282,6 @@ const About: React.FC = () => {
           }}>
             India's rapid urbanization has created massive parking challenges. Despite high demand, most parking spaces remain manual, under-monetized, and poorly managed. InstaParkAI exists to fix this gap.
           </p>
-          
-          <div style={{ 
-            maxWidth: "1000px",
-            margin: "0 auto",
-            borderRadius: "24px",
-            overflow: "hidden",
-            boxShadow: "0 20px 60px rgba(0, 0, 0, 0.12)"
-          }}>
-            <img 
-              src={reinventingUrban} 
-              alt="Reinventing Urban Parking in India" 
-              style={{
-                width: "100%",
-                height: "auto",
-                display: "block"
-              }}
-            />
-          </div>
         </div>
       </section>
 
@@ -273,6 +336,33 @@ const About: React.FC = () => {
               filter: "blur(40px)"
         }}></div>
 
+        {/* Logo Background */}
+        <div style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 0,
+          opacity: 0.15,
+          pointerEvents: "none",
+          width: "100%",
+          height: "100%"
+        }}>
+          <img 
+            src={instaParkLogo} 
+            alt="InstaParkAI Logo Background"
+            style={{
+              width: isMobile ? "300px" : "500px",
+              height: "auto",
+              objectFit: "contain",
+              filter: "blur(2px)"
+            }}
+          />
+        </div>
+
         <div style={{
           position: "relative",
               zIndex: 1,
@@ -281,36 +371,6 @@ const About: React.FC = () => {
               alignItems: "center",
               textAlign: "center"
             }}>
-              {/* Logo Section - Top Center with enhanced styling */}
-          <div style={{ 
-            display: "flex",
-            justifyContent: "center",
-                alignItems: "center",
-                marginBottom: isMobile ? "45px" : "60px",
-                padding: isMobile ? "20px" : "30px",
-                background: "linear-gradient(135deg, rgba(5, 126, 255, 0.03), rgba(107, 182, 255, 0.03))",
-                borderRadius: "24px",
-                border: "1px solid rgba(5, 126, 255, 0.1)"
-          }}>
-            <img 
-                  src={instaParkLogo} 
-                  alt="InstaParkAI Logo"
-              style={{
-                    width: isMobile ? "220px" : "360px",
-                    height: "auto",
-                    objectFit: "contain",
-                    filter: "drop-shadow(0 12px 32px rgba(5, 126, 255, 0.2))",
-                    transition: "transform 0.3s ease"
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "scale(1.05)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "scale(1)";
-                  }}
-                />
-              </div>
-
               {/* Content Section */}
             <div style={{
                 maxWidth: "1100px",
@@ -399,8 +459,8 @@ const About: React.FC = () => {
         id="our-mission"
         ref={(el) => { sectionsRef.current[1] = el as HTMLDivElement | null; }}
         style={{
-        background: "white",
-        padding: isMobile ? "40px 20px" : "60px 20px",
+          background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f0f9ff 100%)",
+          padding: isMobile ? "80px 20px" : "120px 20px",
           opacity: 0,
           transform: "translateY(30px)",
           transition: "opacity 0.6s ease, transform 0.6s ease",
@@ -409,7 +469,31 @@ const About: React.FC = () => {
         }}
         data-visible="false"
       >
-        {/* Aimboard Image - Center Background (Clear and Visible) */}
+        {/* Decorative Background Elements */}
+        <div style={{
+          position: "absolute",
+          top: "-150px",
+          left: "-150px",
+          width: "500px",
+          height: "500px",
+          background: "linear-gradient(135deg, rgba(5, 126, 255, 0.06), rgba(107, 182, 255, 0.06))",
+          borderRadius: "50%",
+          filter: "blur(60px)",
+          zIndex: 0
+        }}></div>
+        <div style={{
+          position: "absolute",
+          bottom: "-100px",
+          right: "-100px",
+          width: "400px",
+          height: "400px",
+          background: "linear-gradient(135deg, rgba(5, 126, 255, 0.05), rgba(107, 182, 255, 0.05))",
+          borderRadius: "50%",
+          filter: "blur(60px)",
+          zIndex: 0
+        }}></div>
+
+        {/* Aimboard Image - Background */}
         <div style={{
           position: "absolute",
           top: "50%",
@@ -419,7 +503,7 @@ const About: React.FC = () => {
           alignItems: "center",
           justifyContent: "center",
           zIndex: 0,
-          opacity: 0.65,
+          opacity: 0.18,
           pointerEvents: "none",
           width: "100%",
           height: "100%",
@@ -428,72 +512,80 @@ const About: React.FC = () => {
         }}>
           <img 
             src={aimboardImage} 
-            alt="Aimboard"
+            alt="Aimboard Technology Background"
             style={{
               width: "100%",
               height: "100%",
-              maxWidth: isMobile ? "100%" : "1200px",
+              maxWidth: isMobile ? "100%" : "1400px",
               maxHeight: "100%",
               objectFit: "contain",
-              objectPosition: "center"
+              objectPosition: "center",
+              filter: "blur(2px)"
             }}
           />
         </div>
 
         <div style={{ 
-          maxWidth: "1200px", 
+          maxWidth: "1400px", 
           margin: "0 auto",
           position: "relative",
           zIndex: 1
         }}>
+          {/* Header Section */}
           <div style={{
             textAlign: "center",
-            marginBottom: isMobile ? "40px" : "60px"
+            marginBottom: isMobile ? "50px" : "70px"
           }}>
             <div style={{
               display: "inline-flex",
               alignItems: "center",
-              justifyContent: "center",
-              background: "linear-gradient(135deg, rgba(5, 126, 255, 0.1), rgba(107, 182, 255, 0.1))",
-              padding: "8px 20px",
+              gap: "10px",
+              background: "linear-gradient(135deg, rgba(5, 126, 255, 0.12), rgba(107, 182, 255, 0.12))",
+              padding: "12px 28px",
               borderRadius: "50px",
-              marginBottom: "24px"
+              marginBottom: "28px",
+              border: "2px solid rgba(5, 126, 255, 0.2)",
+              boxShadow: "0 4px 20px rgba(5, 126, 255, 0.1)"
             }}>
+              <span style={{ fontSize: "1.75rem" }}>🎯</span>
               <span style={{
                 color: "#057eff",
-                fontSize: isMobile ? "0.875rem" : "0.95rem",
-                fontWeight: "600",
-                letterSpacing: "0.5px"
+                fontSize: isMobile ? "0.9rem" : "1rem",
+                fontWeight: "700",
+                letterSpacing: "1px",
+                textTransform: "uppercase"
               }}>
                 OUR MISSION
               </span>
             </div>
-              <h2 style={{
-              fontSize: isMobile ? "2rem" : "3rem",
-              fontWeight: "800",
+            <h2 style={{
+              fontSize: isMobile ? "2.5rem" : "3.5rem",
+              fontWeight: "900",
               color: "#111827",
-                marginBottom: "24px",
-              lineHeight: "1.2",
-              letterSpacing: "-1px"
+              marginBottom: "24px",
+              lineHeight: "1.1",
+              letterSpacing: "-2px"
             }}>
               Enable seamless, automated parking operations
-              </h2>
-          <p style={{
-              fontSize: isMobile ? "1.125rem" : "1.25rem",
-                color: "#6b7280",
+            </h2>
+            <p style={{
+              fontSize: isMobile ? "1.125rem" : "1.375rem",
+              color: "#6b7280",
               maxWidth: "900px",
               margin: "0 auto",
-                lineHeight: "1.7"
-              }}>
+              lineHeight: "1.7",
+              fontWeight: "500"
+            }}>
               Using AI, IoT, and cloud technologies to deliver measurable value to:
-              </p>
-            </div>
-          
+            </p>
+          </div>
+
+          {/* Mission Points Grid - Enhanced */}
           <div style={{
             display: "grid",
             gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
-            gap: isMobile ? "20px" : "24px",
-            maxWidth: "1000px",
+            gap: isMobile ? "24px" : "32px",
+            maxWidth: "1100px",
             margin: "0 auto"
           }}>
             {[
@@ -502,36 +594,69 @@ const About: React.FC = () => {
               "Parking operators",
               "Cities & municipalities"
             ].map((item, index) => (
-              <div key={index} style={{
-                background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
-                padding: isMobile ? "24px 20px" : "32px 28px",
-                borderRadius: "16px",
-                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.06)",
-                border: "1px solid rgba(5, 126, 255, 0.1)",
-                display: "flex",
-                alignItems: "center",
-                gap: "16px",
-                transition: "all 0.3s ease"
-              }}>
+              <div 
+                key={index} 
+                style={{
+                  background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
+                  padding: isMobile ? "32px 24px" : "40px 32px",
+                  borderRadius: "24px",
+                  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08), 0 4px 15px rgba(5, 126, 255, 0.05)",
+                  border: "2px solid rgba(5, 126, 255, 0.15)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "20px",
+                  transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                  position: "relative",
+                  overflow: "hidden"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-6px) scale(1.02)";
+                  e.currentTarget.style.boxShadow = "0 16px 50px rgba(5, 126, 255, 0.2), 0 8px 25px rgba(5, 126, 255, 0.15)";
+                  e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.3)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0) scale(1)";
+                  e.currentTarget.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.08), 0 4px 15px rgba(5, 126, 255, 0.05)";
+                  e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.15)";
+                }}
+              >
+                {/* Decorative background circle */}
                 <div style={{
-                  width: "40px",
-                  height: "40px",
+                  position: "absolute",
+                  top: "-20px",
+                  right: "-20px",
+                  width: "80px",
+                  height: "80px",
+                  background: "linear-gradient(135deg, rgba(5, 126, 255, 0.08), rgba(107, 182, 255, 0.08))",
+                  borderRadius: "50%",
+                  zIndex: 0
+                }}></div>
+                
+                <div style={{
+                  width: "56px",
+                  height: "56px",
                   background: "linear-gradient(135deg, #057eff, #6bb6ff)",
-                  borderRadius: "10px",
+                  borderRadius: "16px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   color: "white",
                   fontWeight: "bold",
-                  fontSize: "1.2rem",
-                  flexShrink: 0
+                  fontSize: "1.5rem",
+                  flexShrink: 0,
+                  boxShadow: "0 8px 20px rgba(5, 126, 255, 0.3)",
+                  position: "relative",
+                  zIndex: 1
                 }}>
                   ✓
                 </div>
                 <span style={{ 
-                  color: "#1f2937",
-                  fontSize: isMobile ? "1rem" : "1.125rem",
-                  fontWeight: "500"
+                  color: "#111827",
+                  fontSize: isMobile ? "1.125rem" : "1.25rem",
+                  fontWeight: "600",
+                  lineHeight: "1.4",
+                  position: "relative",
+                  zIndex: 1
                 }}>
                   {item}
                 </span>
@@ -766,144 +891,211 @@ const About: React.FC = () => {
       <section 
         id="value-proposition"
         ref={(el) => { sectionsRef.current[5] = el as HTMLDivElement | null; }}
-                    style={{
-          background: "linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%)",
-          padding: isMobile ? "60px 0" : "100px 0",
+        style={{
+          background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f0f9ff 100%)",
+          padding: isMobile ? "80px 20px" : "120px 20px",
           opacity: 0,
           transform: "translateY(30px)",
-          transition: "opacity 0.6s ease, transform 0.6s ease"
+          transition: "opacity 0.6s ease, transform 0.6s ease",
+          position: "relative",
+          overflow: "hidden"
         }}
         data-visible="false"
       >
-                  <div style={{
-          maxWidth: "1200px", 
-          margin: "0 auto",
-          padding: isMobile ? "0 20px" : "0 20px"
-        }}>
-          <div style={{
-            textAlign: "center",
-            marginBottom: isMobile ? "40px" : "60px"
-          }}>
-            <div style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "linear-gradient(135deg, rgba(5, 126, 255, 0.1), rgba(107, 182, 255, 0.1))",
-              padding: "8px 20px",
-              borderRadius: "50px",
-              marginBottom: "24px"
-            }}>
-              <span style={{ fontSize: "1.5rem" }}>💎</span>
-              <span style={{
-                color: "#057eff",
-                fontSize: isMobile ? "0.875rem" : "0.95rem",
-                  fontWeight: "600",
-                letterSpacing: "0.5px"
-              }}>
-                VALUE PROPOSITION
-              </span>
-            </div>
-          <h2 style={{
-              fontSize: isMobile ? "2rem" : "3rem",
-              fontWeight: "800",
-              color: "#111827",
-              marginBottom: "24px",
-              lineHeight: "1.2",
-              letterSpacing: "-1px"
-            }}>
-              Our Core Value Proposition
-          </h2>
-                <p style={{
-              fontSize: isMobile ? "1.125rem" : "1.25rem",
-                  color: "#6b7280",
-              maxWidth: "900px",
-              margin: "0 auto",
-              lineHeight: "1.7"
-                }}>
-              Why parking owners choose InstaParkAI:
-                </p>
-              </div>
-            </div>
-            
-        {/* Full-width Image */}
-            <div style={{
+        {/* Decorative Background Elements */}
+        <div style={{
+          position: "absolute",
+          top: "-200px",
+          right: "-200px",
+          width: "600px",
+          height: "600px",
+          background: "linear-gradient(135deg, rgba(5, 126, 255, 0.05), rgba(107, 182, 255, 0.05))",
+          borderRadius: "50%",
+          filter: "blur(60px)",
+          zIndex: 0
+        }}></div>
+        <div style={{
+          position: "absolute",
+          bottom: "-150px",
+          left: "-150px",
+          width: "500px",
+          height: "500px",
+          background: "linear-gradient(135deg, rgba(5, 126, 255, 0.04), rgba(107, 182, 255, 0.04))",
+          borderRadius: "50%",
+          filter: "blur(60px)",
+          zIndex: 0
+        }}></div>
+
+        {/* Core Value Proposition Image - Background */}
+        <div style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 0,
+          opacity: 0.18,
+          pointerEvents: "none",
           width: "100%",
-          margin: "0 auto 60px",
-          overflow: "hidden"
+          height: "100%",
+          maxWidth: "100%",
+          maxHeight: "100%"
         }}>
           <img 
             src={coreValueProp} 
-            alt="InstaParkAI Core Value Proposition" 
+            alt="InstaParkAI Core Value Proposition Background"
             style={{
               width: "100%",
-              height: "auto",
-              display: "block",
-              objectFit: "cover"
+              height: "100%",
+              maxWidth: isMobile ? "100%" : "1400px",
+              maxHeight: "100%",
+              objectFit: "contain",
+              objectPosition: "center",
+              filter: "blur(2px)"
             }}
           />
         </div>
 
-        <div style={{ 
-          maxWidth: "1200px", 
+        <div style={{
+          maxWidth: "1400px", 
           margin: "0 auto",
-          padding: isMobile ? "0 20px" : "0 20px"
+          position: "relative",
+          zIndex: 1
         }}>
-
-          <div 
-            ref={(el) => { valueScrollRef.current = el; }}
-            style={{
-              display: "flex",
-              gap: isMobile ? "20px" : "24px",
-              overflowX: "auto",
-              overflowY: "hidden",
-              paddingBottom: "20px",
-              scrollSnapType: "x mandatory",
-              WebkitOverflowScrolling: "touch",
-              scrollbarWidth: "thin",
-              scrollBehavior: "smooth"
-            }}
-          >
-            {[
-              { icon: "💰", title: "Zero cash leakage" },
-              { icon: "👁️", title: "Full real-time transparency" },
-              { icon: "⚡", title: "Efficient & trained workforce" },
-              { icon: "📉", title: "Reduced owner dependency" },
-              { icon: "📈", title: "Guaranteed revenue uplift (up to 30%)" },
-              { icon: "😊", title: "Seamless customer experience" },
-              { icon: "🎛️", title: "Centralized digital control" }
-            ].map((item, index) => (
-              <div key={index} style={{
-                flex: "0 0 auto",
-                width: isMobile ? "calc(100vw - 80px)" : "350px",
-                minWidth: isMobile ? "280px" : "350px",
-                background: "white",
-                padding: isMobile ? "28px 20px" : "36px 28px",
-                borderRadius: "16px",
-                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
-                border: "1px solid rgba(5, 126, 255, 0.1)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                textAlign: "center",
-                gap: "16px",
-                transition: "all 0.3s ease",
-                scrollSnapAlign: "start"
+          {/* Header Section */}
+          <div style={{
+            textAlign: "center",
+            marginBottom: isMobile ? "50px" : "70px"
+          }}>
+            <div style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
+              background: "linear-gradient(135deg, rgba(5, 126, 255, 0.12), rgba(107, 182, 255, 0.12))",
+              padding: "12px 28px",
+              borderRadius: "50px",
+              marginBottom: "28px",
+              border: "2px solid rgba(5, 126, 255, 0.2)",
+              boxShadow: "0 4px 20px rgba(5, 126, 255, 0.1)"
+            }}>
+              <span style={{ fontSize: "1.75rem" }}>💎</span>
+              <span style={{
+                color: "#057eff",
+                fontSize: isMobile ? "0.9rem" : "1rem",
+                fontWeight: "700",
+                letterSpacing: "1px",
+                textTransform: "uppercase"
               }}>
-                <div style={{
-                  fontSize: isMobile ? "2.5rem" : "3rem"
-                }}>
-                  {item.icon}
+                VALUE PROPOSITION
+              </span>
+            </div>
+            <h2 style={{
+              fontSize: isMobile ? "2.5rem" : "3.5rem",
+              fontWeight: "900",
+              color: "#111827",
+              marginBottom: "20px",
+              lineHeight: "1.1",
+              letterSpacing: "-2px"
+            }}>
+              Our Core Value Proposition
+            </h2>
+            <p style={{
+              fontSize: isMobile ? "1.125rem" : "1.375rem",
+              color: "#6b7280",
+              maxWidth: "800px",
+              margin: "0 auto",
+              lineHeight: "1.7",
+              fontWeight: "500"
+            }}>
+              Why parking owners choose InstaParkAI:
+            </p>
+          </div>
+
+          {/* Value Points Grid */}
+          <div style={{ 
+            maxWidth: "1200px", 
+            margin: "0 auto"
+          }}>
+            <div 
+              ref={(el) => { valueScrollRef.current = el; }}
+              style={{
+                display: "grid",
+                gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+                gap: isMobile ? "24px" : "32px",
+                paddingBottom: "20px"
+              }}
+            >
+              {[
+                { icon: "👁️", title: "Full real-time transparency" },
+                { icon: "⚡", title: "Efficient & trained workforce" },
+                { icon: "📉", title: "Reduced owner dependency" },
+                { icon: "📈", title: "Guaranteed revenue uplift (up to 30%)" },
+                { icon: "😊", title: "Seamless customer experience" },
+                { icon: "🎛️", title: "Centralized digital control" }
+              ].map((item, index) => (
+                <div 
+                  key={index} 
+                  style={{
+                    background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
+                    padding: isMobile ? "32px 24px" : "40px 32px",
+                    borderRadius: "24px",
+                    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08), 0 4px 15px rgba(5, 126, 255, 0.05)",
+                    border: "2px solid rgba(5, 126, 255, 0.15)",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    textAlign: "center",
+                    gap: "20px",
+                    transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                    position: "relative",
+                    overflow: "hidden"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-8px) scale(1.02)";
+                    e.currentTarget.style.boxShadow = "0 16px 50px rgba(5, 126, 255, 0.2), 0 8px 25px rgba(5, 126, 255, 0.15)";
+                    e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0) scale(1)";
+                    e.currentTarget.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.08), 0 4px 15px rgba(5, 126, 255, 0.05)";
+                    e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.15)";
+                  }}
+                >
+                  {/* Decorative background circle */}
+                  <div style={{
+                    position: "absolute",
+                    top: "-30px",
+                    right: "-30px",
+                    width: "100px",
+                    height: "100px",
+                    background: "linear-gradient(135deg, rgba(5, 126, 255, 0.08), rgba(107, 182, 255, 0.08))",
+                    borderRadius: "50%",
+                    zIndex: 0
+                  }}></div>
+                  
+                  <div style={{
+                    fontSize: isMobile ? "3rem" : "3.5rem",
+                    position: "relative",
+                    zIndex: 1,
+                    filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1))"
+                  }}>
+                    {item.icon}
+                  </div>
+                  <div style={{
+                    color: "#111827",
+                    fontSize: isMobile ? "1.125rem" : "1.25rem",
+                    fontWeight: 700,
+                    lineHeight: "1.4",
+                    position: "relative",
+                    zIndex: 1
+                  }}>
+                    {item.title}
+                  </div>
                 </div>
-                <div style={{
-                color: "#1f2937",
-                  fontSize: isMobile ? "1rem" : "1.0625rem",
-                  fontWeight: 600,
-                  lineHeight: "1.5"
-                }}>
-                  {item.title}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
