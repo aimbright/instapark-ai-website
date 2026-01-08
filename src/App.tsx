@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
-import logo from './assets/logo_withoutbg.png';
+import logo from './assets/InstaParkAI plain BG logo.png';
 import './App.css';
 
 // Global function declaration
@@ -49,7 +49,6 @@ function App() {
     mobile: '',
     email: ''
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -91,10 +90,21 @@ function App() {
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    
+    // Restrict mobile to 10 digits only
+    if (name === 'mobile') {
+      const digitsOnly = value.replace(/\D/g, '').slice(0, 10);
+      setFormData({
+        ...formData,
+        [name]: digitsOnly
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+    }
   };
 
   const handleSubmit = () => {
@@ -117,7 +127,13 @@ function App() {
       return;
     }
     
-    setIsSubmitted(true);
+    // Directly open WhatsApp with the message
+    const message = `Hi! I'm ${formData.name} (Mobile: ${formData.mobile}, Email: ${formData.email}). I'm interested in learning more about InstaPark.AI's smart parking solutions.`;
+    const whatsappUrl = `https://wa.me/919845802901?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // Close dialog after opening WhatsApp
+    closeDialog();
   };
 
   const isFormValid = () => {
@@ -128,21 +144,13 @@ function App() {
            emailRegex.test(formData.email);
   };
 
-  const generateWhatsAppMessage = () => {
-    const message = `Hi! I'm ${formData.name} (${formData.mobile}, ${formData.email}). I'm interested in learning more about InstaPark.AI's smart parking solutions.`;
-    return `https://wa.me/919845802901?text=${encodeURIComponent(message)}`;
-  };
-
-  const generateEmailLink = () => {
-    const subject = `Interest in InstaPark.AI - ${formData.name}`;
-    const body = `Hello,\n\nI'm ${formData.name} (${formData.mobile}, ${formData.email}).\n\nI'm interested in learning more about InstaPark.AI's smart parking solutions.\n\nPlease contact me at your earliest convenience.\n\nBest regards,\n${formData.name}`;
-    return `mailto:support@instaparkai.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
-
   const closeDialog = () => {
     setShowDialog(false);
-    setIsSubmitted(false);
-    setFormData({ name: '', mobile: '', email: '' });
+    setFormData({
+      name: '',
+      mobile: '',
+      email: ''
+    });
   };
 
   // Make dialog function globally available
@@ -264,9 +272,9 @@ function App() {
                 }}>
                   <img 
                     src={logo} 
-                    alt="InstaPark AI Logo" 
+                    alt="InstaParkAI Logo" 
                     style={{
-                      height: "50px", 
+                      height: "60px", 
                       width: "auto"
                     }}
                   />
@@ -306,150 +314,93 @@ function App() {
                 </p>
               </div>
 
-              {!isSubmitted ? (
-                <>
-                  <div style={{ marginBottom: "20px" }}>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="Full Name *"
-                      style={{
-                        width: "100%",
-                        padding: "12px 16px",
-                        border: "2px solid #e5e7eb",
-                        borderRadius: "8px",
-                        fontSize: "16px",
-                        outline: "none",
-                        marginBottom: "16px",
-                        fontFamily: "inherit"
-                      }}
-                    />
-                    <input
-                      type="tel"
-                      name="mobile"
-                      value={formData.mobile}
-                      onChange={handleInputChange}
-                      placeholder="Mobile Number (10 digits) *"
-                      style={{
-                        width: "100%",
-                        padding: "12px 16px",
-                        border: "2px solid #e5e7eb",
-                        borderRadius: "8px",
-                        fontSize: "16px",
-                        outline: "none",
-                        marginBottom: "16px",
-                        fontFamily: "inherit"
-                      }}
-                    />
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="Email Address *"
-                      style={{
-                        width: "100%",
-                        padding: "12px 16px",
-                        border: "2px solid #e5e7eb",
-                        borderRadius: "8px",
-                        fontSize: "16px",
-                        outline: "none",
-                        fontFamily: "inherit"
-                      }}
-                    />
-                  </div>
+              <div style={{ marginBottom: "20px" }}>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="Full Name *"
+                  style={{
+                    width: "100%",
+                    padding: "12px 16px",
+                    border: "2px solid #e5e7eb",
+                    borderRadius: "8px",
+                    fontSize: "16px",
+                    outline: "none",
+                    marginBottom: "16px",
+                    fontFamily: "inherit"
+                  }}
+                />
+                <input
+                  type="tel"
+                  name="mobile"
+                  value={formData.mobile}
+                  onChange={handleInputChange}
+                  placeholder="Mobile Number (10 digits only) *"
+                  maxLength={10}
+                  style={{
+                    width: "100%",
+                    padding: "12px 16px",
+                    border: formData.mobile && formData.mobile.length !== 10 ? "2px solid #ef4444" : "2px solid #e5e7eb",
+                    borderRadius: "8px",
+                    fontSize: "16px",
+                    outline: "none",
+                    marginBottom: "16px",
+                    fontFamily: "inherit"
+                  }}
+                />
+                {formData.mobile && formData.mobile.length !== 10 && formData.mobile.length > 0 && (
+                  <p style={{ color: "#ef4444", fontSize: "12px", marginTop: "-12px", marginBottom: "12px" }}>
+                    Please enter exactly 10 digits
+                  </p>
+                )}
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="Email Address *"
+                  style={{
+                    width: "100%",
+                    padding: "12px 16px",
+                    border: formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) ? "2px solid #ef4444" : "2px solid #e5e7eb",
+                    borderRadius: "8px",
+                    fontSize: "16px",
+                    outline: "none",
+                    marginBottom: "16px",
+                    fontFamily: "inherit"
+                  }}
+                />
+                {formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) && (
+                  <p style={{ color: "#ef4444", fontSize: "12px", marginTop: "-12px", marginBottom: "12px" }}>
+                    Please enter a valid email address
+                  </p>
+                )}
+              </div>
 
-                  <div style={{ textAlign: "center", marginBottom: "20px" }}>
-                    <button
-                      onClick={handleSubmit}
-                      disabled={!isFormValid()}
-                      style={{
-                        background: isFormValid() ? "linear-gradient(135deg, #057eff, #6bb6ff)" : "#d1d5db",
-                        color: "white",
-                        padding: "14px 32px",
-                        borderRadius: "8px",
-                        border: "none",
-                        fontSize: "16px",
-                        fontWeight: "600",
-                        cursor: isFormValid() ? "pointer" : "not-allowed",
-                        transition: "all 0.3s ease",
-                        width: "100%",
-                        fontFamily: "inherit",
-                        opacity: isFormValid() ? 1 : 0.6
-                      }}
-                    >
-                      Continue to Contact Options
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <div style={{ 
-                  borderTop: "1px solid #e5e7eb", 
-                  paddingTop: "20px"
-                }}>
-                  <h3 style={{ 
-                    color: "#374151", 
-                    fontSize: "1.125rem", 
-                    fontWeight: 600, 
-                    marginBottom: "16px", 
-                    textAlign: "center" 
-                  }}>
-                    Choose your preferred contact method:
-                  </h3>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                    <a
-                      href={generateWhatsAppMessage()}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "10px",
-                        padding: "12px 20px",
-                        background: "#3B82F6",
-                        color: "white",
-                        textDecoration: "none",
-                        borderRadius: "8px",
-                        fontWeight: "600",
-                        fontSize: "14px"
-                      }}
-                    >
-                      <img 
-                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488'/%3E%3C/svg%3E" 
-                        alt="WhatsApp" 
-                        style={{ width: "20px", height: "20px" }}
-                      />
-                      Chat on WhatsApp
-                    </a>
-                    <a
-                      href={generateEmailLink()}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "10px",
-                        padding: "12px 20px",
-                        background: "#6B7280",
-                        color: "white",
-                        textDecoration: "none",
-                        borderRadius: "8px",
-                        fontWeight: "600",
-                        fontSize: "14px"
-                      }}
-                    >
-                      <img 
-                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E" 
-                        alt="Email" 
-                        style={{ width: "20px", height: "20px" }}
-                      />
-                      Send Email
-                    </a>
-                  </div>
-                </div>
-              )}
+              <div style={{ textAlign: "center" }}>
+                <button
+                  onClick={handleSubmit}
+                  disabled={!isFormValid()}
+                  style={{
+                    background: isFormValid() ? "linear-gradient(135deg, #057eff, #6bb6ff)" : "#d1d5db",
+                    color: "white",
+                    padding: "14px 32px",
+                    borderRadius: "8px",
+                    border: "none",
+                    fontSize: "16px",
+                    fontWeight: "600",
+                    cursor: isFormValid() ? "pointer" : "not-allowed",
+                    transition: "all 0.3s ease",
+                    width: "100%",
+                    fontFamily: "inherit",
+                    opacity: isFormValid() ? 1 : 0.6
+                  }}
+                >
+                  Submit
+                </button>
+              </div>
             </div>
           </div>
         )}

@@ -3,6 +3,7 @@ import SEO from "../components/SEO";
 import pmsUseCases from '../assets/PMS use cases offered CHART.png';
 import howItWorksProviders from '../assets/How it works -For Parking Providers chart.png';
 import userJourney from '../assets/user joureny.png';
+import instaParkLogo from '../assets/InstaParkAI plain BG logo.png';
 
 const Services: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -855,19 +856,19 @@ const Services: React.FC = () => {
 
             <div style={{ textAlign: "center", marginBottom: "8px" }}>
               <div style={{
-                width: "60px",
-                height: "60px",
-                background: "linear-gradient(135deg, #057eff, #6bb6ff)",
-                borderRadius: "16px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "white",
-                fontWeight: "bold",
-                fontSize: "20px",
                 margin: "0 auto 16px"
               }}>
-                IP
+                <img 
+                  src={instaParkLogo} 
+                  alt="InstaParkAI Logo" 
+                  style={{
+                    height: "60px", 
+                    width: "auto"
+                  }}
+                />
               </div>
               <h2 style={{ 
                 color: "#1f2937", 
