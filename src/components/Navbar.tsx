@@ -1,11 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/logo_withoutbg.png';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import logo from '../assets/InstaPark white BG nav bar logo.png';
 import './Navbar.css';
 
 interface NavbarProps {
   onContactClick?: () => void;
 }
+
+// Services sub-sections
+const servicesSubsections = [
+  { id: 'services-grid', label: 'Parking Solutions' },
+  { id: 'business-models', label: 'Business Models' },
+  { id: 'who-we-serve', label: 'Who We Serve' }
+];
+
+// About sub-sections
+const aboutSubsections = [
+  { id: 'our-vision', label: 'OUR VISION' },
+  { id: 'our-mission', label: 'OUR MISSION' },
+  { id: 'problem-we-solve', label: 'Problem We Solve' },
+  { id: 'market-opportunity', label: 'MARKET OPPORTUNITY' },
+  { id: 'value-proposition', label: 'VALUE PROPOSITION' },
+  { id: 'what-we-do', label: 'What We Do' },
+  { id: 'our-implementations', label: 'OUR IMPLEMENTATIONS' }
+];
 
 const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +32,18 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,48 +61,76 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
     setIsMenuOpen(false);
   };
 
-  const servicesSubsections = [
-    { name: 'Parking Solutions', id: 'parking-solutions' },
-    { name: 'Business Models', id: 'business-models' },
-    { name: 'Who We Serve', id: 'who-we-serve' }
-  ];
-
-  const aboutSubsections = [
-    { name: 'OUR VISION', id: 'our-vision' },
-    { name: 'OUR MISSION', id: 'our-mission' },
-    { name: 'Problem We Solve', id: 'problem-we-solve' },
-    { name: 'MARKET OPPORTUNITY', id: 'market-opportunity' },
-    { name: 'VALUE PROPOSITION', id: 'value-proposition' },
-    { name: 'What We Do', id: 'what-we-do' },
-    { name: 'OUR IMPLEMENTATIONS', id: 'our-implementations' }
-  ];
-
   const scrollToServicesSection = (sectionId: string) => {
-    if (location.pathname !== '/services') {
-      window.location.href = `/services#${sectionId}`;
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    setIsMenuOpen(false);
     setShowServicesDropdown(false);
     setMobileServicesOpen(false);
-    setIsMenuOpen(false);
+    
+    // Navigate to services page first if not already there
+    if (location.pathname !== '/services') {
+      navigate('/services');
+      // Wait for navigation then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const navHeight = 160;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    } else {
+      // Already on services page, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const navHeight = 160;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
   };
 
   const scrollToAboutSection = (sectionId: string) => {
-    if (location.pathname !== '/about') {
-      window.location.href = `/about#${sectionId}`;
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    setIsMenuOpen(false);
     setShowAboutDropdown(false);
     setMobileAboutOpen(false);
-    setIsMenuOpen(false);
+    
+    // Navigate to about page first if not already there
+    if (location.pathname !== '/about') {
+      navigate('/about');
+      // Wait for navigation then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const navHeight = 160;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    } else {
+      // Already on about page, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const navHeight = 160;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
   };
 
   return (
@@ -83,7 +140,7 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
            <img 
              src={logo} 
              alt="InstaPark AI Logo" 
-             style={{height: '45px', width: 'auto'}}
+             style={{height: '60px', width: 'auto'}}
            />
          </Link>
 
@@ -94,127 +151,148 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
             className={location.pathname === '/' ? 'active' : ''}
           >Home</Link></li>
           <li 
+            className="services-dropdown-container"
             onMouseEnter={() => setShowServicesDropdown(true)}
             onMouseLeave={() => setShowServicesDropdown(false)}
-            style={{ position: 'relative' }}
           >
-            <Link 
-              to="/services" 
-              className={location.pathname === '/services' ? 'active' : ''}
-            >Services</Link>
-            {showServicesDropdown && (
-              <div className="services-dropdown">
-                {servicesSubsections.map((item) => (
-                  <div 
-                    key={item.id}
-                    className="dropdown-item"
-                    onClick={() => scrollToServicesSection(item.id)}
-                  >
-                    {item.name}
-                  </div>
-                ))}
-              </div>
-            )}
-            {/* Mobile dropdown */}
-            <div className="mobile-menu-item" onClick={(e) => {
-              e.preventDefault();
-              setMobileServicesOpen(prev => {
-                if (prev) {
-                  setMobileAboutOpen(false);
-                }
-                return !prev;
-              });
-            }}>
+            <div 
+              className="mobile-menu-item"
+            >
               <Link 
-                to="/services"
+                to="/services" 
                 onClick={(e) => {
-                  e.preventDefault();
-                  setMobileServicesOpen(prev => {
-                    if (prev) {
+                  if (!isMobile) {
+                    setIsMenuOpen(false);
+                    setShowServicesDropdown(false);
+                  } else {
+                    e.preventDefault();
+                    // Close About if open, toggle Services
+                    if (mobileAboutOpen) {
                       setMobileAboutOpen(false);
                     }
-                    return !prev;
-                  });
+                    setMobileServicesOpen(!mobileServicesOpen);
+                  }
                 }}
-              >Services</Link>
-              <span className="mobile-arrow" style={{
-                transform: mobileServicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                transition: 'transform 0.3s ease'
-              }}>▼</span>
+                className={location.pathname === '/services' ? 'active' : ''}
+                style={{ flex: 1 }}
+              >
+                Services
+              </Link>
+              {isMobile && (
+                <span 
+                  className="mobile-arrow" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    // Close About if open, toggle Services
+                    if (mobileAboutOpen) {
+                      setMobileAboutOpen(false);
+                    }
+                    setMobileServicesOpen(!mobileServicesOpen);
+                  }}
+                  style={{ 
+                    marginLeft: 'auto',
+                    transition: 'transform 0.3s ease',
+                    transform: mobileServicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                    cursor: 'pointer',
+                    padding: '0 30px 0 10px',
+                    userSelect: 'none'
+                  }}
+                >
+                  ▼
+                </span>
+              )}
             </div>
-            {mobileServicesOpen && (
-              <div className="mobile-dropdown">
-                {servicesSubsections.map((item) => (
-                  <div 
-                    key={item.id}
+            {(showServicesDropdown || (isMobile && mobileServicesOpen)) && (
+              <div className={`services-dropdown ${isMobile ? 'mobile-dropdown' : ''}`}>
+                {servicesSubsections.map((subsection) => (
+                  <button
+                    key={subsection.id}
+                    onClick={() => {
+                      // Close sub-list immediately in mobile
+                      if (isMobile) {
+                        setMobileServicesOpen(false);
+                      }
+                      // Then handle navigation and scrolling
+                      scrollToServicesSection(subsection.id);
+                    }}
                     className="dropdown-item"
-                    onClick={() => scrollToServicesSection(item.id)}
                   >
-                    {item.name}
-                  </div>
+                    {subsection.label}
+                  </button>
                 ))}
               </div>
             )}
           </li>
           <li 
+            className="services-dropdown-container"
             onMouseEnter={() => setShowAboutDropdown(true)}
             onMouseLeave={() => setShowAboutDropdown(false)}
-            style={{ position: 'relative' }}
           >
-            <Link 
-              to="/about" 
-              className={location.pathname === '/about' ? 'active' : ''}
-            >About</Link>
-            {showAboutDropdown && (
-              <div className="services-dropdown">
-                {aboutSubsections.map((item) => (
-                  <div 
-                    key={item.id}
-                    className="dropdown-item"
-                    onClick={() => scrollToAboutSection(item.id)}
-                  >
-                    {item.name}
-                  </div>
-                ))}
-              </div>
-            )}
-            {/* Mobile dropdown */}
-            <div className="mobile-menu-item" onClick={(e) => {
-              e.preventDefault();
-              setMobileAboutOpen(prev => {
-                if (prev) {
-                  setMobileServicesOpen(false);
-                }
-                return !prev;
-              });
-            }}>
+            <div 
+              className="mobile-menu-item"
+            >
               <Link 
-                to="/about"
+                to="/about" 
                 onClick={(e) => {
-                  e.preventDefault();
-                  setMobileAboutOpen(prev => {
-                    if (prev) {
-                      setMobileServicesOpen(false);
-                    }
-                    return !prev;
-                  });
+                  if (!isMobile) {
+                    setIsMenuOpen(false);
+                    setShowAboutDropdown(false);
+                  } else {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    // Close Services if open
+                    setMobileServicesOpen(false);
+                    // Toggle About using functional update
+                    setMobileAboutOpen(prev => !prev);
+                  }
                 }}
-              >About</Link>
-              <span className="mobile-arrow" style={{
-                transform: mobileAboutOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                transition: 'transform 0.3s ease'
-              }}>▼</span>
+                className={location.pathname === '/about' ? 'active' : ''}
+                style={{ flex: 1 }}
+              >
+                About
+              </Link>
+              {isMobile && (
+                <span 
+                  className="mobile-arrow" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    // Close Services if open
+                    setMobileServicesOpen(false);
+                    // Toggle About using functional update
+                    setMobileAboutOpen(prev => !prev);
+                  }}
+                  style={{ 
+                    marginLeft: 'auto',
+                    transition: 'transform 0.3s ease',
+                    transform: mobileAboutOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                    cursor: 'pointer',
+                    padding: '0 30px 0 10px',
+                    userSelect: 'none'
+                  }}
+                >
+                  ▼
+                </span>
+              )}
             </div>
-            {mobileAboutOpen && (
-              <div className="mobile-dropdown">
-                {aboutSubsections.map((item) => (
-                  <div 
-                    key={item.id}
+            {(showAboutDropdown || (isMobile && mobileAboutOpen)) && (
+              <div className={`services-dropdown ${isMobile ? 'mobile-dropdown' : ''}`}>
+                {aboutSubsections.map((subsection) => (
+                  <button
+                    key={subsection.id}
+                    onClick={() => {
+                      // Close sub-list immediately in mobile
+                      if (isMobile) {
+                        setMobileAboutOpen(false);
+                      }
+                      // Then handle navigation and scrolling
+                      scrollToAboutSection(subsection.id);
+                    }}
                     className="dropdown-item"
-                    onClick={() => scrollToAboutSection(item.id)}
                   >
-                    {item.name}
-                  </div>
+                    {subsection.label}
+                  </button>
                 ))}
               </div>
             )}
@@ -227,7 +305,11 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
         </ul>
 
         <div className="hamburger" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
+          {isMenuOpen ? (
+            <i className="fas fa-times"></i>
+          ) : (
+            <i className="fas fa-bars"></i>
+          )}
         </div>
       </nav>
     </header>
