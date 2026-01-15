@@ -19,23 +19,24 @@ const Footer: React.FC = () => {
 
   return (
     <footer id="contact">
-      <div className="container" style={{maxWidth: '1200px', margin: '0 auto', padding: '0 20px'}}>
+      <div className="container" style={{maxWidth: '1200px', margin: '0 auto', padding: '0 10px'}}>
         <div className="footer-container" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : '2fr 1fr 1.5fr',
-          gap: isMobile ? '40px' : '50px',
-          marginBottom: '40px',
-          alignItems: 'start'
+          gridTemplateColumns: isMobile ? '1fr' : '2fr 1fr 1.5fr 1.5fr',
+          gap: isMobile ? '25px' : '30px',
+          marginBottom: '25px',
+          alignItems: 'start',
+          padding: '0'
         }}>
           <div className="footer-col">
-            <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px'}}>
+            <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
               <img 
                 src={logo} 
                 alt="InstaPark AI Logo" 
                 style={{height: '100px', width: 'auto'}}
               />
             </div>
-            <p style={{color: '#1e3a8a', marginBottom: '20px', fontSize: '1rem', lineHeight: '1.6'}}>Smart. Scalable. Stress-Free Parking.</p>
+            <p style={{color: '#1e3a8a', marginBottom: '16px', fontSize: '1rem', lineHeight: '1.6'}}>Smart. Scalable. Stress-Free Parking.</p>
             <div className="social-links" style={{gap: '16px'}}>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-link facebook" style={{
                 width: '56px',
@@ -85,7 +86,7 @@ const Footer: React.FC = () => {
           }}>
             <h3 style={{
               fontSize: isMobile ? '1.2rem' : '1.3rem',
-              marginBottom: '24px',
+              marginBottom: '18px',
               color: '#1e3a8a',
               fontWeight: '700'
             }}>Quick Links</h3>
@@ -99,7 +100,7 @@ const Footer: React.FC = () => {
                 alignItems: 'center',
                 gap: '12px',
                 textDecoration: 'none',
-                padding: '8px 12px',
+                padding: '8px 10px',
                 borderRadius: '8px',
                 background: 'rgba(5, 126, 255, 0.05)',
                 border: '1px solid rgba(5, 126, 255, 0.1)',
@@ -126,7 +127,7 @@ const Footer: React.FC = () => {
                 alignItems: 'center',
                 gap: '12px',
                 textDecoration: 'none',
-                padding: '8px 12px',
+                padding: '8px 10px',
                 borderRadius: '8px',
                 background: 'rgba(5, 126, 255, 0.05)',
                 border: '1px solid rgba(5, 126, 255, 0.1)',
@@ -153,7 +154,7 @@ const Footer: React.FC = () => {
                 alignItems: 'center',
                 gap: '12px',
                 textDecoration: 'none',
-                padding: '8px 12px',
+                padding: '8px 10px',
                 borderRadius: '8px',
                 background: 'rgba(5, 126, 255, 0.05)',
                 border: '1px solid rgba(5, 126, 255, 0.1)',
@@ -183,7 +184,7 @@ const Footer: React.FC = () => {
           }}>
             <h3 style={{
               fontSize: isMobile ? '1.2rem' : '1.3rem',
-              marginBottom: '24px',
+              marginBottom: '18px',
               color: '#1e3a8a',
               fontWeight: '700'
             }}>Contact Us</h3>
@@ -192,12 +193,12 @@ const Footer: React.FC = () => {
               flexDirection: 'column',
               gap: '12px'
             }}>
-              <a href="tel:+919845802901" className="contact-item clickable" style={{
+              <a href="tel:+919353240270" className="contact-item clickable" style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: '12px',
                 textDecoration: 'none',
-                padding: '8px 12px',
+                padding: '8px 10px',
                 borderRadius: '8px',
                 background: 'rgba(5, 126, 255, 0.05)',
                 border: '1px solid rgba(5, 126, 255, 0.1)',
@@ -216,7 +217,7 @@ const Footer: React.FC = () => {
                   <i className="fas fa-phone-alt"></i>
                 </div>
                 <div>
-                  <p style={{color: '#1e3a8a', fontWeight: '600', margin: 0, fontSize: '0.95rem'}}>+91 98458 02901</p>
+                  <p style={{color: '#1e3a8a', fontWeight: '600', margin: 0, fontSize: '0.95rem'}}>+91 9353240270</p>
                 </div>
               </a>
               <a href="mailto:support@instaparkai.com" className="contact-item clickable" style={{
@@ -224,7 +225,7 @@ const Footer: React.FC = () => {
                 alignItems: 'center',
                 gap: '12px',
                 textDecoration: 'none',
-                padding: '8px 12px',
+                padding: '8px 10px',
                 borderRadius: '8px',
                 background: 'rgba(5, 126, 255, 0.05)',
                 border: '1px solid rgba(5, 126, 255, 0.1)',
@@ -246,12 +247,12 @@ const Footer: React.FC = () => {
                   <p style={{color: '#1e3a8a', fontWeight: '600', margin: 0, fontSize: '0.95rem'}}>support@instaparkai.com</p>
                 </div>
               </a>
-              <a href="https://wa.me/919845802901" target="_blank" rel="noopener noreferrer" className="contact-item clickable" style={{
+              <a href="https://wa.me/919353240270" target="_blank" rel="noopener noreferrer" className="contact-item clickable" style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: '12px',
                 textDecoration: 'none',
-                padding: '8px 12px',
+                padding: '8px 10px',
                 borderRadius: '8px',
                 background: 'rgba(5, 126, 255, 0.05)',
                 border: '1px solid rgba(5, 126, 255, 0.1)',
@@ -270,17 +271,127 @@ const Footer: React.FC = () => {
                   <i className="fab fa-whatsapp"></i>
                 </div>
                 <div>
-                  <p style={{color: '#1e3a8a', fontWeight: '600', margin: 0, fontSize: '0.95rem'}}>+91 98458 02901</p>
+                  <p style={{color: '#1e3a8a', fontWeight: '600', margin: 0, fontSize: '0.95rem'}}>+91 9353240270</p>
                 </div>
               </a>
+            </div>
+          </div>
+          <div className="footer-col" style={{
+            display: 'flex',
+            flexDirection: 'column'
+          }}>
+            <h3 style={{
+              fontSize: isMobile ? '1.2rem' : '1.3rem',
+              marginBottom: '18px',
+              color: '#1e3a8a',
+              fontWeight: '700'
+            }}>Locations</h3>
+            <div className="location-info" style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '10px'
+            }}>
+              <div className="location-item" style={{
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '12px',
+                textDecoration: 'none',
+                padding: '10px 16px',
+                borderRadius: '8px',
+                background: 'rgba(5, 126, 255, 0.05)',
+                border: '1px solid rgba(5, 126, 255, 0.1)',
+                transition: 'all 0.3s ease',
+                minHeight: '56px',
+                width: '100%'
+              }}>
+                <div className="location-icon" style={{
+                  width: '40px',
+                  height: '40px',
+                  background: 'rgba(5, 126, 255, 0.1)',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#057eff',
+                  flexShrink: 0
+                }}>
+                  <i className="fas fa-map-marker-alt"></i>
+                </div>
+                <div style={{ flex: 1, minWidth: 0, width: '100%' }}>
+                  <p style={{
+                    color: '#1e3a8a',
+                    fontWeight: '700',
+                    margin: '0 0 4px 0',
+                    fontSize: '0.95rem'
+                  }}>Bangalore</p>
+                  <p style={{
+                    color: '#1e3a8a',
+                    margin: 0,
+                    fontSize: '0.85rem',
+                    lineHeight: '1.5',
+                    wordBreak: 'break-word'
+                  }}>
+                    C-202, Ardente pine grove, Rayasandra main road, Electronic city- 560100
+                  </p>
+                </div>
+              </div>
+              <div className="location-item" style={{
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '12px',
+                textDecoration: 'none',
+                padding: '10px 16px',
+                borderRadius: '8px',
+                background: 'rgba(5, 126, 255, 0.05)',
+                border: '1px solid rgba(5, 126, 255, 0.1)',
+                transition: 'all 0.3s ease',
+                minHeight: '56px',
+                width: '100%'
+              }}>
+                <div className="location-icon" style={{
+                  width: '40px',
+                  height: '40px',
+                  background: 'rgba(5, 126, 255, 0.1)',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#057eff',
+                  flexShrink: 0
+                }}>
+                  <i className="fas fa-map-marker-alt"></i>
+                </div>
+                <div style={{ flex: 1, minWidth: 0, width: '100%' }}>
+                  <p style={{
+                    color: '#1e3a8a',
+                    fontWeight: '700',
+                    margin: '0 0 4px 0',
+                    fontSize: '0.95rem'
+                  }}>Noida</p>
+                  <p style={{
+                    color: '#1e3a8a',
+                    margin: 0,
+                    fontSize: '0.85rem',
+                    lineHeight: '1.5',
+                    wordBreak: 'break-word'
+                  }}>
+                    13003, Durian Wood, Mahagun mywood, Gaur City 2, Greater Noida West, Uttar Pradesh
+                  </p>
+                </div>
+              </div>
+              {/* Empty spacer to match height with 3 items in other columns */}
+              <div style={{
+                height: '56px',
+                visibility: 'hidden'
+              }}></div>
             </div>
           </div>
         </div>
         <div className="copyright" style={{
           textAlign: 'center',
-          paddingTop: '30px',
+          paddingTop: '20px',
           borderTop: '1px solid rgba(5, 126, 255, 0.2)',
-          marginTop: '40px'
+          marginTop: '30px'
         }}>
           <p style={{
             color: '#1e3a8a', 

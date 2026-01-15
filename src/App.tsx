@@ -44,10 +44,14 @@ function ScrollToTop() {
 function App() {
   const [showDialog, setShowDialog] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [fabExpanded, setFabExpanded] = useState(false);
+  const [contactMethod, setContactMethod] = useState<'message' | 'mail'>('message');
+  const [inquiryType, setInquiryType] = useState<'sales' | 'support' | 'ask'>('sales');
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
-    email: ''
+    email: '',
+    message: ''
   });
 
   useEffect(() => {
@@ -89,7 +93,7 @@ function App() {
     };
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     
     // Restrict mobile to 10 digits only
@@ -127,12 +131,37 @@ function App() {
       return;
     }
     
-    // Directly open WhatsApp with the message
-    const message = `Hi! I'm ${formData.name} (Mobile: ${formData.mobile}, Email: ${formData.email}). I'm interested in learning more about InstaPark.AI's smart parking solutions.`;
-    const whatsappUrl = `https://wa.me/919845802901?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    if (contactMethod === 'message') {
+      // Send to WhatsApp
+      let whatsappMessage = `Hi! I'm ${formData.name} (Mobile: ${formData.mobile}, Email: ${formData.email}).\n\nInquiry Type: ${inquiryType.charAt(0).toUpperCase() + inquiryType.slice(1)}.\n\n`;
+      if (formData.message.trim()) {
+        whatsappMessage += `Message: ${formData.message}\n\n`;
+      }
+      whatsappMessage += `I'm interested in learning more about InstaPark.AI's smart parking solutions.`;
+      const whatsappUrl = `https://wa.me/919353240270?text=${encodeURIComponent(whatsappMessage)}`;
+      window.open(whatsappUrl, '_blank');
+    } else {
+      // Send to Email
+      let emailTo = '';
+      if (inquiryType === 'sales') {
+        emailTo = 'sales@instaparkai.com';
+      } else if (inquiryType === 'support') {
+        emailTo = 'support@instaparkai.com';
+      } else {
+        emailTo = 'support@instaparkai.com'; // Ask goes to support
+      }
+      
+      const subject = `InstaPark.AI Inquiry - ${inquiryType.charAt(0).toUpperCase() + inquiryType.slice(1)}`;
+      let body = `Hello,\n\nMy name is ${formData.name}.\n\nContact Details:\nEmail: ${formData.email}\nPhone: ${formData.mobile}\n\nInquiry Type: ${inquiryType.charAt(0).toUpperCase() + inquiryType.slice(1)}\n\n`;
+      if (formData.message.trim()) {
+        body += `Message:\n${formData.message}\n\n`;
+      }
+      body += `Please provide more information about InstaPark.AI's smart parking solutions.`;
+      const mailtoUrl = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoUrl;
+    }
     
-    // Close dialog after opening WhatsApp
+    // Close dialog after opening WhatsApp or email
     closeDialog();
   };
 
@@ -149,8 +178,11 @@ function App() {
     setFormData({
       name: '',
       mobile: '',
-      email: ''
+      email: '',
+      message: ''
     });
+    setContactMethod('message');
+    setInquiryType('sales');
   };
 
   // Make dialog function globally available
@@ -208,6 +240,242 @@ function App() {
           </Routes>
         </main>
         <Footer />
+
+        {/* Floating Action Buttons - WhatsApp, Call & Mail */}
+        {isMobile ? (
+          // Mobile: Expandable FAB menu in bottom right
+          <div style={{
+            position: "fixed",
+            right: "20px",
+            bottom: "20px",
+            zIndex: 999,
+            display: "flex",
+            flexDirection: "column",
+            gap: "12px",
+            alignItems: "center"
+          }}>
+            {/* Expanded buttons */}
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "12px",
+              alignItems: "center",
+              opacity: fabExpanded ? 1 : 0,
+              transform: fabExpanded ? "translateY(0)" : "translateY(20px)",
+              pointerEvents: fabExpanded ? "auto" : "none",
+              transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+              marginBottom: fabExpanded ? "0" : "-80px"
+            }}>
+              {/* Mail FAB */}
+              <a
+                href="mailto:support@instaparkai.com"
+                onClick={() => setFabExpanded(false)}
+                style={{
+                  width: "56px",
+                  height: "56px",
+                  borderRadius: "16px",
+                  background: "white",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
+                  transition: "all 0.3s ease",
+                  textDecoration: "none",
+                  color: "#057eff",
+                  fontSize: "24px",
+                  border: "2px solid rgba(5, 126, 255, 0.1)"
+                }}
+                aria-label="Email us"
+              >
+                <i className="fas fa-envelope"></i>
+              </a>
+
+              {/* Call FAB */}
+              <a
+                href="tel:+919353240270"
+                onClick={() => setFabExpanded(false)}
+                style={{
+                  width: "56px",
+                  height: "56px",
+                  borderRadius: "16px",
+                  background: "white",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
+                  transition: "all 0.3s ease",
+                  textDecoration: "none",
+                  color: "#057eff",
+                  fontSize: "24px",
+                  border: "2px solid rgba(5, 126, 255, 0.1)"
+                }}
+                aria-label="Call us"
+              >
+                <i className="fas fa-phone-alt"></i>
+              </a>
+
+              {/* WhatsApp FAB */}
+              <a
+                href="https://wa.me/919353240270"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setFabExpanded(false)}
+                style={{
+                  width: "56px",
+                  height: "56px",
+                  borderRadius: "16px",
+                  background: "#25D366",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 8px 24px rgba(37, 211, 102, 0.4)",
+                  transition: "all 0.3s ease",
+                  textDecoration: "none",
+                  color: "white",
+                  fontSize: "28px"
+                }}
+                aria-label="Contact us on WhatsApp"
+              >
+                <i className="fab fa-whatsapp"></i>
+              </a>
+            </div>
+
+            {/* Main toggle button */}
+            <button
+              onClick={() => setFabExpanded(!fabExpanded)}
+              style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "50%",
+                background: "rgba(5, 126, 255, 0.2)",
+                backdropFilter: "blur(10px)",
+                border: "1px solid rgba(5, 126, 255, 0.3)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 4px 12px rgba(5, 126, 255, 0.2)",
+                transition: "all 0.3s ease",
+                cursor: "pointer",
+                color: "#057eff",
+                fontSize: "20px"
+              }}
+              aria-label="Toggle support options"
+            >
+              <i className="fas fa-headset"></i>
+            </button>
+          </div>
+        ) : (
+          // Desktop: All buttons visible on left side
+          <div style={{
+            position: "fixed",
+            left: "20px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 999,
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
+            alignItems: "center"
+          }}>
+            {/* WhatsApp FAB */}
+            <a
+              href="https://wa.me/919353240270"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                width: "56px",
+                height: "56px",
+                borderRadius: "16px",
+                background: "#25D366",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 8px 24px rgba(37, 211, 102, 0.4)",
+                transition: "all 0.3s ease",
+                textDecoration: "none",
+                color: "white",
+                fontSize: "28px"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.1)";
+                e.currentTarget.style.boxShadow = "0 12px 32px rgba(37, 211, 102, 0.5)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "0 8px 24px rgba(37, 211, 102, 0.4)";
+              }}
+              aria-label="Contact us on WhatsApp"
+            >
+              <i className="fab fa-whatsapp"></i>
+            </a>
+
+            {/* Call FAB */}
+            <a
+              href="tel:+919353240270"
+              style={{
+                width: "56px",
+                height: "56px",
+                borderRadius: "16px",
+                background: "white",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
+                transition: "all 0.3s ease",
+                textDecoration: "none",
+                color: "#057eff",
+                fontSize: "24px",
+                border: "2px solid rgba(5, 126, 255, 0.1)"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.1)";
+                e.currentTarget.style.boxShadow = "0 12px 32px rgba(5, 126, 255, 0.3)";
+                e.currentTarget.style.borderColor = "#057eff";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.15)";
+                e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.1)";
+              }}
+              aria-label="Call us"
+            >
+              <i className="fas fa-phone-alt"></i>
+            </a>
+
+            {/* Mail FAB */}
+            <a
+              href="mailto:support@instaparkai.com"
+              style={{
+                width: "56px",
+                height: "56px",
+                borderRadius: "16px",
+                background: "white",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
+                transition: "all 0.3s ease",
+                textDecoration: "none",
+                color: "#057eff",
+                fontSize: "24px",
+                border: "2px solid rgba(5, 126, 255, 0.1)"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.1)";
+                e.currentTarget.style.boxShadow = "0 12px 32px rgba(5, 126, 255, 0.3)";
+                e.currentTarget.style.borderColor = "#057eff";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.15)";
+                e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.1)";
+              }}
+              aria-label="Email us"
+            >
+              <i className="fas fa-envelope"></i>
+            </a>
+          </div>
+        )}
 
         {/* Global Contact Dialog */}
         {showDialog && (
@@ -306,12 +574,82 @@ function App() {
                 </h2>
                 <p style={{ 
                   color: "#6b7280", 
-                  marginBottom: "25px",
+                  marginBottom: "20px",
                   lineHeight: "1.5",
                   fontSize: isMobile ? "0.9rem" : "1rem"
                 }}>
                   Provide your details and we'll contact you immediately
                 </p>
+              </div>
+
+              {/* Contact Method Tabs */}
+              <div style={{
+                display: "flex",
+                gap: "8px",
+                marginBottom: "20px",
+                background: "#f3f4f6",
+                padding: "4px",
+                borderRadius: "8px"
+              }}>
+                <button
+                  onClick={() => setContactMethod('message')}
+                  style={{
+                    flex: 1,
+                    padding: "10px 16px",
+                    borderRadius: "6px",
+                    border: "none",
+                    background: contactMethod === 'message' ? "linear-gradient(135deg, #057eff, #6bb6ff)" : "transparent",
+                    color: contactMethod === 'message' ? "white" : "#6b7280",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    transition: "all 0.3s ease"
+                  }}
+                >
+                  <i className="fab fa-whatsapp" style={{ marginRight: "6px" }}></i>
+                  Message
+                </button>
+                <button
+                  onClick={() => setContactMethod('mail')}
+                  style={{
+                    flex: 1,
+                    padding: "10px 16px",
+                    borderRadius: "6px",
+                    border: "none",
+                    background: contactMethod === 'mail' ? "linear-gradient(135deg, #057eff, #6bb6ff)" : "transparent",
+                    color: contactMethod === 'mail' ? "white" : "#6b7280",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    transition: "all 0.3s ease"
+                  }}
+                >
+                  <i className="fas fa-envelope" style={{ marginRight: "6px" }}></i>
+                  Mail
+                </button>
+              </div>
+
+              {/* Inquiry Type Dropdown */}
+              <div style={{ marginBottom: "20px" }}>
+                <select
+                  value={inquiryType}
+                  onChange={(e) => setInquiryType(e.target.value as 'sales' | 'support' | 'ask')}
+                  style={{
+                    width: "100%",
+                    padding: "12px 16px",
+                    border: "2px solid #e5e7eb",
+                    borderRadius: "8px",
+                    fontSize: "16px",
+                    outline: "none",
+                    marginBottom: "16px",
+                    fontFamily: "inherit",
+                    background: "white",
+                    cursor: "pointer"
+                  }}
+                >
+                  <option value="sales">Sales</option>
+                  <option value="support">Support</option>
+                </select>
               </div>
 
               <div style={{ marginBottom: "20px" }}>
@@ -377,6 +715,25 @@ function App() {
                     Please enter a valid email address
                   </p>
                 )}
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder="Enter your message (optional)"
+                  rows={5}
+                  style={{
+                    width: "100%",
+                    padding: "12px 16px",
+                    border: "2px solid #e5e7eb",
+                    borderRadius: "8px",
+                    fontSize: "16px",
+                    outline: "none",
+                    marginBottom: "16px",
+                    fontFamily: "inherit",
+                    resize: "vertical",
+                    minHeight: "120px"
+                  }}
+                />
               </div>
 
               <div style={{ textAlign: "center" }}>
@@ -398,7 +755,17 @@ function App() {
                     opacity: isFormValid() ? 1 : 0.6
                   }}
                 >
-                  Submit
+                  {contactMethod === 'message' ? (
+                    <>
+                      <i className="fab fa-whatsapp" style={{ marginRight: "8px" }}></i>
+                      Send Message
+                    </>
+                  ) : (
+                    <>
+                      <i className="fas fa-envelope" style={{ marginRight: "8px" }}></i>
+                      Send Email
+                    </>
+                  )}
                 </button>
               </div>
             </div>

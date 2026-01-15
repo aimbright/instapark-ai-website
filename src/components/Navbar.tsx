@@ -9,23 +9,25 @@ interface NavbarProps {
 
 // Services sub-sections
 const servicesSubsections = [
-  { id: 'end-to-end-operations', label: 'End-to-End Parking Operations' },
-  { id: 'ai-parking-management', label: 'AI-Powered Parking Management' },
-  { id: 'parking-discovery', label: 'Parking Discovery & Booking' },
-  { id: 'amc-support', label: 'AMC & Support Services' },
-  { id: 'business-models', label: 'Flexible Business Models' },
-  { id: 'who-we-serve', label: 'Industry' }
+  { id: 'end-to-end-operations', label: 'Parking Operations' },
+  { id: 'ai-parking-management', label: 'Parking Management' },
+  { id: 'parking-discovery', label: 'Find Book & Park' },
+  { id: 'amc-support', label: 'Complete AMC' },
+
 ];
 
 // About sub-sections
 const aboutSubsections = [
+  { id: 'why-choose-instaparkai', label: 'Why Choose us' },
   { id: 'our-vision', label: 'OUR VISION' },
   { id: 'our-mission', label: 'OUR MISSION' },
   { id: 'problem-we-solve', label: 'Problem We Solve' },
   { id: 'market-opportunity', label: 'MARKET OPPORTUNITY' },
   { id: 'value-proposition', label: 'VALUE PROPOSITION' },
   { id: 'what-we-do', label: 'What We Do' },
-  { id: 'our-implementations', label: 'OUR IMPLEMENTATIONS' }
+  { id: 'our-implementations', label: 'OUR IMPLEMENTATIONS' },
+  { id: 'business-offering', label: 'Business Models' },
+  { id: 'partnership-models', label: 'Partnership Models' },
 ];
 
 const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
@@ -69,49 +71,13 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
     setShowServicesDropdown(false);
     setMobileServicesOpen(false);
     
-    // Service IDs that should open dialogs
-    const serviceDialogIds = ['end-to-end-operations', 'ai-parking-management', 'parking-discovery', 'amc-support'];
-    const serviceDialogIndices: { [key: string]: number } = {
-      'end-to-end-operations': 0,
-      'ai-parking-management': 1,
-      'parking-discovery': 2,
-      'amc-support': 3
-    };
-    
-    // If it's a service that should open a dialog, navigate with query parameter
-    if (serviceDialogIds.includes(sectionId)) {
-      navigate(`/services?dialog=${serviceDialogIndices[sectionId]}`);
-      return;
-    }
-    
-    // Navigate to services page first if not already there
+    // Navigate to services page with hash if not already there
     if (location.pathname !== '/services') {
-      navigate('/services');
-      // Wait for navigation then scroll
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const navHeight = 160;
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }, 300);
+      navigate(`/services#${sectionId}`);
     } else {
-      // Already on services page, just scroll
-      const element = document.getElementById(sectionId);
-      if (element) {
-        const navHeight = 160;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
+      // Already on services page, update hash and scroll
+      window.location.hash = sectionId;
+      // The Services page useEffect will handle the expansion and scrolling
     }
   };
 
@@ -122,12 +88,12 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
     
     // Navigate to about page first if not already there
     if (location.pathname !== '/about') {
-      navigate('/about');
+      navigate(`/about#${sectionId}`);
       // Wait for navigation then scroll
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
-          const navHeight = 160;
+          const navHeight = 120;
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - navHeight;
           window.scrollTo({
@@ -135,19 +101,22 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
             behavior: 'smooth'
           });
         }
-      }, 100);
+      }, 300);
     } else {
-      // Already on about page, just scroll
-      const element = document.getElementById(sectionId);
-      if (element) {
-        const navHeight = 160;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
+      // Already on about page, update hash and scroll
+      window.location.hash = sectionId;
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const navHeight = 120;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 50);
     }
   };
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import SEO from "../components/SEO";
 import userJourney from "../assets/user joureny.png";
 import instaParkLogo from "../assets/InstaParkAI plain BG logo.png";
@@ -11,11 +12,18 @@ import instaKitchen from "../assets/A vision of future Kitchen pods at Instapark
 import partners1 from "../assets/Partners 1.png";
 import partners2 from "../assets/Partners2.png";
 import partners3 from "../assets/Partners3.png";
+import partners4 from "../assets/IDEMIA_Logo.jpg";
+
+import partners5 from "../assets/co_logo.png";
+import partners6 from "../assets/klaus_logo.png";
+
+
 import accorLogo from "../assets/client accor logo.png";
 import ibisLogo from "../assets/client ibis logo.png";
 import prestigeLogo from "../assets/client prestige group logo.png";
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
   const partnersClientsScrollRef = React.useRef<HTMLDivElement>(null);
@@ -104,29 +112,36 @@ const Home: React.FC = () => {
     let scrollPosition = 0;
     const scrollSpeed = 0.5;
     let animationId: number;
+    let isPaused = false;
 
     const autoScroll = () => {
-      scrollPosition += scrollSpeed;
-      
-      if (scrollPosition >= container.scrollWidth - container.clientWidth) {
-        scrollPosition = 0;
+      if (!isPaused) {
+        scrollPosition += scrollSpeed;
+        
+        // Get the width of one set of logos (half of total scrollWidth since we duplicate)
+        const singleSetWidth = container.scrollWidth / 2;
+        
+        // When we've scrolled past one complete set, reset to 0 seamlessly
+        if (scrollPosition >= singleSetWidth) {
+          scrollPosition = scrollPosition - singleSetWidth;
+        }
+        
+        container.scrollLeft = scrollPosition;
       }
-      
-      container.scrollLeft = scrollPosition;
       animationId = requestAnimationFrame(autoScroll);
     };
 
     const handleMouseEnter = () => {
-      cancelAnimationFrame(animationId);
+      isPaused = true;
     };
 
     const handleMouseLeave = () => {
-      animationId = requestAnimationFrame(autoScroll);
+      isPaused = false;
     };
 
     container.addEventListener('mouseenter', handleMouseEnter);
     container.addEventListener('mouseleave', handleMouseLeave);
-
+    
     animationId = requestAnimationFrame(autoScroll);
 
     return () => {
@@ -360,72 +375,88 @@ const Home: React.FC = () => {
       <section
         id="what-we-do"
         style={{
-          background: "white",
+          background: "linear-gradient(180deg, #f8fbff 0%, #ffffff 100%)",
           padding: isMobile ? "100px 20px 60px" : "120px 20px 80px",
           position: "relative"
         }}
       >
-              <div style={{
+        <div style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          textAlign: "center"
+          textAlign: "center",
+          padding: isMobile ? "0 24px" : "0 24px"
         }}>
-          {/* Logo */}
-       
-
-       
           <h2 style={{
             fontSize: isMobile ? "2rem" : "3rem",
             fontWeight: 800,
             color: "#111827",
-            marginBottom: isMobile ? "40px" : "50px",
+            marginBottom: "16px",
             lineHeight: "1.2",
             letterSpacing: "-0.5px"
           }}>
             What InstaParkAI Offers
           </h2>
+          
+          {/* Supporting Line */}
+          <p style={{
+            color: "#6b7280",
+            fontSize: isMobile ? "1rem" : "1.125rem",
+            maxWidth: "700px",
+            margin: "0 auto 50px",
+            lineHeight: "1.6",
+            fontWeight: "400"
+          }}>
+            Complete smart parking solutions combining technology, operations, and intelligence.
+          </p>
 
           {/* 4 Cards Grid */}
-                <div style={{
+          <div style={{
             display: "grid",
             gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
-            gap: isMobile ? "20px" : "24px",
-            maxWidth: "1000px",
-            margin: "0 auto"
+            gap: isMobile ? "24px" : "32px",
+            width: "100%"
           }}>
             {[
               {
                 icon: "fa-layer-group",
                 title: "End-to-End Parking Operations",
-                description: "Expert manpower, professional valet drivers, and technology-driven solutions"
+                description: "Expert manpower, professional valet drivers, and technology-driven solutions",
+                sectionId: "end-to-end-operations"
               },
               {
                 icon: "fa-microchip",
                 title: "AI-Driven Smart Parking Management Systems",
-                description: "Advanced AI-powered parking management solutions for real-time monitoring and control"
+                description: "Advanced AI-powered parking management solutions for real-time monitoring and control",
+                sectionId: "ai-parking-management"
               },
               {
                 icon: "fa-map-location-dot",
                 title: "Find. Book. Park.",
-                description: "Nearby parking spaces - one-time or monthly booking options"
+                description: "Nearby parking spaces - one-time or monthly booking options",
+                sectionId: "parking-discovery"
               },
               {
                 icon: "fa-wrench",
                 title: "Complete AMC Support",
-                description: "Comprehensive & Non-Comprehensive maintenance contracts available"
+                description: "Comprehensive & Non-Comprehensive maintenance contracts available",
+                sectionId: "amc-support"
               }
             ].map((card, index) => (
               <div
                 key={index}
-                    style={{
-                  background: "linear-gradient(135deg, rgba(5, 126, 255, 0.05), rgba(107, 182, 255, 0.05))",
-                  padding: isMobile ? "32px 24px" : "40px 32px",
-                  borderRadius: "16px",
-                  border: "1px solid rgba(5, 126, 255, 0.1)",
+                style={{
+                  background: "white",
+                  padding: isMobile ? "36px 28px" : "48px 40px",
+                  borderRadius: "20px",
+                  border: "1px solid #e5e7eb",
                   boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
                   textAlign: "center",
                   transition: "all 0.3s ease",
-                  cursor: "default"
+                  cursor: "default",
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                  minHeight: isMobile ? "280px" : "320px"
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-4px)";
@@ -435,24 +466,22 @@ const Home: React.FC = () => {
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
                   e.currentTarget.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.08)";
-                  e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.1)";
+                  e.currentTarget.style.borderColor = "#e5e7eb";
                 }}
               >
                 <div style={{
                   width: isMobile ? "64px" : "80px",
                   height: isMobile ? "64px" : "80px",
                   margin: "0 auto 20px",
-                  borderRadius: "12px",
-                  background: "linear-gradient(135deg, rgba(5, 126, 255, 0.1), rgba(107, 182, 255, 0.1))",
+                  borderRadius: "16px",
+                  background: "linear-gradient(135deg, #057eff, #6bb6ff)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  position: "relative"
+                  color: "white",
+                  fontSize: isMobile ? "1.75rem" : "2rem"
                 }}>
-                  <i className={`fas ${card.icon}`} style={{
-                    fontSize: isMobile ? "2rem" : "2.5rem",
-                    color: "#057eff"
-                  }}></i>
+                  <i className={`fas ${card.icon}`}></i>
                 </div>
                 <h3 style={{
                   fontSize: isMobile ? "1.25rem" : "1.375rem",
@@ -467,12 +496,43 @@ const Home: React.FC = () => {
                   fontSize: isMobile ? "0.9375rem" : "1rem",
                   color: "#6b7280",
                   lineHeight: "1.6",
-                  margin: 0
+                  marginBottom: "24px",
+                  flex: 1
                 }}>
                   {card.description}
                 </p>
+                <button
+                  onClick={() => navigate(`/services#${card.sectionId}`)}
+                  style={{
+                    background: "transparent",
+                    border: "2px solid #057eff",
+                    color: "#057eff",
+                    padding: "12px 24px",
+                    borderRadius: "10px",
+                    fontWeight: 600,
+                    fontSize: isMobile ? "0.9375rem" : "1rem",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "8px",
+                    marginTop: "auto"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#057eff";
+                    e.currentTarget.style.color = "white";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.color = "#057eff";
+                  }}
+                >
+                  <span>More Details</span>
+                  <i className="fas fa-arrow-right" style={{ fontSize: "0.875rem" }}></i>
+                </button>
               </div>
-                ))}
+            ))}
           </div>
         </div>
       </section>
@@ -1271,91 +1331,74 @@ const Home: React.FC = () => {
             Trusted by leading organizations and strategic partners across India
           </p>
 
-          {/* Auto-Scrolling Logos */}
+          {/* Auto-Scrolling Logos - Infinite Scroll */}
           <div
             ref={partnersClientsScrollRef}
             style={{
               display: "flex",
               gap: isMobile ? "40px" : "60px",
-              overflowX: "auto",
+              overflowX: "hidden",
               overflowY: "hidden",
               paddingBottom: "20px",
               alignItems: "center",
-              justifyContent: "center",
-              scrollBehavior: "smooth",
-              scrollbarWidth: "thin"
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              WebkitOverflowScrolling: "touch"
             }}
           >
-            {/* Partner Logos */}
-        <div style={{ 
-              flex: "0 0 auto",
-              background: "white",
-              padding: isMobile ? "20px" : "30px",
-              borderRadius: "12px",
-              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
-              height: isMobile ? "100px" : "120px",
-              width: isMobile ? "200px" : "250px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center"
-            }}>
-              <img 
-                src={partners1} 
-                alt="Partner 1" 
-                style={{
-                  height: isMobile ? "60px" : "80px",
-                  width: "auto",
-                  objectFit: "contain",
-                  maxWidth: "100%"
-                }}
-              />
-            </div>
-          <div style={{
-              flex: "0 0 auto",
-            background: "white",
-              padding: isMobile ? "20px" : "30px",
-              borderRadius: "12px",
-              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
-              height: isMobile ? "100px" : "120px",
-              width: isMobile ? "200px" : "250px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center"
-            }}>
-              <img 
-                src={partners2} 
-                alt="Partner 2" 
-                style={{
-                  height: isMobile ? "60px" : "80px",
-                  width: "auto",
-                  objectFit: "contain",
-                  maxWidth: "100%"
-                }}
-              />
-            </div>
-            <div style={{
-              flex: "0 0 auto",
-              background: "white",
-              padding: isMobile ? "20px" : "30px",
-              borderRadius: "12px",
-              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
-              height: isMobile ? "100px" : "120px",
-              width: isMobile ? "200px" : "250px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center"
-            }}>
-              <img 
-                src={partners3} 
-                alt="Partner 3" 
-                style={{
-                  height: isMobile ? "60px" : "80px",
-                  width: "auto",
-                  objectFit: "contain",
-                  maxWidth: "100%"
-                }}
-              />
-            </div>
+            {/* Partner Logos - First Set */}
+            {[partners1, partners2, partners3, partners4, partners5, partners6].map((partner, index) => (
+              <div key={`partner-${index}`} style={{ 
+                flex: "0 0 auto",
+                background: "white",
+                padding: isMobile ? "20px" : "30px",
+                borderRadius: "12px",
+                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+                height: isMobile ? "100px" : "120px",
+                width: isMobile ? "200px" : "250px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}>
+                <img 
+                  src={partner} 
+                  alt={`Partner ${index + 1}`} 
+                  style={{
+                    height: isMobile ? "60px" : "80px",
+                    width: "auto",
+                    objectFit: "contain",
+                    maxWidth: "100%"
+                  }}
+                />
+              </div>
+            ))}
+
+            {/* Partner Logos - Duplicated Set for Infinite Scroll */}
+            {[partners1, partners2, partners3, partners4, partners5, partners6].map((partner, index) => (
+              <div key={`partner-duplicate-${index}`} style={{ 
+                flex: "0 0 auto",
+                background: "white",
+                padding: isMobile ? "20px" : "30px",
+                borderRadius: "12px",
+                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+                height: isMobile ? "100px" : "120px",
+                width: isMobile ? "200px" : "250px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}>
+                <img 
+                  src={partner} 
+                  alt={`Partner ${index + 1}`} 
+                  style={{
+                    height: isMobile ? "60px" : "80px",
+                    width: "auto",
+                    objectFit: "contain",
+                    maxWidth: "100%"
+                  }}
+                />
+              </div>
+            ))}
 
             {/* Client Logos */}
               <div style={{
@@ -1476,53 +1519,225 @@ const Home: React.FC = () => {
             Transform your parking infrastructure into a smart, revenue-generating ecosystem
           </p>
 
-              <div style={{ 
-                display: "flex", 
-            justifyContent: "center", 
-            gap: "16px",
-            flexWrap: "wrap"
-              }}>
-                <button
-                  onClick={() => window.openContactDialog?.()}
-                  style={{
+          {/* Sales and Support Cards */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+            gap: isMobile ? "24px" : "32px",
+            maxWidth: "900px",
+            margin: "0 auto"
+          }}>
+            {/* Sales Card */}
+            <div style={{
+              background: "rgba(255, 255, 255, 0.95)",
+              borderRadius: "20px",
+              padding: isMobile ? "32px 24px" : "40px 32px",
+              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)",
+              border: "1px solid rgba(255, 255, 255, 0.3)",
+              textAlign: "center",
+              transition: "all 0.3s ease"
+            }}>
+              <div style={{
+                width: "64px",
+                height: "64px",
                 background: "linear-gradient(135deg, #057eff, #6bb6ff)",
-                    color: "white",
-                    padding: isMobile ? "18px 36px" : "20px 48px",
-                    borderRadius: "12px",
-                    fontWeight: 700,
-                    border: "none",
-                    cursor: "pointer",
-                    fontSize: isMobile ? "1.1rem" : "1.2rem",
-                transition: "all 0.3s ease",
-                    minWidth: isMobile ? "200px" : "280px",
-                boxShadow: "0 8px 30px rgba(5, 126, 255, 0.4)"
-              }}
-            >
-              <i className="fas fa-rocket" style={{ marginRight: "8px" }}></i> Get Started Today
-            </button>
-            <a
-              href="tel:+919845802901"
-              style={{
-                background: "rgba(255, 255, 255, 0.1)",
-                color: "white",
-                padding: isMobile ? "18px 36px" : "20px 48px",
-                borderRadius: "12px",
-                fontWeight: 600,
-                border: "2px solid rgba(255, 255, 255, 0.2)",
-                cursor: "pointer",
-                fontSize: isMobile ? "1.1rem" : "1.2rem",
-                textDecoration: "none",
-                transition: "all 0.3s ease",
-                minWidth: isMobile ? "200px" : "280px",
-                display: "inline-flex",
+                borderRadius: "16px",
+                display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                gap: "8px",
-                backdropFilter: "blur(10px)"
-              }}
-            >
-              📞 +91 98458 02901
-            </a>
+                margin: "0 auto 20px",
+                color: "white",
+                fontSize: "1.75rem"
+              }}>
+                <i className="fas fa-handshake"></i>
+              </div>
+              <h3 style={{
+                color: "#111827",
+                fontSize: isMobile ? "1.5rem" : "1.75rem",
+                fontWeight: 700,
+                marginBottom: "16px",
+                lineHeight: "1.2"
+              }}>
+                Sales
+              </h3>
+              <p style={{
+                color: "#6b7280",
+                fontSize: "0.9375rem",
+                marginBottom: "24px",
+                lineHeight: "1.6"
+              }}>
+                Get in touch with our sales team for inquiries and partnerships
+              </p>
+              <div style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "12px"
+              }}>
+                <a
+                  href="mailto:sales@instaparkai.com"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "10px",
+                    background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+                    color: "white",
+                    padding: "14px 20px",
+                    borderRadius: "10px",
+                    fontWeight: 600,
+                    textDecoration: "none",
+                    fontSize: "0.9375rem",
+                    transition: "all 0.3s ease"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(5, 126, 255, 0.4)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  <i className="fas fa-envelope"></i>
+                  sales@instaparkai.com
+                </a>
+                <a
+                  href="tel:+919353240270"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "10px",
+                    background: "transparent",
+                    color: "#057eff",
+                    padding: "14px 20px",
+                    borderRadius: "10px",
+                    fontWeight: 600,
+                    textDecoration: "none",
+                    fontSize: "0.9375rem",
+                    border: "2px solid #057eff",
+                    transition: "all 0.3s ease"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#057eff";
+                    e.currentTarget.style.color = "white";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.color = "#057eff";
+                  }}
+                >
+                  <i className="fas fa-phone"></i>
+                  +91 9353240270
+                </a>
+              </div>
+            </div>
+
+            {/* Support Card */}
+            <div style={{
+              background: "rgba(255, 255, 255, 0.95)",
+              borderRadius: "20px",
+              padding: isMobile ? "32px 24px" : "40px 32px",
+              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)",
+              border: "1px solid rgba(255, 255, 255, 0.3)",
+              textAlign: "center",
+              transition: "all 0.3s ease"
+            }}>
+              <div style={{
+                width: "64px",
+                height: "64px",
+                background: "linear-gradient(135deg, #10b981, #059669)",
+                borderRadius: "16px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                margin: "0 auto 20px",
+                color: "white",
+                fontSize: "1.75rem"
+              }}>
+                <i className="fas fa-headset"></i>
+              </div>
+              <h3 style={{
+                color: "#111827",
+                fontSize: isMobile ? "1.5rem" : "1.75rem",
+                fontWeight: 700,
+                marginBottom: "16px",
+                lineHeight: "1.2"
+              }}>
+                Support
+              </h3>
+              <p style={{
+                color: "#6b7280",
+                fontSize: "0.9375rem",
+                marginBottom: "24px",
+                lineHeight: "1.6"
+              }}>
+                Need help? Our support team is here to assist you
+              </p>
+              <div style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "12px"
+              }}>
+                <a
+                  href="mailto:support@instaparkai.com"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "10px",
+                    background: "linear-gradient(135deg, #10b981, #059669)",
+                    color: "white",
+                    padding: "14px 20px",
+                    borderRadius: "10px",
+                    fontWeight: 600,
+                    textDecoration: "none",
+                    fontSize: "0.9375rem",
+                    transition: "all 0.3s ease"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(16, 185, 129, 0.4)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  <i className="fas fa-envelope"></i>
+                  support@instaparkai.com
+                </a>
+                <a
+                  href="tel:+919353240270"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "10px",
+                    background: "transparent",
+                    color: "#10b981",
+                    padding: "14px 20px",
+                    borderRadius: "10px",
+                    fontWeight: 600,
+                    textDecoration: "none",
+                    fontSize: "0.9375rem",
+                    border: "2px solid #10b981",
+                    transition: "all 0.3s ease"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#10b981";
+                    e.currentTarget.style.color = "white";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.color = "#10b981";
+                  }}
+                >
+                  <i className="fas fa-phone"></i>
+                  +91 9353240270
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
