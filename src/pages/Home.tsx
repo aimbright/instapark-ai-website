@@ -275,7 +275,7 @@ const Home: React.FC = () => {
                     e.currentTarget.style.boxShadow = "0 8px 30px rgba(5, 126, 255, 0.4)";
                   }}
                 >
-                  🚀 Get Started
+                  <i className="fas fa-rocket" style={{ marginRight: "8px" }}></i> Get Started
               </button>
                 
                 <button
@@ -306,7 +306,7 @@ const Home: React.FC = () => {
                     e.currentTarget.style.background = "white";
                   }}
                 >
-                  🅿️ Book Parking Slot
+                  <i className="fas fa-parking" style={{ marginRight: "8px" }}></i> Book Parking Slot
                 </button>
               </div>
 
@@ -319,8 +319,8 @@ const Home: React.FC = () => {
             margin: "0 auto"
               }}>
                 {[
-              { number: "1000+", label: "Parking Locations" },
-              { number: "50+", label: "Cities Covered" },
+              { number: "100+", label: "Parking Locations" },
+              { number: "5+", label: "Cities Covered" },
               { number: "99.9%", label: "Platform Uptime" },
               { number: "24/7", label: "Operations Support" }
             ].map((stat, index) => (
@@ -356,82 +356,124 @@ const Home: React.FC = () => {
             </div>
       </section>
 
-      {/* ================= INTRO SECTION ================= */}
+      {/* ================= WHAT WE DO SECTION ================= */}
       <section
-        id="intro"
+        id="what-we-do"
         style={{
-          background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f0f9ff 100%)",
-          padding: isMobile ? "50px 20px" : "70px 20px",
-          position: "relative",
-          overflow: "hidden",
-          opacity: visibleSections.has('intro') ? 1 : 0,
-          transform: visibleSections.has('intro') ? 'translateY(0)' : 'translateY(30px)',
-          transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
+          background: "white",
+          padding: isMobile ? "100px 20px 60px" : "120px 20px 80px",
+          position: "relative"
         }}
       >
-        {/* Decorative background elements */}
               <div style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: "radial-gradient(circle at 20% 50%, rgba(5, 126, 255, 0.05) 0%, transparent 50%)",
-          pointerEvents: "none"
-        }}></div>
-        
-        <div style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          textAlign: "center",
-                position: "relative",
-          zIndex: 1
-              }}>
-                <div style={{
-            display: "inline-block",
-            padding: isMobile ? "8px 20px" : "10px 28px",
-            background: "linear-gradient(135deg, rgba(5, 126, 255, 0.1), rgba(107, 182, 255, 0.1))",
-            borderRadius: "50px",
-            marginBottom: "24px",
-            border: "1px solid rgba(5, 126, 255, 0.2)"
-          }}>
-            <span style={{
-              fontSize: isMobile ? "0.75rem" : "0.875rem",
-              fontWeight: 600,
-              color: "#057eff",
-              letterSpacing: "0.5px",
-              textTransform: "uppercase"
-            }}>
-              AI-Powered Innovation
-            </span>
-          </div>
+          textAlign: "center"
+        }}>
+          {/* Logo */}
+       
 
+       
           <h2 style={{
             fontSize: isMobile ? "2rem" : "3rem",
-            fontWeight: 700,
-            color: "#1f2937",
-            marginBottom: "24px",
+            fontWeight: 800,
+            color: "#111827",
+            marginBottom: isMobile ? "40px" : "50px",
             lineHeight: "1.2",
             letterSpacing: "-0.5px"
           }}>
-            Reinventing Urban Parking with AI
+            What InstaParkAI Offers
           </h2>
-             
-          <p
+
+          {/* 4 Cards Grid */}
+                <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+            gap: isMobile ? "20px" : "24px",
+            maxWidth: "1000px",
+            margin: "0 auto"
+          }}>
+            {[
+              {
+                icon: "fa-layer-group",
+                title: "End-to-End Parking Operations",
+                description: "Expert manpower, professional valet drivers, and technology-driven solutions"
+              },
+              {
+                icon: "fa-microchip",
+                title: "AI-Driven Smart Parking Management Systems",
+                description: "Advanced AI-powered parking management solutions for real-time monitoring and control"
+              },
+              {
+                icon: "fa-map-location-dot",
+                title: "Find. Book. Park.",
+                description: "Nearby parking spaces - one-time or monthly booking options"
+              },
+              {
+                icon: "fa-wrench",
+                title: "Complete AMC Support",
+                description: "Comprehensive & Non-Comprehensive maintenance contracts available"
+              }
+            ].map((card, index) => (
+              <div
+                key={index}
                     style={{
-              fontSize: isMobile ? "1.125rem" : "1.375rem",
-              color: "#4b5563",
-              marginBottom: "0",
-              lineHeight: "1.8",
-              fontWeight: "400",
-              maxWidth: "900px",
-              margin: "0 auto",
-              letterSpacing: "0.2px"
-            }}
-          >
-            InstaParkAI is an AI-powered smart parking platform built to digitize, automate, and monetize parking infrastructure across India.
-            We help cities, malls, commercial spaces, property owners, and operators transform parking into a connected, intelligent, revenue-generating ecosystem.
-          </p>
+                  background: "linear-gradient(135deg, rgba(5, 126, 255, 0.05), rgba(107, 182, 255, 0.05))",
+                  padding: isMobile ? "32px 24px" : "40px 32px",
+                  borderRadius: "16px",
+                  border: "1px solid rgba(5, 126, 255, 0.1)",
+                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+                  textAlign: "center",
+                  transition: "all 0.3s ease",
+                  cursor: "default"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                  e.currentTarget.style.boxShadow = "0 8px 30px rgba(5, 126, 255, 0.2)";
+                  e.currentTarget.style.borderColor = "#057eff";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.08)";
+                  e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.1)";
+                }}
+              >
+                <div style={{
+                  width: isMobile ? "64px" : "80px",
+                  height: isMobile ? "64px" : "80px",
+                  margin: "0 auto 20px",
+                  borderRadius: "12px",
+                  background: "linear-gradient(135deg, rgba(5, 126, 255, 0.1), rgba(107, 182, 255, 0.1))",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  position: "relative"
+                }}>
+                  <i className={`fas ${card.icon}`} style={{
+                    fontSize: isMobile ? "2rem" : "2.5rem",
+                    color: "#057eff"
+                  }}></i>
+                </div>
+                <h3 style={{
+                  fontSize: isMobile ? "1.25rem" : "1.375rem",
+                  fontWeight: 700,
+                  color: "#1f2937",
+                  marginBottom: "12px",
+                  lineHeight: "1.3"
+                }}>
+                  {card.title}
+                </h3>
+                <p style={{
+                  fontSize: isMobile ? "0.9375rem" : "1rem",
+                  color: "#6b7280",
+                  lineHeight: "1.6",
+                  margin: 0
+                }}>
+                  {card.description}
+                </p>
+              </div>
+                ))}
+          </div>
         </div>
       </section>
 
@@ -441,26 +483,26 @@ const Home: React.FC = () => {
         style={{
           background: "#fafbfc",
           padding: isMobile ? "0 20px 0" : "0 20px 0",
-                  position: "relative",
+                position: "relative",
           opacity: visibleSections.has('problem') ? 1 : 0,
           transform: visibleSections.has('problem') ? 'translateY(0)' : 'translateY(20px)',
           transition: 'opacity 0.6s ease, transform 0.6s ease'
         }}
       >
-        <div style={{
+        <div style={{ 
           maxWidth: "1200px", 
           margin: "0 auto"
         }}>
           {/* Header Section */}
-          <div style={{
+                <div style={{
             textAlign: "center",
             marginBottom: isMobile ? "60px" : "80px",
             paddingTop: isMobile ? "40px" : "50px"
-          }}>
-            <h2
-              style={{
+        }}>
+          <h2
+            style={{
                 fontSize: isMobile ? "2.5rem" : "3.5rem",
-                fontWeight: 700,
+              fontWeight: 700,
                 color: "#111827",
                 marginBottom: "24px",
                 lineHeight: "1.1",
@@ -488,63 +530,64 @@ const Home: React.FC = () => {
           <div style={{
             marginBottom: isMobile ? "60px" : "80px"
           }}>
-            <p
-              style={{
-                fontSize: isMobile ? "1rem" : "1.125rem",
-                color: "#6b7280",
+          <p
+            style={{
+              fontSize: isMobile ? "1rem" : "1.125rem",
+              color: "#6b7280",
                 textAlign: "center",
                 marginBottom: "40px",
                 fontWeight: 500
               }}
             >
               Common challenges include:
-            </p>
+          </p>
 
-            <div
-              style={{
-                display: "grid",
+          <div
+            style={{
+              display: "grid",
                 gridTemplateColumns: isMobile ? "1fr" : "repeat(5, 1fr)",
                 gap: isMobile ? "20px" : "24px",
                 maxWidth: "1100px",
                 margin: "0 auto"
-              }}
-            >
-              {[
-                { icon: "💵", title: "Manual and cash-driven" },
-                { icon: "🔍", title: "Opaque and inefficient" },
-                { icon: "👥", title: "Manpower-dependent" },
-                { icon: "🚗", title: "Congested during peak hours" },
-                { icon: "📉", title: "Underutilized despite high demand" }
+            }}
+          >
+            {[
+                { icon: "fa-money-bill-wave", title: "Manual and cash-driven" },
+                { icon: "fa-search", title: "Opaque and inefficient" },
+                { icon: "fa-users", title: "Manpower-dependent" },
+                { icon: "fa-car", title: "Congested during peak hours" },
+                { icon: "fa-tachometer-alt", title: "Underutilized despite high demand" }
               ].map((item, index) => (
-                <div
-                  key={index}
-                  style={{
-                    background: "white",
+              <div
+                key={index}
+                style={{
+                  background: "white",
                     padding: isMobile ? "28px 20px" : "36px 24px",
                     borderRadius: "12px",
-                    textAlign: "center",
+                  textAlign: "center",
                     border: "1px solid #e5e7eb",
                     boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
                     transition: "all 0.2s ease"
-                  }}
-                >
-                  <div style={{
+                }}
+              >
+                <div style={{ 
                     fontSize: isMobile ? "2.25rem" : "2.5rem", 
                     marginBottom: "12px",
-                    lineHeight: "1"
+                    lineHeight: "1",
+                    color: "#057eff"
                   }}>
-                    {item.icon}
-                  </div>
+                    <i className={`fas ${item.icon}`}></i>
+          </div>
                   <div style={{ 
                     color: "#111827", 
                     fontSize: isMobile ? "0.9375rem" : "1rem", 
-                    fontWeight: 600, 
+                  fontWeight: 600, 
                     lineHeight: "1.4"
                   }}>
                     {item.title}
                   </div>
-                </div>
-              ))}
+              </div>
+            ))}
             </div>
           </div>
 
@@ -600,8 +643,8 @@ const Home: React.FC = () => {
             >
               These challenges result in <strong style={{ color: "#ef4444", fontWeight: 700 }}>revenue leakage, poor user experience, and operational chaos</strong>.
             </p>
-          </div>
-        </div>
+            </div>
+              </div>
       </section>
 
       {/* ================= OUR SOLUTION SECTION ================= */}
@@ -629,7 +672,7 @@ const Home: React.FC = () => {
             }}
           >
             Our Solution
-            </h2>
+          </h2>
           <h3 style={{
             fontSize: isMobile ? "1.5rem" : "2rem",
             fontWeight: 600,
@@ -855,37 +898,43 @@ const Home: React.FC = () => {
             }}
           >
             {[
-              { 
-                  number: "1️⃣",
+              {
+                  number: 1,
+                  icon: "fa-eye",
                   title: "AI detects real-time parking availability",
                   desc: "Advanced computer vision identifies available slots instantly"
                 },
                 {
-                  number: "2️⃣",
+                  number: 2,
+                  icon: "fa-mobile-alt",
                   title: "Users book via app or website",
                   desc: "One-tap booking with instant confirmation"
                 },
                 {
-                  number: "3️⃣",
+                  number: 3,
+                  icon: "fa-qrcode",
                   title: "Entry via ANPR / RFID / QR",
                   desc: "Automated access control for seamless entry"
                 },
                 {
-                  number: "4️⃣",
+                  number: 4,
+                  icon: "fa-video",
                   title: "Parking monitored live",
                   desc: "Real-time tracking and occupancy management"
                 },
                 {
-                  number: "5️⃣",
+                  number: 5,
+                  icon: "fa-credit-card",
                   title: "Digital payment on exit",
                   desc: "Secure, cashless transactions"
                 },
                 {
-                  number: "6️⃣",
+                  number: 6,
+                  icon: "fa-chart-bar",
                   title: "Revenue & analytics updated instantly",
                   desc: "Complete visibility into operations and performance"
-                },
-              ].map((step, index) => (
+              },
+            ].map((step, index) => (
               <div
                 key={index}
                 style={{
@@ -899,6 +948,21 @@ const Home: React.FC = () => {
                     backdropFilter: "blur(10px)"
                 }}
               >
+                <div style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "50%",
+                  background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+                  color: "white",
+                  fontSize: "1.25rem",
+                  fontWeight: "700",
+                  marginBottom: "16px"
+                }}>
+                  <i className={`fas ${step.icon}`} style={{ fontSize: "1.2rem" }}></i>
+            </div>
                 <h3 style={{ 
                     color: "#ffffff", 
                   fontWeight: 700, 
@@ -907,23 +971,23 @@ const Home: React.FC = () => {
                     lineHeight: "1.4",
                     textShadow: "0 2px 8px rgba(0, 0, 0, 0.5)"
                 }}>
-                    {step.title}
+                  {step.title}
                 </h3>
                 <p style={{ 
                     color: "#e5e7eb", 
                   lineHeight: "1.6",
-                    margin: 0,
+                  margin: 0,
                     fontSize: isMobile ? "1rem" : "1.125rem",
                     textShadow: "0 2px 6px rgba(0, 0, 0, 0.5)",
                     fontWeight: "400"
                 }}>
-                    {step.desc}
+                  {step.desc}
                 </p>
               </div>
             ))}
-            </div>
-            </div>
-              </div>
+          </div>
+          </div>
+        </div>
       </section>
 
       {/* ================= WHO WE SERVE SECTION ================= */}
@@ -952,7 +1016,7 @@ const Home: React.FC = () => {
             }}
           >
             Who We Serve
-          </h2>
+            </h2>
           <p
             style={{
               fontSize: isMobile ? "1rem" : "1.125rem",
@@ -974,12 +1038,12 @@ const Home: React.FC = () => {
             }}
           >
             {[
-              { icon: "🏢", title: "Shopping Malls & Retail" },
-              { icon: "🏥", title: "Hospitals & Hotels" },
-              { icon: "✈️", title: "Airports & Transport Hubs" },
-              { icon: "🏭", title: "IT Parks & Industrial Campuses" },
-              { icon: "🏘️", title: "Residential Societies" },
-              { icon: "🌆", title: "Smart Cities & Municipalities" }
+              { icon: "fa-store", title: "Shopping Malls & Retail" },
+              { icon: "fa-hospital", title: "Hospitals & Hotels" },
+              { icon: "fa-plane", title: "Airports & Transport Hubs" },
+              { icon: "fa-building", title: "IT Parks & Industrial Campuses" },
+              { icon: "fa-home", title: "Residential Societies" },
+              { icon: "fa-city", title: "Smart Cities & Municipalities" }
             ].map((item, index) => (
               <div
                 key={index}
@@ -994,9 +1058,10 @@ const Home: React.FC = () => {
               >
                 <div style={{
                   fontSize: isMobile ? "2.5rem" : "3rem",
-                  marginBottom: "16px"
+                  marginBottom: "16px",
+                  color: "white"
                 }}>
-                  {item.icon}
+                  <i className={`fas ${item.icon}`}></i>
             </div>
                 <h3 style={{ 
                   fontSize: isMobile ? "1.2rem" : "1.3rem",
@@ -1433,7 +1498,7 @@ const Home: React.FC = () => {
                 boxShadow: "0 8px 30px rgba(5, 126, 255, 0.4)"
               }}
             >
-              🚀 Get Started Today
+              <i className="fas fa-rocket" style={{ marginRight: "8px" }}></i> Get Started Today
             </button>
             <a
               href="tel:+919845802901"
