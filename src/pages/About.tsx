@@ -144,141 +144,326 @@ const About: React.FC = () => {
         keywords="InstaParkAI about, parking company India, smart parking vision, parking digitization India, urban parking solutions, parking infrastructure India, parking market opportunity, parking value proposition, parking technology company, parking innovation India"
         ogImage="https://instaparkai.com/og-image-about.png"
       />
-      {/* ================= ABOUT HERO SECTION ================= */}
+      
+      {/* ================= KEY SERVICES SECTION - TOP PRIORITY ================= */}
       <section style={{
         background: "white",
+        padding: isMobile ? "120px 20px 80px" : "160px 20px 100px",
+        textAlign: "center",
+        position: "relative"
+      }}>
+        <div style={{
+          maxWidth: "1200px",
+          margin: "0 auto"
+        }}>
+          {/* Header with Logo */}
+          <div style={{
+            marginBottom: isMobile ? "50px" : "60px"
+          }}>
+            {/* Logo */}
+            <img 
+              src={instaParkLogo} 
+              alt="InstaParkAI Logo" 
+              style={{
+                width: isMobile ? "200px" : "300px",
+                height: "auto",
+                marginBottom: "32px"
+              }}
+            />
+            <h2 style={{
+              color: "#111827",
+              fontSize: isMobile ? "2rem" : "3rem",
+              fontWeight: "800",
+              marginBottom: "16px",
+              lineHeight: "1.2",
+              letterSpacing: "-1px"
+            }}>
+              What InstaParkAI Will Do
+            </h2>
+            <p style={{
+              color: "#4b5563",
+              fontSize: isMobile ? "1.125rem" : "1.25rem",
+              maxWidth: "700px",
+              margin: "0 auto",
+              lineHeight: "1.6"
+            }}>
+              InstaParkAI delivers comprehensive parking solutions to transform urban mobility
+            </p>
+          </div>
+
+          {/* Services Cards */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+            gap: isMobile ? "24px" : "32px",
+            maxWidth: "1200px",
+            margin: "0 auto"
+          }}>
+            {/* Service 1 */}
+            <div style={{
+              background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)",
+              borderRadius: "20px",
+              padding: isMobile ? "40px 24px" : "50px 32px",
+              boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              border: "2px solid rgba(5, 126, 255, 0.1)"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-8px)";
+              e.currentTarget.style.boxShadow = "0 20px 60px rgba(5, 126, 255, 0.2)";
+              e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 10px 40px rgba(0, 0, 0, 0.1)";
+              e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.1)";
+            }}
+            >
+              <div style={{
+                width: "80px",
+                height: "80px",
+                background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+                borderRadius: "20px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                margin: "0 auto 24px",
+                fontSize: "2rem",
+                fontWeight: "bold",
+                color: "white",
+                boxShadow: "0 10px 30px rgba(5, 126, 255, 0.4)"
+              }}>
+                1
+              </div>
+              <h3 style={{
+                color: "#111827",
+                fontSize: isMobile ? "1.5rem" : "1.75rem",
+                fontWeight: "700",
+                marginBottom: "16px",
+                lineHeight: "1.3"
+              }}>
+                Parking Operator with Manpower & Technology
+              </h3>
+              <p style={{
+                color: "#4b5563",
+                fontSize: isMobile ? "1rem" : "1.125rem",
+                lineHeight: "1.7",
+                margin: 0
+              }}>
+                Complete parking operations management with trained on-ground staff and cutting-edge technology solutions
+              </p>
+            </div>
+
+            {/* Service 2 */}
+            <div style={{
+              background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)",
+              borderRadius: "20px",
+              padding: isMobile ? "40px 24px" : "50px 32px",
+              boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              border: "2px solid rgba(5, 126, 255, 0.1)"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-8px)";
+              e.currentTarget.style.boxShadow = "0 20px 60px rgba(5, 126, 255, 0.2)";
+              e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 10px 40px rgba(0, 0, 0, 0.1)";
+              e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.1)";
+            }}
+            >
+              <div style={{
+                width: "80px",
+                height: "80px",
+                background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+                borderRadius: "20px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                margin: "0 auto 24px",
+                fontSize: "2rem",
+                fontWeight: "bold",
+                color: "white",
+                boxShadow: "0 10px 30px rgba(5, 126, 255, 0.4)"
+              }}>
+                2
+              </div>
+              <h3 style={{
+                color: "#111827",
+                fontSize: isMobile ? "1.5rem" : "1.75rem",
+                fontWeight: "700",
+                marginBottom: "16px",
+                lineHeight: "1.3"
+              }}>
+                Parking Management Systems with Latest AI Technology
+              </h3>
+              <p style={{
+                color: "#4b5563",
+                fontSize: isMobile ? "1rem" : "1.125rem",
+                lineHeight: "1.7",
+                margin: 0
+              }}>
+                Advanced AI-powered parking management systems for real-time monitoring, analytics, and automated operations
+              </p>
+            </div>
+
+            {/* Service 3 */}
+            <div style={{
+              background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)",
+              borderRadius: "20px",
+              padding: isMobile ? "40px 24px" : "50px 32px",
+              boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              border: "2px solid rgba(5, 126, 255, 0.1)"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-8px)";
+              e.currentTarget.style.boxShadow = "0 20px 60px rgba(5, 126, 255, 0.2)";
+              e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 10px 40px rgba(0, 0, 0, 0.1)";
+              e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.1)";
+            }}
+            >
+              <div style={{
+                width: "80px",
+                height: "80px",
+                background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+                borderRadius: "20px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                margin: "0 auto 24px",
+                fontSize: "2rem",
+                fontWeight: "bold",
+                color: "white",
+                boxShadow: "0 10px 30px rgba(5, 126, 255, 0.4)"
+              }}>
+                3
+              </div>
+              <h3 style={{
+                color: "#111827",
+                fontSize: isMobile ? "1.5rem" : "1.75rem",
+                fontWeight: "700",
+                marginBottom: "16px",
+                lineHeight: "1.3"
+              }}>
+                Find & Book Available Parking Spaces Nearby
+              </h3>
+              <p style={{
+                color: "#4b5563",
+                fontSize: isMobile ? "1rem" : "1.125rem",
+                lineHeight: "1.7",
+                margin: 0
+              }}>
+                Discover and book available parking spaces in cities for one-time or monthly use through our easy-to-use platform
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= ABOUT HERO SECTION ================= */}
+      <section style={{
+        position: "relative",
         padding: isMobile ? "100px 20px 60px" : "140px 20px 80px",
         textAlign: "center",
-        position: "relative",
-        overflow: "hidden"
+        minHeight: isMobile ? "600px" : "800px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
       }}>
-        {/* Background Icons - 3 Key Points */}
-        <div style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "100%",
-          maxWidth: "1400px",
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-          zIndex: 0,
-          opacity: 0.08,
-          pointerEvents: "none"
-        }}>
-          {[
-            { icon: "🚀", size: isMobile ? "120px" : "200px" },
-            { icon: "💰", size: isMobile ? "120px" : "200px" },
-            { icon: "✨", size: isMobile ? "120px" : "200px" }
-          ].map((item, index) => (
-            <div 
-              key={index}
-              style={{
-                fontSize: item.size,
-                filter: "blur(2px)",
-                transform: `rotate(${index * 15 - 15}deg)`
-              }}
-            >
-              {item.icon}
-            </div>
-          ))}
-        </div>
-
-        {/* Reinventing Urban Parking Image - Background */}
+        {/* Background Image */}
         <div style={{
           position: "absolute",
           top: 0,
           left: 0,
           right: 0,
           bottom: 0,
-          width: "100%",
-          height: "100%",
-          zIndex: 0,
-          opacity: 0.18,
-          pointerEvents: "none",
-          overflow: "hidden"
+          zIndex: 1
         }}>
           <img 
             src={reinventingUrban} 
-            alt="Reinventing Urban Parking in India Background"
+            alt="Reinventing Urban Parking in India" 
             style={{
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              objectPosition: "center",
-              filter: "blur(2px)"
+              display: "block"
             }}
           />
+          {/* Dark Overlay for better text readability */}
+          <div style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: "rgba(0, 0, 0, 0.4)",
+            zIndex: 2
+          }}></div>
         </div>
 
+        {/* Content Overlay */}
         <div style={{
+          position: "relative",
+          zIndex: 3,
           maxWidth: "1200px",
           margin: "0 auto",
-          position: "relative",
-          zIndex: 1
+          width: "100%"
         }}>
-          {/* Logo */}
-          <div style={{
-            marginBottom: "40px"
-          }}>
-            <img 
-              src={instaParkLogo} 
-              alt="InstaParkAI Logo"
-              style={{
-                height: isMobile ? "150px" : "250px",
-                width: "auto",
-                maxWidth: "90%",
-                objectFit: "contain",
-                display: "block",
-                margin: "0 auto"
-              }}
-            />
-          </div>
-
           <h1 style={{
-            color: "#111827", 
+            color: "white", 
             fontSize: isMobile ? "2.5rem" : "4rem", 
             fontWeight: "800", 
             marginBottom: "24px",
             lineHeight: "1.1",
-            letterSpacing: "-1.5px"
+            letterSpacing: "-1.5px",
+            textShadow: "0 4px 20px rgba(0, 0, 0, 0.5)"
           }}>
             Reinventing Urban Parking{" "}
             <span style={{
-              background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+              background: "linear-gradient(135deg, #60a5fa, #93c5fd)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              backgroundClip: "text"
+              backgroundClip: "text",
+              textShadow: "none"
             }}>in India</span>
           </h1>
           
           <p style={{
-            color: '#4b5563', 
+            color: 'rgba(255, 255, 255, 0.95)', 
             fontSize: isMobile ? "1.125rem" : "1.375rem", 
             maxWidth: '800px', 
             margin: '0 auto 16px',
             lineHeight: "1.7",
-            fontWeight: "500"
+            fontWeight: "500",
+            textShadow: "0 2px 10px rgba(0, 0, 0, 0.5)"
           }}>
             InstaParkAI was founded with a simple belief:
           </p>
           <p style={{
-            color: '#1f2937', 
+            color: '#ffffff', 
             fontSize: isMobile ? "1.25rem" : "1.5rem", 
             maxWidth: '900px', 
             margin: '0 auto 32px',
             lineHeight: "1.6",
-            fontWeight: "600"
+            fontWeight: "600",
+            textShadow: "0 2px 10px rgba(0, 0, 0, 0.5)"
           }}>
             Parking should be smart, transparent, and stress-free.
           </p>
           <p style={{
-            color: '#6b7280', 
+            color: 'rgba(255, 255, 255, 0.9)', 
             fontSize: isMobile ? "1rem" : "1.125rem", 
             maxWidth: '900px', 
-            margin: '0 auto 50px',
-            lineHeight: "1.7"
+            margin: '0 auto',
+            lineHeight: "1.7",
+            textShadow: "0 2px 10px rgba(0, 0, 0, 0.5)"
           }}>
             India's rapid urbanization has created massive parking challenges. Despite high demand, most parking spaces remain manual, under-monetized, and poorly managed. InstaParkAI exists to fix this gap.
           </p>
@@ -290,81 +475,63 @@ const About: React.FC = () => {
         id="our-vision"
         ref={(el) => { sectionsRef.current[0] = el as HTMLDivElement | null; }}
         style={{
-          background: "linear-gradient(135deg, #f0f4f8 0%, #ffffff 50%, #f8fafc 100%)",
+          position: "relative",
           padding: isMobile ? "80px 20px" : "120px 20px",
           opacity: 0,
           transform: "translateY(30px)",
-          transition: "opacity 0.6s ease, transform 0.6s ease"
+          transition: "opacity 0.6s ease, transform 0.6s ease",
+          minHeight: isMobile ? "600px" : "700px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          overflow: "hidden"
         }}
         data-visible="false"
       >
+        {/* Background Image - Logo */}
         <div style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 0,
+          backgroundImage: `url(${instaParkLogo})`,
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.15
+        }}></div>
+        
+        {/* Overlay for better text readability */}
+        <div style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: "linear-gradient(135deg, rgba(240, 244, 248, 0.85) 0%, rgba(255, 255, 255, 0.85) 50%, rgba(248, 250, 252, 0.85) 100%)",
+          zIndex: 1
+        }}></div>
+        <div style={{
+          position: "relative",
+          zIndex: 2,
           maxWidth: "1400px", 
-          margin: "0 auto"
+          margin: "0 auto",
+          width: "100%"
         }}>
           <div style={{
-            background: "linear-gradient(135deg, #ffffff 0%, #fafbfc 100%)",
+            background: "linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 251, 252, 0.95) 100%)",
             borderRadius: "40px",
             padding: isMobile ? "60px 30px" : "100px 80px",
             boxShadow: "0 30px 80px rgba(0, 0, 0, 0.12), 0 10px 30px rgba(5, 126, 255, 0.08)",
             border: "1px solid rgba(5, 126, 255, 0.15)",
-        position: "relative",
+            position: "relative",
             overflow: "hidden",
             backdropFilter: "blur(10px)"
-      }}>
-            {/* Enhanced Decorative background elements */}
-        <div style={{
-          position: "absolute",
-              top: "-100px",
-              right: "-100px",
-              width: "400px",
-              height: "400px",
-              background: "linear-gradient(135deg, rgba(5, 126, 255, 0.08), rgba(107, 182, 255, 0.08))",
-              borderRadius: "50%",
-              zIndex: 0,
-              filter: "blur(40px)"
-            }}></div>
+          }}>
             <div style={{
-              position: "absolute",
-              bottom: "-80px",
-              left: "-80px",
-              width: "350px",
-              height: "350px",
-              background: "linear-gradient(135deg, rgba(5, 126, 255, 0.06), rgba(107, 182, 255, 0.06))",
-              borderRadius: "50%",
-              zIndex: 0,
-              filter: "blur(40px)"
-        }}></div>
-
-        {/* Logo Background */}
-        <div style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          zIndex: 0,
-          opacity: 0.15,
-          pointerEvents: "none",
-          width: "100%",
-          height: "100%"
-        }}>
-          <img 
-            src={instaParkLogo} 
-            alt="InstaParkAI Logo Background"
-            style={{
-              width: isMobile ? "300px" : "500px",
-              height: "auto",
-              objectFit: "contain",
-              filter: "blur(2px)"
-            }}
-          />
-        </div>
-
-        <div style={{
-          position: "relative",
+              position: "relative",
               zIndex: 1,
               display: "flex",
               flexDirection: "column",
@@ -459,8 +626,8 @@ const About: React.FC = () => {
         id="our-mission"
         ref={(el) => { sectionsRef.current[1] = el as HTMLDivElement | null; }}
         style={{
-          background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f0f9ff 100%)",
-          padding: isMobile ? "80px 20px" : "120px 20px",
+        background: "white",
+        padding: isMobile ? "40px 20px" : "60px 20px",
           opacity: 0,
           transform: "translateY(30px)",
           transition: "opacity 0.6s ease, transform 0.6s ease",
@@ -469,31 +636,7 @@ const About: React.FC = () => {
         }}
         data-visible="false"
       >
-        {/* Decorative Background Elements */}
-        <div style={{
-          position: "absolute",
-          top: "-150px",
-          left: "-150px",
-          width: "500px",
-          height: "500px",
-          background: "linear-gradient(135deg, rgba(5, 126, 255, 0.06), rgba(107, 182, 255, 0.06))",
-          borderRadius: "50%",
-          filter: "blur(60px)",
-          zIndex: 0
-        }}></div>
-        <div style={{
-          position: "absolute",
-          bottom: "-100px",
-          right: "-100px",
-          width: "400px",
-          height: "400px",
-          background: "linear-gradient(135deg, rgba(5, 126, 255, 0.05), rgba(107, 182, 255, 0.05))",
-          borderRadius: "50%",
-          filter: "blur(60px)",
-          zIndex: 0
-        }}></div>
-
-        {/* Aimboard Image - Background */}
+        {/* Aimboard Image - Center Background (Clear and Visible) */}
         <div style={{
           position: "absolute",
           top: "50%",
@@ -503,7 +646,7 @@ const About: React.FC = () => {
           alignItems: "center",
           justifyContent: "center",
           zIndex: 0,
-          opacity: 0.18,
+          opacity: 0.65,
           pointerEvents: "none",
           width: "100%",
           height: "100%",
@@ -512,80 +655,72 @@ const About: React.FC = () => {
         }}>
           <img 
             src={aimboardImage} 
-            alt="Aimboard Technology Background"
+            alt="Aimboard"
             style={{
               width: "100%",
               height: "100%",
-              maxWidth: isMobile ? "100%" : "1400px",
+              maxWidth: isMobile ? "100%" : "1200px",
               maxHeight: "100%",
               objectFit: "contain",
-              objectPosition: "center",
-              filter: "blur(2px)"
+              objectPosition: "center"
             }}
           />
         </div>
 
         <div style={{ 
-          maxWidth: "1400px", 
+          maxWidth: "1200px", 
           margin: "0 auto",
           position: "relative",
           zIndex: 1
         }}>
-          {/* Header Section */}
           <div style={{
             textAlign: "center",
-            marginBottom: isMobile ? "50px" : "70px"
+            marginBottom: isMobile ? "40px" : "60px"
           }}>
             <div style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: "10px",
-              background: "linear-gradient(135deg, rgba(5, 126, 255, 0.12), rgba(107, 182, 255, 0.12))",
-              padding: "12px 28px",
+              justifyContent: "center",
+              background: "linear-gradient(135deg, rgba(5, 126, 255, 0.1), rgba(107, 182, 255, 0.1))",
+              padding: "8px 20px",
               borderRadius: "50px",
-              marginBottom: "28px",
-              border: "2px solid rgba(5, 126, 255, 0.2)",
-              boxShadow: "0 4px 20px rgba(5, 126, 255, 0.1)"
+              marginBottom: "24px"
             }}>
-              <span style={{ fontSize: "1.75rem" }}>🎯</span>
               <span style={{
                 color: "#057eff",
-                fontSize: isMobile ? "0.9rem" : "1rem",
-                fontWeight: "700",
-                letterSpacing: "1px",
-                textTransform: "uppercase"
+                fontSize: isMobile ? "0.875rem" : "0.95rem",
+                fontWeight: "600",
+                letterSpacing: "0.5px"
               }}>
                 OUR MISSION
               </span>
             </div>
-            <h2 style={{
-              fontSize: isMobile ? "2.5rem" : "3.5rem",
-              fontWeight: "900",
+              <h2 style={{
+              fontSize: isMobile ? "2rem" : "3rem",
+              fontWeight: "800",
               color: "#111827",
-              marginBottom: "24px",
-              lineHeight: "1.1",
-              letterSpacing: "-2px"
+                marginBottom: "24px",
+              lineHeight: "1.2",
+              letterSpacing: "-1px"
             }}>
               Enable seamless, automated parking operations
-            </h2>
-            <p style={{
-              fontSize: isMobile ? "1.125rem" : "1.375rem",
-              color: "#6b7280",
+              </h2>
+          <p style={{
+              fontSize: isMobile ? "1.125rem" : "1.25rem",
+                color: "#6b7280",
               maxWidth: "900px",
               margin: "0 auto",
-              lineHeight: "1.7",
-              fontWeight: "500"
-            }}>
+                lineHeight: "1.7"
+              }}>
               Using AI, IoT, and cloud technologies to deliver measurable value to:
-            </p>
-          </div>
-
-          {/* Mission Points Grid - Enhanced */}
+              </p>
+            </div>
+          
           <div style={{
             display: "grid",
             gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
-            gap: isMobile ? "24px" : "32px",
-            maxWidth: "1100px",
+            gap: isMobile ? "20px" : "24px",
+            maxWidth: "1000px",
             margin: "0 auto"
           }}>
             {[
@@ -594,69 +729,36 @@ const About: React.FC = () => {
               "Parking operators",
               "Cities & municipalities"
             ].map((item, index) => (
-              <div 
-                key={index} 
-                style={{
-                  background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
-                  padding: isMobile ? "32px 24px" : "40px 32px",
-                  borderRadius: "24px",
-                  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08), 0 4px 15px rgba(5, 126, 255, 0.05)",
-                  border: "2px solid rgba(5, 126, 255, 0.15)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "20px",
-                  transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                  position: "relative",
-                  overflow: "hidden"
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-6px) scale(1.02)";
-                  e.currentTarget.style.boxShadow = "0 16px 50px rgba(5, 126, 255, 0.2), 0 8px 25px rgba(5, 126, 255, 0.15)";
-                  e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.3)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0) scale(1)";
-                  e.currentTarget.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.08), 0 4px 15px rgba(5, 126, 255, 0.05)";
-                  e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.15)";
-                }}
-              >
-                {/* Decorative background circle */}
+              <div key={index} style={{
+                background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
+                padding: isMobile ? "24px 20px" : "32px 28px",
+                borderRadius: "16px",
+                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.06)",
+                border: "1px solid rgba(5, 126, 255, 0.1)",
+                display: "flex",
+                alignItems: "center",
+                gap: "16px",
+                transition: "all 0.3s ease"
+              }}>
                 <div style={{
-                  position: "absolute",
-                  top: "-20px",
-                  right: "-20px",
-                  width: "80px",
-                  height: "80px",
-                  background: "linear-gradient(135deg, rgba(5, 126, 255, 0.08), rgba(107, 182, 255, 0.08))",
-                  borderRadius: "50%",
-                  zIndex: 0
-                }}></div>
-                
-                <div style={{
-                  width: "56px",
-                  height: "56px",
+                  width: "40px",
+                  height: "40px",
                   background: "linear-gradient(135deg, #057eff, #6bb6ff)",
-                  borderRadius: "16px",
+                  borderRadius: "10px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   color: "white",
                   fontWeight: "bold",
-                  fontSize: "1.5rem",
-                  flexShrink: 0,
-                  boxShadow: "0 8px 20px rgba(5, 126, 255, 0.3)",
-                  position: "relative",
-                  zIndex: 1
+                  fontSize: "1.2rem",
+                  flexShrink: 0
                 }}>
                   ✓
                 </div>
                 <span style={{ 
-                  color: "#111827",
-                  fontSize: isMobile ? "1.125rem" : "1.25rem",
-                  fontWeight: "600",
-                  lineHeight: "1.4",
-                  position: "relative",
-                  zIndex: 1
+                  color: "#1f2937",
+                  fontSize: isMobile ? "1rem" : "1.125rem",
+                  fontWeight: "500"
                 }}>
                   {item}
                 </span>
@@ -891,211 +993,144 @@ const About: React.FC = () => {
       <section 
         id="value-proposition"
         ref={(el) => { sectionsRef.current[5] = el as HTMLDivElement | null; }}
-        style={{
-          background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f0f9ff 100%)",
-          padding: isMobile ? "80px 20px" : "120px 20px",
+                    style={{
+          background: "linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%)",
+          padding: isMobile ? "60px 0" : "100px 0",
           opacity: 0,
           transform: "translateY(30px)",
-          transition: "opacity 0.6s ease, transform 0.6s ease",
-          position: "relative",
-          overflow: "hidden"
+          transition: "opacity 0.6s ease, transform 0.6s ease"
         }}
         data-visible="false"
       >
-        {/* Decorative Background Elements */}
-        <div style={{
-          position: "absolute",
-          top: "-200px",
-          right: "-200px",
-          width: "600px",
-          height: "600px",
-          background: "linear-gradient(135deg, rgba(5, 126, 255, 0.05), rgba(107, 182, 255, 0.05))",
-          borderRadius: "50%",
-          filter: "blur(60px)",
-          zIndex: 0
-        }}></div>
-        <div style={{
-          position: "absolute",
-          bottom: "-150px",
-          left: "-150px",
-          width: "500px",
-          height: "500px",
-          background: "linear-gradient(135deg, rgba(5, 126, 255, 0.04), rgba(107, 182, 255, 0.04))",
-          borderRadius: "50%",
-          filter: "blur(60px)",
-          zIndex: 0
-        }}></div>
-
-        {/* Core Value Proposition Image - Background */}
-        <div style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          zIndex: 0,
-          opacity: 0.18,
-          pointerEvents: "none",
-          width: "100%",
-          height: "100%",
-          maxWidth: "100%",
-          maxHeight: "100%"
-        }}>
-          <img 
-            src={coreValueProp} 
-            alt="InstaParkAI Core Value Proposition Background"
-            style={{
-              width: "100%",
-              height: "100%",
-              maxWidth: isMobile ? "100%" : "1400px",
-              maxHeight: "100%",
-              objectFit: "contain",
-              objectPosition: "center",
-              filter: "blur(2px)"
-            }}
-          />
-        </div>
-
-        <div style={{
-          maxWidth: "1400px", 
+                  <div style={{
+          maxWidth: "1200px", 
           margin: "0 auto",
-          position: "relative",
-          zIndex: 1
+          padding: isMobile ? "0 20px" : "0 20px"
         }}>
-          {/* Header Section */}
           <div style={{
             textAlign: "center",
-            marginBottom: isMobile ? "50px" : "70px"
+            marginBottom: isMobile ? "40px" : "60px"
           }}>
             <div style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: "10px",
-              background: "linear-gradient(135deg, rgba(5, 126, 255, 0.12), rgba(107, 182, 255, 0.12))",
-              padding: "12px 28px",
+              gap: "8px",
+              background: "linear-gradient(135deg, rgba(5, 126, 255, 0.1), rgba(107, 182, 255, 0.1))",
+              padding: "8px 20px",
               borderRadius: "50px",
-              marginBottom: "28px",
-              border: "2px solid rgba(5, 126, 255, 0.2)",
-              boxShadow: "0 4px 20px rgba(5, 126, 255, 0.1)"
+              marginBottom: "24px"
             }}>
-              <span style={{ fontSize: "1.75rem" }}>💎</span>
+              <span style={{ fontSize: "1.5rem" }}>💎</span>
               <span style={{
                 color: "#057eff",
-                fontSize: isMobile ? "0.9rem" : "1rem",
-                fontWeight: "700",
-                letterSpacing: "1px",
-                textTransform: "uppercase"
+                fontSize: isMobile ? "0.875rem" : "0.95rem",
+                  fontWeight: "600",
+                letterSpacing: "0.5px"
               }}>
                 VALUE PROPOSITION
               </span>
             </div>
-            <h2 style={{
-              fontSize: isMobile ? "2.5rem" : "3.5rem",
-              fontWeight: "900",
+          <h2 style={{
+              fontSize: isMobile ? "2rem" : "3rem",
+              fontWeight: "800",
               color: "#111827",
-              marginBottom: "20px",
-              lineHeight: "1.1",
-              letterSpacing: "-2px"
+              marginBottom: "24px",
+              lineHeight: "1.2",
+              letterSpacing: "-1px"
             }}>
               Our Core Value Proposition
-            </h2>
-            <p style={{
-              fontSize: isMobile ? "1.125rem" : "1.375rem",
-              color: "#6b7280",
-              maxWidth: "800px",
+          </h2>
+                <p style={{
+              fontSize: isMobile ? "1.125rem" : "1.25rem",
+                  color: "#6b7280",
+              maxWidth: "900px",
               margin: "0 auto",
-              lineHeight: "1.7",
-              fontWeight: "500"
-            }}>
+              lineHeight: "1.7"
+                }}>
               Why parking owners choose InstaParkAI:
-            </p>
-          </div>
-
-          {/* Value Points Grid */}
-          <div style={{ 
-            maxWidth: "1200px", 
-            margin: "0 auto"
-          }}>
-            <div 
-              ref={(el) => { valueScrollRef.current = el; }}
-              style={{
-                display: "grid",
-                gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
-                gap: isMobile ? "24px" : "32px",
-                paddingBottom: "20px"
-              }}
-            >
-              {[
-                { icon: "👁️", title: "Full real-time transparency" },
-                { icon: "⚡", title: "Efficient & trained workforce" },
-                { icon: "📉", title: "Reduced owner dependency" },
-                { icon: "📈", title: "Guaranteed revenue uplift (up to 30%)" },
-                { icon: "😊", title: "Seamless customer experience" },
-                { icon: "🎛️", title: "Centralized digital control" }
-              ].map((item, index) => (
-                <div 
-                  key={index} 
-                  style={{
-                    background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
-                    padding: isMobile ? "32px 24px" : "40px 32px",
-                    borderRadius: "24px",
-                    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08), 0 4px 15px rgba(5, 126, 255, 0.05)",
-                    border: "2px solid rgba(5, 126, 255, 0.15)",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    textAlign: "center",
-                    gap: "20px",
-                    transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                    position: "relative",
-                    overflow: "hidden"
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-8px) scale(1.02)";
-                    e.currentTarget.style.boxShadow = "0 16px 50px rgba(5, 126, 255, 0.2), 0 8px 25px rgba(5, 126, 255, 0.15)";
-                    e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.3)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0) scale(1)";
-                    e.currentTarget.style.boxShadow = "0 8px 30px rgba(0, 0, 0, 0.08), 0 4px 15px rgba(5, 126, 255, 0.05)";
-                    e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.15)";
-                  }}
-                >
-                  {/* Decorative background circle */}
-                  <div style={{
-                    position: "absolute",
-                    top: "-30px",
-                    right: "-30px",
-                    width: "100px",
-                    height: "100px",
-                    background: "linear-gradient(135deg, rgba(5, 126, 255, 0.08), rgba(107, 182, 255, 0.08))",
-                    borderRadius: "50%",
-                    zIndex: 0
-                  }}></div>
-                  
-                  <div style={{
-                    fontSize: isMobile ? "3rem" : "3.5rem",
-                    position: "relative",
-                    zIndex: 1,
-                    filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1))"
-                  }}>
-                    {item.icon}
-                  </div>
-                  <div style={{
-                    color: "#111827",
-                    fontSize: isMobile ? "1.125rem" : "1.25rem",
-                    fontWeight: 700,
-                    lineHeight: "1.4",
-                    position: "relative",
-                    zIndex: 1
-                  }}>
-                    {item.title}
-                  </div>
-                </div>
-              ))}
+                </p>
+              </div>
             </div>
+            
+        {/* Full-width Image */}
+            <div style={{
+          width: "100%",
+          margin: "0 auto 60px",
+          overflow: "hidden"
+        }}>
+          <img 
+            src={coreValueProp} 
+            alt="InstaParkAI Core Value Proposition" 
+            style={{
+              width: "100%",
+              height: "auto",
+              display: "block",
+              objectFit: "cover"
+            }}
+          />
+        </div>
+
+        <div style={{ 
+          maxWidth: "1200px", 
+          margin: "0 auto",
+          padding: isMobile ? "0 20px" : "0 20px"
+        }}>
+
+          <div 
+            ref={(el) => { valueScrollRef.current = el; }}
+            style={{
+              display: "flex",
+              gap: isMobile ? "20px" : "24px",
+              overflowX: "auto",
+              overflowY: "hidden",
+              paddingBottom: "20px",
+              scrollSnapType: "x mandatory",
+              WebkitOverflowScrolling: "touch",
+              scrollbarWidth: "thin",
+              scrollBehavior: "smooth"
+            }}
+          >
+            {[
+              { icon: "💰", title: "Zero cash leakage" },
+              { icon: "👁️", title: "Full real-time transparency" },
+              { icon: "⚡", title: "Efficient & trained workforce" },
+              { icon: "📉", title: "Reduced owner dependency" },
+              { icon: "📈", title: "Guaranteed revenue uplift (up to 30%)" },
+              { icon: "😊", title: "Seamless customer experience" },
+              { icon: "🎛️", title: "Centralized digital control" }
+            ].map((item, index) => (
+              <div key={index} style={{
+                flex: "0 0 auto",
+                width: isMobile ? "calc(100vw - 80px)" : "350px",
+                minWidth: isMobile ? "280px" : "350px",
+                background: "white",
+                padding: isMobile ? "28px 20px" : "36px 28px",
+                borderRadius: "16px",
+                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+                border: "1px solid rgba(5, 126, 255, 0.1)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                textAlign: "center",
+                gap: "16px",
+                transition: "all 0.3s ease",
+                scrollSnapAlign: "start"
+              }}>
+                <div style={{
+                  fontSize: isMobile ? "2.5rem" : "3rem"
+                }}>
+                  {item.icon}
+                </div>
+                <div style={{
+                color: "#1f2937",
+                  fontSize: isMobile ? "1rem" : "1.0625rem",
+                  fontWeight: 600,
+                  lineHeight: "1.5"
+                }}>
+                  {item.title}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
