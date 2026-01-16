@@ -23,7 +23,6 @@ const aboutSubsections = [
   { id: 'our-mission', label: 'OUR MISSION' },
   { id: 'problem-we-solve', label: 'Problem We Solve' },
   { id: 'market-opportunity', label: 'MARKET OPPORTUNITY' },
-  { id: 'value-proposition', label: 'VALUE PROPOSITION' },
   { id: 'what-we-do', label: 'What We Do' },
   { id: 'our-implementations', label: 'OUR IMPLEMENTATIONS' },
   { id: 'business-offering', label: 'Business Models' },

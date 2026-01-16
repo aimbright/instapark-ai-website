@@ -1453,7 +1453,7 @@ const Services: React.FC = () => {
                 lineHeight: "1.7",
                 fontWeight: "500"
               }}>
-                Parking made effortless — anytime, anywhere
+                One platform. Two powerful benefits.
               </p>
 
               <p style={{
@@ -1462,16 +1462,7 @@ const Services: React.FC = () => {
                 marginBottom: "24px",
                 lineHeight: "1.7"
               }}>
-                Nearby parking spaces - one-time or monthly booking options
-              </p>
-
-              <p style={{
-                fontSize: isMobile ? "0.9375rem" : "1rem",
-                color: "#6b7280",
-                marginBottom: "24px",
-                lineHeight: "1.7"
-              }}>
-                From discovering a spot to driving out smoothly, InstaParkAI takes care of everything in just a few taps.
+                InstaParkAI's Find. Book. Park. module is designed to deliver a seamless parking experience for users while enabling higher revenue, transparency, and control for parking owners.
               </p>
 
               {/* More Details Button */}
@@ -1519,390 +1510,852 @@ const Services: React.FC = () => {
               marginTop: "40px",
               animation: "fadeIn 0.5s ease-in"
             }}>
-              {/* 5 Steps Section */}
+              {/* For Parking Users Section */}
               <div style={{
-                display: "grid",
-                gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
-                gap: "24px",
-                marginBottom: "40px"
+                marginBottom: "60px"
               }}>
-                {/* Step 1 */}
                 <div style={{
-                  background: "#f8fafc",
-                  padding: "28px",
-                  borderRadius: "16px",
-                  border: "1px solid #e5e7eb",
-                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                  marginBottom: "24px"
                 }}>
-                  <div style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    marginBottom: "16px"
-                  }}>
-                    <div style={{
-                      width: "40px",
-                      height: "40px",
-                      background: "linear-gradient(135deg, #057eff, #6bb6ff)",
-                      borderRadius: "8px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "white",
-                      fontSize: "1.25rem"
-                    }}>
-                      <i className="fas fa-search"></i>
-                    </div>
-                    <h4 style={{
-                      fontSize: "1.25rem",
-                      fontWeight: "700",
-                      color: "#111827",
-                      margin: 0
-                    }}>
-                      Find Parking Nearby
-                    </h4>
-                  </div>
-                  <p style={{
-                    fontSize: "0.9375rem",
-                    color: "#6b7280",
-                    lineHeight: "1.6",
+                  <i className="fas fa-car" style={{
+                    fontSize: isMobile ? "1.5rem" : "2rem",
+                    color: "#057eff"
+                  }}></i>
+                  <h3 style={{
+                    fontSize: isMobile ? "1.75rem" : "2.25rem",
+                    fontWeight: "700",
+                    color: "#111827",
                     margin: 0
                   }}>
-                    Open the InstaParkAI app or website and instantly discover available parking spaces near you. See real-time availability, compare options, and pick the spot that suits you best.
-                  </p>
+                    Find. Book. Park. — For Parking Users
+                  </h3>
                 </div>
-
-                {/* Step 2 */}
-                <div style={{
-                  background: "#f8fafc",
-                  padding: "28px",
-                  borderRadius: "16px",
-                  border: "1px solid #e5e7eb",
-                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
-                }}>
-                  <div style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    marginBottom: "16px"
-                  }}>
-                    <div style={{
-                      width: "40px",
-                      height: "40px",
-                      background: "linear-gradient(135deg, #057eff, #6bb6ff)",
-                      borderRadius: "8px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "white",
-                      fontSize: "1.25rem"
-                    }}>
-                      <i className="fas fa-bolt"></i>
-                    </div>
-                    <h4 style={{
-                      fontSize: "1.25rem",
-                      fontWeight: "700",
-                      color: "#111827",
-                      margin: 0
-                    }}>
-                      Book Instantly or in Advance
-                    </h4>
-                  </div>
-                  <p style={{
-                    fontSize: "0.9375rem",
-                    color: "#6b7280",
-                    marginBottom: "12px",
-                    lineHeight: "1.6"
-                  }}>
-                    Reserve your parking slot with one tap — no calls, no confusion.
-                  </p>
-                  <p style={{
-                    fontSize: "0.875rem",
-                    color: "#4b5563",
-                    fontWeight: "600",
-                    marginBottom: "8px"
-                  }}>
-                    Flexible booking options:
-                  </p>
-                  <ul style={{
-                    listStyle: "none",
-                    padding: 0,
-                    margin: 0,
-                    fontSize: "0.875rem",
-                    color: "#6b7280"
-                  }}>
-                    <li style={{ marginBottom: "6px", paddingLeft: "20px", position: "relative" }}>
-                      <i className="fas fa-check" style={{
-                        position: "absolute",
-                        left: 0,
-                        color: "#057eff",
-                        fontSize: "0.75rem",
-                        top: "4px"
-                      }}></i>
-                      Hourly or daily parking
-                    </li>
-                    <li style={{ marginBottom: "6px", paddingLeft: "20px", position: "relative" }}>
-                      <i className="fas fa-check" style={{
-                        position: "absolute",
-                        left: 0,
-                        color: "#057eff",
-                        fontSize: "0.75rem",
-                        top: "4px"
-                      }}></i>
-                      Monthly passes for regular users
-                    </li>
-                    <li style={{ marginBottom: "6px", paddingLeft: "20px", position: "relative" }}>
-                      <i className="fas fa-check" style={{
-                        position: "absolute",
-                        left: 0,
-                        color: "#057eff",
-                        fontSize: "0.75rem",
-                        top: "4px"
-                      }}></i>
-                      Advance booking for planned visits
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Step 3 */}
-                <div style={{
-                  background: "#f8fafc",
-                  padding: "28px",
-                  borderRadius: "16px",
-                  border: "1px solid #e5e7eb",
-                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
-                }}>
-                  <div style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    marginBottom: "16px"
-                  }}>
-                    <div style={{
-                      width: "40px",
-                      height: "40px",
-                      background: "linear-gradient(135deg, #057eff, #6bb6ff)",
-                      borderRadius: "8px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "white",
-                      fontSize: "1.25rem"
-                    }}>
-                      <i className="fas fa-car"></i>
-                    </div>
-                    <h4 style={{
-                      fontSize: "1.25rem",
-                      fontWeight: "700",
-                      color: "#111827",
-                      margin: 0
-                    }}>
-                      Arrive & Park Easily
-                    </h4>
-                  </div>
-                  <p style={{
-                    fontSize: "0.9375rem",
-                    color: "#6b7280",
-                    lineHeight: "1.6",
-                    margin: 0
-                  }}>
-                    Drive in without delays using QR code, ANPR, or digital validation. No paper tickets. No waiting in queues. Just park and go.
-                  </p>
-                </div>
-
-                {/* Step 4 */}
-                <div style={{
-                  background: "#f8fafc",
-                  padding: "28px",
-                  borderRadius: "16px",
-                  border: "1px solid #e5e7eb",
-                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
-                }}>
-                  <div style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    marginBottom: "16px"
-                  }}>
-                    <div style={{
-                      width: "40px",
-                      height: "40px",
-                      background: "linear-gradient(135deg, #057eff, #6bb6ff)",
-                      borderRadius: "8px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "white",
-                      fontSize: "1.25rem"
-                    }}>
-                      <i className="fas fa-bell"></i>
-                    </div>
-                    <h4 style={{
-                      fontSize: "1.25rem",
-                      fontWeight: "700",
-                      color: "#111827",
-                      margin: 0
-                    }}>
-                      Stay Updated in Real Time
-                    </h4>
-                  </div>
-                  <p style={{
-                    fontSize: "0.9375rem",
-                    color: "#6b7280",
-                    marginBottom: "12px",
-                    lineHeight: "1.6"
-                  }}>
-                    Get live notifications that keep you in control:
-                  </p>
-                  <ul style={{
-                    listStyle: "none",
-                    padding: 0,
-                    margin: 0,
-                    fontSize: "0.875rem",
-                    color: "#6b7280"
-                  }}>
-                    <li style={{ marginBottom: "6px", paddingLeft: "20px", position: "relative" }}>
-                      <i className="fas fa-check" style={{
-                        position: "absolute",
-                        left: 0,
-                        color: "#057eff",
-                        fontSize: "0.75rem",
-                        top: "4px"
-                      }}></i>
-                      Instant booking confirmation
-                    </li>
-                    <li style={{ marginBottom: "6px", paddingLeft: "20px", position: "relative" }}>
-                      <i className="fas fa-check" style={{
-                        position: "absolute",
-                        left: 0,
-                        color: "#057eff",
-                        fontSize: "0.75rem",
-                        top: "4px"
-                      }}></i>
-                      Parking reminders
-                    </li>
-                    <li style={{ marginBottom: "6px", paddingLeft: "20px", position: "relative" }}>
-                      <i className="fas fa-check" style={{
-                        position: "absolute",
-                        left: 0,
-                        color: "#057eff",
-                        fontSize: "0.75rem",
-                        top: "4px"
-                      }}></i>
-                      Live parking status
-                    </li>
-                    <li style={{ marginBottom: "6px", paddingLeft: "20px", position: "relative" }}>
-                      <i className="fas fa-check" style={{
-                        position: "absolute",
-                        left: 0,
-                        color: "#057eff",
-                        fontSize: "0.75rem",
-                        top: "4px"
-                      }}></i>
-                      Expiry alerts — never overstay again
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Step 5 */}
-                <div style={{
-                  background: "#f8fafc",
-                  padding: "28px",
-                  borderRadius: "16px",
-                  border: "1px solid #e5e7eb",
-                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
-                }}>
-                  <div style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    marginBottom: "16px"
-                  }}>
-                    <div style={{
-                      width: "40px",
-                      height: "40px",
-                      background: "linear-gradient(135deg, #057eff, #6bb6ff)",
-                      borderRadius: "8px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "white",
-                      fontSize: "1.25rem"
-                    }}>
-                      <i className="fas fa-credit-card"></i>
-                    </div>
-                    <h4 style={{
-                      fontSize: "1.25rem",
-                      fontWeight: "700",
-                      color: "#111827",
-                      margin: 0
-                    }}>
-                      Pay Digitally & Exit Smoothly
-                    </h4>
-                  </div>
-                  <p style={{
-                    fontSize: "0.9375rem",
-                    color: "#6b7280",
-                    lineHeight: "1.6",
-                    margin: 0
-                  }}>
-                    Pay securely through digital payments and enjoy a quick, automated exit. No cash handling. No manual checks. Just a smooth drive out.
-                  </p>
-                </div>
-              </div>
-
-              {/* Why Users Love InstaParkAI */}
-              <div style={{
-                background: "linear-gradient(135deg, #057eff 0%, #6bb6ff 100%)",
-                padding: isMobile ? "40px 24px" : "50px 40px",
-                borderRadius: "20px",
-                color: "white",
-                marginTop: "40px"
-              }}>
-                <h3 style={{
-                  fontSize: isMobile ? "1.75rem" : "2.25rem",
-                  fontWeight: "700",
+                <p style={{
+                  fontSize: isMobile ? "1rem" : "1.125rem",
+                  color: "#4b5563",
                   marginBottom: "30px",
-                  textAlign: "center"
+                  lineHeight: "1.7",
+                  fontWeight: "500"
                 }}>
-                  <i className="fas fa-heart" style={{ marginRight: "8px" }}></i>
-                  Why Users Love InstaParkAI
-                </h3>
+                  Parking made effortless — anytime, anywhere
+                </p>
+                <p style={{
+                  fontSize: isMobile ? "0.9375rem" : "1rem",
+                  color: "#6b7280",
+                  marginBottom: "30px",
+                  lineHeight: "1.7"
+                }}>
+                  Users can easily discover and book nearby parking spaces through the InstaParkAI app or website, whether for a quick visit or a monthly plan.
+                </p>
+
+                <h4 style={{
+                  fontSize: isMobile ? "1.25rem" : "1.5rem",
+                  fontWeight: "700",
+                  color: "#111827",
+                  marginBottom: "20px"
+                }}>
+                  What users experience:
+                </h4>
+
+                {/* User Features Grid */}
                 <div style={{
                   display: "grid",
                   gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
-                  gap: "20px"
+                  gap: "24px",
+                  marginBottom: "40px"
                 }}>
-                  {[
-                    "Live parking availability at your fingertips",
-                    "Monthly passes & advance booking convenience",
-                    "Real-time alerts and notifications",
-                    "Faster entry and exit experience",
-                    "100% secure, cashless payments"
-                  ].map((item, idx) => (
-                    <div key={idx} style={{
+                  {/* Find Parking Nearby */}
+                  <div style={{
+                    background: "#f8fafc",
+                    padding: "28px",
+                    borderRadius: "16px",
+                    border: "1px solid #e5e7eb",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
+                  }}>
+                    <div style={{
                       display: "flex",
                       alignItems: "center",
                       gap: "12px",
-                      fontSize: isMobile ? "0.9375rem" : "1rem"
+                      marginBottom: "16px"
                     }}>
-                      <i className="fas fa-check-circle" style={{
+                      <div style={{
+                        width: "40px",
+                        height: "40px",
+                        background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "white",
+                        fontSize: "1.25rem"
+                      }}>
+                        <i className="fas fa-search"></i>
+                      </div>
+                      <h4 style={{
                         fontSize: "1.25rem",
-                        flexShrink: 0
-                      }}></i>
-                      <span>{item}</span>
+                        fontWeight: "700",
+                        color: "#111827",
+                        margin: 0
+                      }}>
+                        Find Parking Nearby
+                      </h4>
                     </div>
-                  ))}
+                    <p style={{
+                      fontSize: "0.9375rem",
+                      color: "#6b7280",
+                      lineHeight: "1.6",
+                      margin: 0
+                    }}>
+                      Search nearby parking locations and view real-time availability instantly.
+                    </p>
+                  </div>
+
+                  {/* Book Instantly or in Advance */}
+                  <div style={{
+                    background: "#f8fafc",
+                    padding: "28px",
+                    borderRadius: "16px",
+                    border: "1px solid #e5e7eb",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
+                  }}>
+                    <div style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      marginBottom: "16px"
+                    }}>
+                      <div style={{
+                        width: "40px",
+                        height: "40px",
+                        background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "white",
+                        fontSize: "1.25rem"
+                      }}>
+                        <i className="fas fa-bolt"></i>
+                      </div>
+                      <h4 style={{
+                        fontSize: "1.25rem",
+                        fontWeight: "700",
+                        color: "#111827",
+                        margin: 0
+                      }}>
+                        Book Instantly or in Advance
+                      </h4>
+                    </div>
+                    <p style={{
+                      fontSize: "0.9375rem",
+                      color: "#6b7280",
+                      marginBottom: "12px",
+                      lineHeight: "1.6"
+                    }}>
+                      Reserve parking with one tap using:
+                    </p>
+                    <ul style={{
+                      listStyle: "none",
+                      padding: 0,
+                      margin: 0,
+                      fontSize: "0.875rem",
+                      color: "#6b7280"
+                    }}>
+                      <li style={{ marginBottom: "6px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#057eff",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        Hourly or daily bookings
+                      </li>
+                      <li style={{ marginBottom: "6px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#057eff",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        Monthly passes
+                      </li>
+                      <li style={{ marginBottom: "6px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#057eff",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        Advance booking for planned visits
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Arrive & Park Easily */}
+                  <div style={{
+                    background: "#f8fafc",
+                    padding: "28px",
+                    borderRadius: "16px",
+                    border: "1px solid #e5e7eb",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
+                  }}>
+                    <div style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      marginBottom: "16px"
+                    }}>
+                      <div style={{
+                        width: "40px",
+                        height: "40px",
+                        background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "white",
+                        fontSize: "1.25rem"
+                      }}>
+                        <i className="fas fa-car"></i>
+                      </div>
+                      <h4 style={{
+                        fontSize: "1.25rem",
+                        fontWeight: "700",
+                        color: "#111827",
+                        margin: 0
+                      }}>
+                        Arrive & Park Easily
+                      </h4>
+                    </div>
+                    <p style={{
+                      fontSize: "0.9375rem",
+                      color: "#6b7280",
+                      lineHeight: "1.6",
+                      margin: 0
+                    }}>
+                      Access parking via QR code, ANPR, or digital validation — no tickets, no queues.
+                    </p>
+                  </div>
+
+                  {/* Stay Updated in Real Time */}
+                  <div style={{
+                    background: "#f8fafc",
+                    padding: "28px",
+                    borderRadius: "16px",
+                    border: "1px solid #e5e7eb",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
+                  }}>
+                    <div style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      marginBottom: "16px"
+                    }}>
+                      <div style={{
+                        width: "40px",
+                        height: "40px",
+                        background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "white",
+                        fontSize: "1.25rem"
+                      }}>
+                        <i className="fas fa-bell"></i>
+                      </div>
+                      <h4 style={{
+                        fontSize: "1.25rem",
+                        fontWeight: "700",
+                        color: "#111827",
+                        margin: 0
+                      }}>
+                        Stay Updated in Real Time
+                      </h4>
+                    </div>
+                    <p style={{
+                      fontSize: "0.9375rem",
+                      color: "#6b7280",
+                      marginBottom: "12px",
+                      lineHeight: "1.6"
+                    }}>
+                      Receive live notifications for:
+                    </p>
+                    <ul style={{
+                      listStyle: "none",
+                      padding: 0,
+                      margin: 0,
+                      fontSize: "0.875rem",
+                      color: "#6b7280"
+                    }}>
+                      <li style={{ marginBottom: "6px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#057eff",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        Booking confirmations
+                      </li>
+                      <li style={{ marginBottom: "6px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#057eff",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        Parking reminders
+                      </li>
+                      <li style={{ marginBottom: "6px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#057eff",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        Live status updates
+                      </li>
+                      <li style={{ marginBottom: "6px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#057eff",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        Expiry alerts
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Pay Digitally & Exit Smoothly */}
+                  <div style={{
+                    background: "#f8fafc",
+                    padding: "28px",
+                    borderRadius: "16px",
+                    border: "1px solid #e5e7eb",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
+                  }}>
+                    <div style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      marginBottom: "16px"
+                    }}>
+                      <div style={{
+                        width: "40px",
+                        height: "40px",
+                        background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "white",
+                        fontSize: "1.25rem"
+                      }}>
+                        <i className="fas fa-credit-card"></i>
+                      </div>
+                      <h4 style={{
+                        fontSize: "1.25rem",
+                        fontWeight: "700",
+                        color: "#111827",
+                        margin: 0
+                      }}>
+                        Pay Digitally & Exit Smoothly
+                      </h4>
+                    </div>
+                    <p style={{
+                      fontSize: "0.9375rem",
+                      color: "#6b7280",
+                      lineHeight: "1.6",
+                      margin: 0
+                    }}>
+                      Enjoy secure, cashless payments and automated exit for a smooth parking experience.
+                    </p>
+                  </div>
                 </div>
+              </div>
+
+              {/* For Parking Owners Section */}
+              <div style={{
+                background: "linear-gradient(135deg, #f8fafc 0%, #e5e7eb 100%)",
+                padding: isMobile ? "40px 24px" : "50px 40px",
+                borderRadius: "20px",
+                marginBottom: "40px"
+              }}>
+                <div style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                  marginBottom: "24px"
+                }}>
+                  <i className="fas fa-building" style={{
+                    fontSize: isMobile ? "1.5rem" : "2rem",
+                    color: "#057eff"
+                  }}></i>
+                  <h3 style={{
+                    fontSize: isMobile ? "1.75rem" : "2.25rem",
+                    fontWeight: "700",
+                    color: "#111827",
+                    margin: 0
+                  }}>
+                    Find. Book. Park. — For Parking Owners
+                  </h3>
+                </div>
+                <p style={{
+                  fontSize: isMobile ? "1rem" : "1.125rem",
+                  color: "#4b5563",
+                  marginBottom: "30px",
+                  lineHeight: "1.7",
+                  fontWeight: "500"
+                }}>
+                  A Revenue & Control Engine for Parking Assets
+                </p>
+                <p style={{
+                  fontSize: isMobile ? "0.9375rem" : "1rem",
+                  color: "#6b7280",
+                  marginBottom: "30px",
+                  lineHeight: "1.7"
+                }}>
+                  For parking owners, Find. Book. Park. acts as a digital booking and monetization engine that maximizes occupancy, eliminates cash leakage, and provides centralized control.
+                </p>
+
+                <h4 style={{
+                  fontSize: isMobile ? "1.25rem" : "1.5rem",
+                  fontWeight: "700",
+                  color: "#111827",
+                  marginBottom: "20px"
+                }}>
+                  What parking owners gain:
+                </h4>
+
+                {/* Owner Benefits Grid */}
+                <div style={{
+                  display: "grid",
+                  gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+                  gap: "24px",
+                  marginBottom: "40px"
+                }}>
+                  {/* Up to 30% Increase in Revenue */}
+                  <div style={{
+                    background: "white",
+                    padding: "28px",
+                    borderRadius: "16px",
+                    border: "1px solid #e5e7eb",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
+                  }}>
+                    <div style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      marginBottom: "16px"
+                    }}>
+                      <div style={{
+                        width: "40px",
+                        height: "40px",
+                        background: "linear-gradient(135deg, #10b981, #34d399)",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "white",
+                        fontSize: "1.25rem"
+                      }}>
+                        <i className="fas fa-chart-line"></i>
+                      </div>
+                      <h4 style={{
+                        fontSize: "1.25rem",
+                        fontWeight: "700",
+                        color: "#111827",
+                        margin: 0
+                      }}>
+                        Up to 30% Increase in Revenue
+                      </h4>
+                    </div>
+                    <ul style={{
+                      listStyle: "none",
+                      padding: 0,
+                      margin: 0,
+                      fontSize: "0.875rem",
+                      color: "#6b7280"
+                    }}>
+                      <li style={{ marginBottom: "8px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#10b981",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        Higher utilization of idle and underused parking spaces
+                      </li>
+                      <li style={{ marginBottom: "8px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#10b981",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        Advance bookings and monthly passes ensure predictable income
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Zero Cash Leakage */}
+                  <div style={{
+                    background: "white",
+                    padding: "28px",
+                    borderRadius: "16px",
+                    border: "1px solid #e5e7eb",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
+                  }}>
+                    <div style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      marginBottom: "16px"
+                    }}>
+                      <div style={{
+                        width: "40px",
+                        height: "40px",
+                        background: "linear-gradient(135deg, #ef4444, #f87171)",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "white",
+                        fontSize: "1.25rem"
+                      }}>
+                        <i className="fas fa-shield-alt"></i>
+                      </div>
+                      <h4 style={{
+                        fontSize: "1.25rem",
+                        fontWeight: "700",
+                        color: "#111827",
+                        margin: 0
+                      }}>
+                        Zero Cash Leakage
+                      </h4>
+                    </div>
+                    <ul style={{
+                      listStyle: "none",
+                      padding: 0,
+                      margin: 0,
+                      fontSize: "0.875rem",
+                      color: "#6b7280"
+                    }}>
+                      <li style={{ marginBottom: "8px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#ef4444",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        100% digital payments
+                      </li>
+                      <li style={{ marginBottom: "8px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#ef4444",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        Automated reconciliation and transparent reporting
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Centralized Monitoring & Control */}
+                  <div style={{
+                    background: "white",
+                    padding: "28px",
+                    borderRadius: "16px",
+                    border: "1px solid #e5e7eb",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
+                  }}>
+                    <div style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      marginBottom: "16px"
+                    }}>
+                      <div style={{
+                        width: "40px",
+                        height: "40px",
+                        background: "linear-gradient(135deg, #8b5cf6, #a78bfa)",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "white",
+                        fontSize: "1.25rem"
+                      }}>
+                        <i className="fas fa-tachometer-alt"></i>
+                      </div>
+                      <h4 style={{
+                        fontSize: "1.25rem",
+                        fontWeight: "700",
+                        color: "#111827",
+                        margin: 0
+                      }}>
+                        Centralized Monitoring & Control
+                      </h4>
+                    </div>
+                    <ul style={{
+                      listStyle: "none",
+                      padding: 0,
+                      margin: 0,
+                      fontSize: "0.875rem",
+                      color: "#6b7280"
+                    }}>
+                      <li style={{ marginBottom: "8px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#8b5cf6",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        Live dashboards for occupancy and revenue
+                      </li>
+                      <li style={{ marginBottom: "8px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#8b5cf6",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        Centralized visibility across single or multiple locations
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Automated Access & Reduced Manpower Dependency */}
+                  <div style={{
+                    background: "white",
+                    padding: "28px",
+                    borderRadius: "16px",
+                    border: "1px solid #e5e7eb",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)"
+                  }}>
+                    <div style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      marginBottom: "16px"
+                    }}>
+                      <div style={{
+                        width: "40px",
+                        height: "40px",
+                        background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "white",
+                        fontSize: "1.25rem"
+                      }}>
+                        <i className="fas fa-cog"></i>
+                      </div>
+                      <h4 style={{
+                        fontSize: "1.25rem",
+                        fontWeight: "700",
+                        color: "#111827",
+                        margin: 0
+                      }}>
+                        Automated Access & Reduced Manpower Dependency
+                      </h4>
+                    </div>
+                    <ul style={{
+                      listStyle: "none",
+                      padding: 0,
+                      margin: 0,
+                      fontSize: "0.875rem",
+                      color: "#6b7280"
+                    }}>
+                      <li style={{ marginBottom: "8px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#f59e0b",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        ANPR / QR / RFID-based access control
+                      </li>
+                      <li style={{ marginBottom: "8px", paddingLeft: "20px", position: "relative" }}>
+                        <i className="fas fa-check" style={{
+                          position: "absolute",
+                          left: 0,
+                          color: "#f59e0b",
+                          fontSize: "0.75rem",
+                          top: "4px"
+                        }}></i>
+                        Faster entry/exit with minimal manual intervention
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Better User Experience = Higher Retention */}
+                  <div style={{
+                    background: "white",
+                    padding: "28px",
+                    borderRadius: "16px",
+                    border: "1px solid #e5e7eb",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)",
+                    gridColumn: isMobile ? "1" : "1 / -1"
+                  }}>
+                    <div style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      marginBottom: "16px"
+                    }}>
+                      <div style={{
+                        width: "40px",
+                        height: "40px",
+                        background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+                        borderRadius: "8px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "white",
+                        fontSize: "1.25rem"
+                      }}>
+                        <i className="fas fa-smile"></i>
+                      </div>
+                      <h4 style={{
+                        fontSize: "1.25rem",
+                        fontWeight: "700",
+                        color: "#111827",
+                        margin: 0
+                      }}>
+                        Better User Experience = Higher Retention
+                      </h4>
+                    </div>
+                    <p style={{
+                      fontSize: "0.9375rem",
+                      color: "#6b7280",
+                      lineHeight: "1.6",
+                      margin: 0
+                    }}>
+                      Smoother parking flow leads to repeat usage and long-term demand
+                    </p>
+                  </div>
+                </div>
+
+                {/* Our Core Value Proposition */}
+                <div style={{
+                  marginTop: "60px",
+                  padding: isMobile ? "40px 24px" : "50px 40px",
+                  background: "linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%)",
+                  borderRadius: "20px"
+                }}>
                 <div style={{
                   textAlign: "center",
-                  marginTop: "30px",
-                  fontSize: isMobile ? "1.125rem" : "1.25rem",
-                  fontWeight: "600"
+                  marginBottom: isMobile ? "40px" : "60px"
                 }}>
-                  <i className="fas fa-rocket" style={{ marginRight: "8px" }}></i>
-                  Park smarter. Save time. Drive stress-free.
+                  <h3 style={{
+                    fontSize: isMobile ? "1.75rem" : "2.25rem",
+                    fontWeight: "800",
+                    color: "#111827",
+                    marginBottom: "24px",
+                    lineHeight: "1.2",
+                    letterSpacing: "-1px"
+                  }}>
+                    Our Core Value Proposition
+                  </h3>
+                  <p style={{
+                    fontSize: isMobile ? "1.125rem" : "1.25rem",
+                    color: "#6b7280",
+                    maxWidth: "900px",
+                    margin: "0 auto",
+                    lineHeight: "1.7"
+                  }}>
+                    Why parking owners choose InstaParkAI:
+                  </p>
                 </div>
+
+                <div style={{
+                  display: "grid",
+                  gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+                  gap: isMobile ? "20px" : "24px",
+                  maxWidth: "1200px",
+                  margin: "0 auto"
+                }}>
+                  {[
+                    { icon: "fa-money-bill-wave", title: "Zero cash leakage" },
+                    { icon: "fa-eye", title: "Full real-time transparency" },
+                    { icon: "fa-bolt", title: "Efficient & trained workforce" },
+                    { icon: "fa-chart-line", title: "Reduced owner dependency" },
+                    { icon: "fa-chart-bar", title: "Guaranteed revenue uplift (up to 30%)" },
+                    { icon: "fa-smile", title: "Seamless customer experience" },
+                    { icon: "fa-sliders-h", title: "Centralized digital control" },
+                    { icon: "fa-user-check", title: "Trained and verified on-ground staff" },
+                    { icon: "fa-video", title: "24/7 CCTV monitoring and control" }
+                  ].map((item, index) => (
+                    <div key={index} style={{
+                      background: "white",
+                      padding: isMobile ? "32px 24px" : "40px 32px",
+                      borderRadius: "16px",
+                      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+                      border: "1px solid rgba(5, 126, 255, 0.1)",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                      gap: "16px",
+                      transition: "all 0.3s ease"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "translateY(-4px)";
+                      e.currentTarget.style.boxShadow = "0 8px 30px rgba(5, 126, 255, 0.2)";
+                      e.currentTarget.style.borderColor = "#057eff";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.08)";
+                      e.currentTarget.style.borderColor = "rgba(5, 126, 255, 0.1)";
+                    }}
+                  >
+                    <div style={{
+                      width: "64px",
+                      height: "64px",
+                      background: "linear-gradient(135deg, #057eff, #6bb6ff)",
+                      borderRadius: "12px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "white",
+                      fontSize: "1.75rem"
+                    }}>
+                      <i className={`fas ${item.icon}`}></i>
+                    </div>
+                    <div style={{
+                      color: "#1f2937",
+                      fontSize: isMobile ? "1rem" : "1.0625rem",
+                      fontWeight: 600,
+                      lineHeight: "1.5"
+                    }}>
+                      {item.title}
+                    </div>
+                  </div>
+                  ))}
+                </div>
+              </div>
               </div>
             </div>
           )}

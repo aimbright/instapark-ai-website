@@ -205,7 +205,7 @@ const Home: React.FC = () => {
           {/* Logo */}
           <div style={{
             marginTop: isMobile ? "40px" : "30px",
-            marginBottom: isMobile ? "30px" : "40px",
+            marginBottom: isMobile ? "15px" : "20px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -231,7 +231,8 @@ const Home: React.FC = () => {
             height: "2px",
             background: "linear-gradient(90deg, transparent, #057eff, transparent)",
             margin: "0 auto",
-            marginBottom: isMobile ? "30px" : "40px"
+            marginTop: "-10px",
+            marginBottom: isMobile ? "10px" : "15px"
           }}></div>
 
               <h1
@@ -240,13 +241,12 @@ const Home: React.FC = () => {
                   fontWeight: 800,
                   color: "#1f2937",
               marginBottom: "16px",
+                  marginTop: "-20px",
                   lineHeight: "1.1",
                   textAlign: "center",
                   width: "100%"
                 }}
               >
-                Smart. Scalable.
-                <br />
                 <span style={{
                   fontSize: isMobile ? "2rem" : "4.5rem",
               background: "linear-gradient(135deg, #057eff, #6bb6ff)",
@@ -256,6 +256,8 @@ const Home: React.FC = () => {
                 }}>
                   Stress-Free Parking.
               </span>
+                <br />
+                Smart. Scalable.
             </h1>
 
               <div style={{ 
